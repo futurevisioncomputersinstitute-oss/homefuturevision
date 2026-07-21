@@ -342,10 +342,10 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
     <h2 class="section-h2">Portfolio.</h2>
     <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
     <div data-port-filters="port-pkg-grid" id="port-pkg-filters" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
-      <button type="button" class="port-filter-btn active" data-cat="all">All</button>
-      <button type="button" class="port-filter-btn" data-cat="label">Label Design</button>
-      <button type="button" class="port-filter-btn" data-cat="primary">Primary Packaging</button>
-      <button type="button" class="port-filter-btn" data-cat="3d">3D Visualisation</button>
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-pkg-grid')">All</button>
+      <button type="button" class="port-filter-btn" data-cat="label" onclick="filterPort(this,'label','port-pkg-grid')">Label Design</button>
+      <button type="button" class="port-filter-btn" data-cat="primary" onclick="filterPort(this,'primary','port-pkg-grid')">Primary Packaging</button>
+      <button type="button" class="port-filter-btn" data-cat="3d" onclick="filterPort(this,'3d','port-pkg-grid')">3D Visualisation</button>
     </div>
     <div id="port-pkg-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
       <div class="port-item" data-cat="label"><div class="port-thumb"><img src="https://picsum.photos/seed/pkg1/800/533" alt="Tea Brand Label" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Label Design</div><div class="port-title">Tea Brand Label</div></div></div>
@@ -381,22 +381,13 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-  document.querySelectorAll("[data-port-filters]").forEach(function(wrap){
-    var grid=document.getElementById(wrap.getAttribute("data-port-filters"));
-    if(!grid)return;
-    wrap.querySelectorAll(".port-filter-btn").forEach(function(btn){
-      btn.addEventListener("click",function(){
-        wrap.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
-        btn.classList.add("active");
-        var cat=btn.getAttribute("data-cat");
-        grid.querySelectorAll(".port-item").forEach(function(item){
-          if(cat==="all"){item.style.display="";}else{item.style.display=item.getAttribute("data-cat")===cat?"": "none";}
-        });
-      });
-    });
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
   });
-});
+}
 </script>
 </body>
 </html>

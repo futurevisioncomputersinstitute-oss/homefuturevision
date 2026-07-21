@@ -351,10 +351,10 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
     <h2 class="section-h2">Portfolio.</h2>
     <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
     <div data-port-filters="port-gd-grid" id="port-gd-filters" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
-      <button type="button" class="port-filter-btn active" data-cat="all">All</button>
-      <button type="button" class="port-filter-btn" data-cat="print">Print Design</button>
-      <button type="button" class="port-filter-btn" data-cat="brand">Brand Identity</button>
-      <button type="button" class="port-filter-btn" data-cat="digital">Digital &amp; Motion</button>
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-gd-grid')">All</button>
+      <button type="button" class="port-filter-btn" data-cat="print" onclick="filterPort(this,'print','port-gd-grid')">Print Design</button>
+      <button type="button" class="port-filter-btn" data-cat="brand" onclick="filterPort(this,'brand','port-gd-grid')">Brand Identity</button>
+      <button type="button" class="port-filter-btn" data-cat="digital" onclick="filterPort(this,'digital','port-gd-grid')">Digital &amp; Motion</button>
     </div>
     <div id="port-gd-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
       <div class="port-item" data-cat="print"><div class="port-thumb"><img src="https://picsum.photos/seed/print1/800/533" alt="Annual Report" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Print Design</div><div class="port-title">Annual Report</div></div></div>
@@ -390,22 +390,13 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-  document.querySelectorAll("[data-port-filters]").forEach(function(wrap){
-    var grid=document.getElementById(wrap.getAttribute("data-port-filters"));
-    if(!grid)return;
-    wrap.querySelectorAll(".port-filter-btn").forEach(function(btn){
-      btn.addEventListener("click",function(){
-        wrap.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
-        btn.classList.add("active");
-        var cat=btn.getAttribute("data-cat");
-        grid.querySelectorAll(".port-item").forEach(function(item){
-          if(cat==="all"){item.style.display="";}else{item.style.display=item.getAttribute("data-cat")===cat?"": "none";}
-        });
-      });
-    });
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
   });
-});
+}
 </script>
 </body>
 </html>

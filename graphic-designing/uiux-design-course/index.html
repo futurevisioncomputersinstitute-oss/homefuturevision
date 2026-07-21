@@ -343,10 +343,10 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
     <h2 class="section-h2">Portfolio.</h2>
     <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
     <div data-port-filters="port-ux-grid" id="port-ux-filters" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
-      <button type="button" class="port-filter-btn active" data-cat="all">All</button>
-      <button type="button" class="port-filter-btn" data-cat="research">UX Research</button>
-      <button type="button" class="port-filter-btn" data-cat="wireframe">Wireframes</button>
-      <button type="button" class="port-filter-btn" data-cat="ui">UI Design</button>
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-ux-grid')">All</button>
+      <button type="button" class="port-filter-btn" data-cat="research" onclick="filterPort(this,'research','port-ux-grid')">UX Research</button>
+      <button type="button" class="port-filter-btn" data-cat="wireframe" onclick="filterPort(this,'wireframe','port-ux-grid')">Wireframes</button>
+      <button type="button" class="port-filter-btn" data-cat="ui" onclick="filterPort(this,'ui','port-ux-grid')">UI Design</button>
     </div>
     <div id="port-ux-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
       <div class="port-item" data-cat="research"><div class="port-thumb"><img src="https://picsum.photos/seed/ux1/800/533" alt="User Journey Map" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UX Research</div><div class="port-title">User Journey Map</div></div></div>
@@ -382,22 +382,13 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded",function(){
-  document.querySelectorAll("[data-port-filters]").forEach(function(wrap){
-    var grid=document.getElementById(wrap.getAttribute("data-port-filters"));
-    if(!grid)return;
-    wrap.querySelectorAll(".port-filter-btn").forEach(function(btn){
-      btn.addEventListener("click",function(){
-        wrap.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
-        btn.classList.add("active");
-        var cat=btn.getAttribute("data-cat");
-        grid.querySelectorAll(".port-item").forEach(function(item){
-          if(cat==="all"){item.style.display="";}else{item.style.display=item.getAttribute("data-cat")===cat?"": "none";}
-        });
-      });
-    });
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
   });
-});
+}
 </script>
 </body>
 </html>
