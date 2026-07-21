@@ -106,6 +106,18 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
   .hero-btns{flex-direction:column;}
   .btn-primary,.btn-outline,.btn-white{width:100%;text-align:center;display:block;}
 }
+
+/* PORTFOLIO */
+.port-filter-btn{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;border:2px solid #0f0f0f;background:#fff;color:#0f0f0f;transition:all .2s;}
+.port-filter-btn.active{background:#1d3a6b;color:#fff;border-color:#1d3a6b;}
+.port-item{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.08);cursor:pointer;}
+.port-item.hidden{display:none;}
+.port-thumb{aspect-ratio:4/3;overflow:hidden;}
+.port-info{padding:16px 18px;}
+.port-cat-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3a6b;}
+.port-title{font-size:15px;font-weight:700;color:#0f0f0f;margin-top:4px;}
+@media(max-width:768px){#port-gd-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:480px){#port-gd-grid{grid-template-columns:1fr!important;}}
 </style>
 </head>
 <body>
@@ -345,5 +357,25 @@ footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
   </div>
 </footer>
 
+<script>
+(function(){
+  var groups = document.querySelectorAll('[data-port-filters]');
+  groups.forEach(function(wrap){
+    var gridId = wrap.getAttribute('data-port-filters');
+    var grid = document.getElementById(gridId);
+    if(!grid) return;
+    wrap.querySelectorAll('.port-filter-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        wrap.querySelectorAll('.port-filter-btn').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        var cat = btn.getAttribute('data-cat');
+        grid.querySelectorAll('.port-item').forEach(function(item){
+          item.classList.toggle('hidden', cat !== 'all' && item.getAttribute('data-cat') !== cat);
+        });
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
