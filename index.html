@@ -36,7 +36,7 @@
     
 function fvMobileFix(hdr) {
   var s0 = document.createElement('style');
-  s0.textContent = 'header img{max-width:160px!important;height:auto!important;max-height:46px!important;}';
+  s0.textContent = 'header img{max-width:160px!important;height:auto!important;max-height:46px!important;}.hp-navlinks>div{position:relative!important;}.hp-navlinks>div::after{content:"";display:block;position:absolute;height:24px;bottom:-24px;left:0;right:0;}';
   document.head.appendChild(s0);
 
   var trigger = hdr.querySelector('.hp-navlinks > div');
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Mobile/nav fixes — wait for x-dc framework to render
     (function fvWait(){
       var hdr = document.querySelector('header');
-      if(!hdr){setTimeout(fvWait,100);return;}
+      if(!hdr || !hdr.querySelector('a[href="#courses"]')){setTimeout(fvWait,100);return;}
       fvMobileFix(hdr);
     })();
   } catch (err) {
