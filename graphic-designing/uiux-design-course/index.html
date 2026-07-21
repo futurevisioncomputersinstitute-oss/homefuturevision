@@ -1,301 +1,341 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UX/UI Design Course | Future Vision Computers Institute</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Space Grotesk', sans-serif; color: #0f0f0f; background: #fff; overflow-x: clip; padding-top: 68px; }
-    a { color: inherit; }
-    img { max-width: 100%; height: auto; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
-    .btn-primary { display: inline-block; background: #1d3a6b; color: #fff; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 100px; text-decoration: none; letter-spacing: .02em; transition: opacity .2s; }
-    .btn-primary:hover { opacity: .85; }
-    .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 100px; text-decoration: none; letter-spacing: .02em; transition: background .2s, color .2s; }
-    .btn-outline:hover { background: #fff; color: #1d3a6b; }
-    .pill { display: inline-block; border: 1px solid rgba(0,0,0,.18); color: #333; font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 100px; margin: 4px; }
-    .section-label { color: #1d3a6b; font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 16px; }
-    .section-h { font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: .95; color: #0f0f0f; }
-    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #e8edf5; height: 68px; display: flex; align-items: center; }
-    header .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-    header .logo { font-family: 'Anton', sans-serif; font-size: 22px; color: #1d3a6b; text-decoration: none; }
-    header nav { display: flex; align-items: center; gap: 24px; }
-    header nav a { text-decoration: none; color: #0f0f0f; font-weight: 600; font-size: 14px; }
-    header nav a:hover { color: #1d3a6b; }
-    .hero { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 60%, #4a2fc1 100%); color: #fff; padding: clamp(80px, 12vw, 140px) 28px; }
-    .hero .container { max-width: 900px; }
-    .hero-label { color: #9b7ef8; font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; }
-    .hero h1 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(48px, 8vw, 96px); line-height: .92; margin-bottom: 12px; }
-    .hero-sub { font-size: 18px; color: #9b7ef8; font-weight: 700; margin-bottom: 24px; }
-    .hero p { font-size: clamp(16px, 2vw, 20px); line-height: 1.65; color: #c4b5fd; max-width: 680px; margin-bottom: 36px; }
-    .hero-pills { margin-bottom: 40px; }
-    .hero-pills .pill { border-color: rgba(255,255,255,.3); color: #fff; }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .for-section { background: #f4f3f1; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
-    .for-card { background: #fff; border-radius: 20px; padding: 36px 32px; }
-    .for-card-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5b8def; margin-bottom: 14px; }
-    .for-card h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 26px; color: #1d3a6b; margin-bottom: 14px; }
-    .for-card p { color: #55565a; font-size: 15px; line-height: 1.65; }
-    .curriculum { background: #fff; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .phases { display: flex; flex-direction: column; gap: 20px; margin-top: 48px; }
-    .phase { border-radius: 20px; padding: 36px 40px; display: flex; gap: 32px; align-items: flex-start; }
-    .phase.dark { background: #1d3a6b; color: #fff; }
-    .phase.light { background: #f4f3f1; color: #0f0f0f; }
-    .phase-num { font-family: 'Anton', sans-serif; font-size: clamp(48px, 6vw, 72px); line-height: 1; flex-shrink: 0; width: 90px; }
-    .phase.dark .phase-num { color: rgba(255,255,255,.2); }
-    .phase.light .phase-num { color: rgba(29,58,107,.15); }
-    .phase-content h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(20px, 2.5vw, 28px); margin-bottom: 10px; }
-    .phase.dark .phase-content h3 { color: #fff; }
-    .phase.light .phase-content h3 { color: #1d3a6b; }
-    .phase-weeks { font-size: 13px; font-weight: 700; color: #5b8def; margin-bottom: 12px; }
-    .phase-content p { font-size: 15px; line-height: 1.65; }
-    .phase.dark .phase-content p { color: #cdd6e8; }
-    .phase.light .phase-content p { color: #55565a; }
-    .tools { background: #f4f3f1; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .tools-pills { margin-top: 40px; }
-    .tools-pills .pill { font-size: 15px; padding: 10px 20px; margin: 6px; }
-    .careers { background: #fff; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .careers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 48px; }
-    .career-card { background: #1d3a6b; color: #fff; border-radius: 18px; padding: 28px 24px; }
-    .career-card-icon { font-size: 28px; margin-bottom: 12px; }
-    .career-card h4 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 18px; line-height: 1.1; color: #fff; }
-    .faculty { background: #0f1f3d; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .faculty .section-label { color: #5b8def; }
-    .faculty .section-h { color: #fff; }
-    .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 56px; }
-    .faculty-card { text-align: center; }
-    .faculty-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #5b8def; margin-bottom: 20px; }
-    .faculty-name { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 22px; color: #fff; margin-bottom: 6px; }
-    .faculty-role { color: #5b8def; font-weight: 700; font-size: 14px; margin-bottom: 16px; }
-    .faculty-bio { color: #cdd6e8; font-size: 14.5px; line-height: 1.65; max-width: 400px; margin: 0 auto; }
-    .faq { background: #f4f3f1; padding: clamp(70px, 9vw, 120px) 28px; scroll-margin-top: 80px; }
-    .faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; max-width: 860px; }
-    .faq-item { background: #fff; border-radius: 16px; padding: 28px 32px; }
-    .faq-q { font-weight: 700; font-size: 17px; color: #1d3a6b; margin-bottom: 10px; }
-    .faq-a { color: #55565a; font-size: 15px; line-height: 1.65; }
-    .enquiry { background: #1d3a6b; padding: clamp(80px, 10vw, 130px) 28px; text-align: center; scroll-margin-top: 80px; }
-    .enquiry h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(36px, 6vw, 72px); color: #fff; line-height: .95; margin-bottom: 20px; }
-    .enquiry p { color: #cdd6e8; font-size: clamp(16px, 2vw, 19px); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; }
-    .enquiry-ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-    footer { background: #0f0f0f; color: #fff; padding: 60px 28px; }
-    footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
-    footer .foot-copy { color: #888; font-size: 14px; }
-    footer .foot-links { display: flex; gap: 24px; }
-    footer .foot-links a { color: #ccc; font-size: 14px; font-weight: 600; text-decoration: none; }
-    footer .foot-links a:hover { color: #fff; }
-    @media (max-width: 768px) {
-      header nav .back-link { display: none; }
-      .phase { flex-direction: column; gap: 12px; padding: 28px 24px; }
-      .phase-num { width: auto; font-size: 40px; }
-      footer .container { flex-direction: column; text-align: center; }
-      footer .foot-links { flex-wrap: wrap; justify-content: center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX/UI Design Course (5 Months) | Future Vision Computers Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:'Space Grotesk',sans-serif;overflow-x:clip;color:#0f0f0f;background:#fff;}
+a{text-decoration:none;color:inherit;}
+.site-header{position:fixed;top:0;left:0;right:0;height:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:1000;display:flex;align-items:center;padding:0 28px;justify-content:space-between;}
+.logo{font-family:'Anton',sans-serif;font-size:20px;color:#1d3a6b;letter-spacing:.02em;}
+.logo span{color:#5b8def;}
+.btn-primary{background:#0f0f0f;color:#fff;padding:11px 24px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{background:#1d3a6b;}
+.jump-nav{position:sticky;top:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:100;padding:0 28px;}
+.jump-nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.jump-nav-inner::-webkit-scrollbar{display:none;}
+.jump-nav a{display:block;padding:16px 20px;font-size:13px;font-weight:600;color:#55565a;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.jump-nav a:hover{color:#0f0f0f;border-bottom-color:#1d3a6b;}
+.hero{padding:clamp(72px,10vw,120px) 28px clamp(64px,9vw,100px);background:#fff;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:start;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d3a6b;margin-bottom:20px;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(52px,8vw,92px);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:#0f0f0f;margin:0 0 24px;}
+.hero-subtitle{font-size:clamp(17px,2vw,21px);font-weight:600;color:#0f0f0f;margin:0 0 16px;}
+.hero-proof{font-size:14px;color:#55565a;margin:0 0 28px;}
+.benefits{list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:10px;}
+.benefits li{font-size:15px;color:#0f0f0f;display:flex;gap:10px;align-items:flex-start;}
+.benefits li::before{content:'✓';color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-outline{background:transparent;color:#0f0f0f;border:2px solid #0f0f0f;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;cursor:pointer;}
+.btn-outline:hover{background:#0f0f0f;color:#fff;}
+.info-card{background:#f4f3f1;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;align-self:start;margin-top:40px;}
+.info-row{display:flex;flex-direction:column;gap:4px;padding-bottom:20px;border-bottom:1px solid #dde3ea;}
+.info-row:last-child{padding-bottom:0;border-bottom:none;}
+.info-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8a9bb0;}
+.info-value{font-size:15px;font-weight:700;color:#0f0f0f;}
+.cta-strip{background:#0f0f0f;padding:40px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-strip-text{font-size:clamp(16px,2vw,20px);font-weight:700;color:#fff;}
+.btn-white{background:#fff;color:#0f0f0f;padding:13px 28px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;white-space:nowrap;}
+.btn-white:hover{background:#f4f3f1;}
+section{padding:clamp(64px,9vw,120px) 28px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-h2{font-family:'Anton',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;color:#0f0f0f;margin:0 0 48px;line-height:1;}
+.for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.for-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.for-card h3{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#1d3a6b;margin:0 0 14px;}
+.for-card p{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.curriculum-stack{display:flex;flex-direction:column;gap:20px;}
+.phase-card{background:#f4f3f1;border-radius:12px;padding:32px;border-left:4px solid #1d3a6b;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;}
+.phase-num{font-family:'Anton',sans-serif;font-size:56px;color:rgba(29,58,107,.15);line-height:1;}
+.phase-title{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#0f0f0f;margin:0 0 6px;}
+.phase-duration{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5b8def;margin-bottom:12px;}
+.phase-desc{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.tool-pill{display:inline-block;border:1.5px solid rgba(0,0,0,.18);color:#0f0f0f;font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;background:#fff;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.outcome-card{background:#f4f3f1;border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:14px;}
+.outcome-arrow{font-size:20px;color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.outcome-title{font-weight:700;font-size:15px;color:#0f0f0f;}
+.mentors-section{background:#0f0f0f;}
+.mentors-section .section-label{color:#5b8def;}
+.mentors-section .section-h2{color:#fff;}
+.mentors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;}
+.mentor-card{text-align:center;}
+.mentor-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px;border:3px solid #1d3a6b;}
+.mentor-name{font-family:'Anton',sans-serif;font-size:24px;text-transform:uppercase;color:#fff;margin:0 0 6px;}
+.mentor-role{font-size:13px;font-weight:700;color:#5b8def;margin-bottom:12px;}
+.mentor-bio{font-size:15px;line-height:1.6;color:#ccc;max-width:380px;margin:0 auto;}
+.faq-list{display:flex;flex-direction:column;gap:0;}
+details{border-bottom:1px solid #e8edf5;padding:0;}
+details:first-child{border-top:1px solid #e8edf5;}
+summary{padding:22px 0;font-size:16px;font-weight:700;color:#0f0f0f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:22px;color:#1d3a6b;font-weight:400;flex-shrink:0;}
+details[open] summary::after{content:'−';}
+.faq-answer{padding:0 0 22px;font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.enquiry-cta{background:#1d3a6b;text-align:center;}
+.enquiry-cta .section-label{color:#5b8def;}
+.enquiry-cta .section-h2{color:#fff;max-width:720px;margin-left:auto;margin-right:auto;}
+.enquiry-cta p{color:#cdd6e8;font-size:17px;margin:0 auto 36px;max-width:560px;}
+.btn-white-lg{background:#fff;color:#1d3a6b;padding:16px 36px;border-radius:100px;font-weight:700;font-size:16px;display:inline-block;}
+.btn-white-lg:hover{background:#f4f3f1;}
+footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.footer-copy{font-size:14px;color:#8a9bb0;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:14px;color:#8a9bb0;font-weight:600;}
+.footer-links a:hover{color:#fff;}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .info-card{margin-top:0;}
+  .for-grid{grid-template-columns:1fr;}
+  .outcomes-grid{grid-template-columns:1fr 1fr;}
+  .mentors-grid{grid-template-columns:1fr;}
+  .phase-card{grid-template-columns:60px 1fr;gap:16px;}
+  .phase-num{font-size:40px;}
+}
+@media(max-width:600px){
+  .hero{padding-top:36px;}
+  .outcomes-grid{grid-template-columns:1fr;}
+  .cta-strip{flex-direction:column;text-align:center;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline,.btn-white{width:100%;text-align:center;display:block;}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <a href="../../" class="logo">Future Vision</a>
-      <nav>
-        <a href="../" class="back-link">← Back to Course</a>
-        <a href="../#enquiry" class="btn-primary" style="font-size:14px; padding:10px 22px;">Enrol Now →</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <a href="../../" class="logo">Future <span>Vision</span></a>
+  <a href="../#enquiry" class="btn-primary">Enquire Now &rarr;</a>
+</header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-label">Graphic Designing Courses · Future Vision</div>
-      <h1>UX/UI<br>Design Course</h1>
-      <div class="hero-sub">5 Months · Product &amp; Interface Design</div>
-      <p>Become a UX/UI designer in 5 months. This intensive programme teaches you to think like a product designer — from user research and wireframes to high-fidelity Figma prototypes and usability testing — giving you a portfolio that competes with designers with years of experience.</p>
-      <div class="hero-pills">
-        <span class="pill">5 Months</span>
-        <span class="pill">Surat Centres</span>
-        <span class="pill">Industry Briefs</span>
-        <span class="pill">Portfolio Exit</span>
-      </div>
-      <div class="hero-ctas">
-        <a href="../#enquiry" class="btn-primary">Enrol Now →</a>
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="jump-nav-inner">
+    <a href="#overview">1. Overview</a>
+    <a href="#curriculum">2. Curriculum</a>
+    <a href="#mentors">3. Mentors</a>
+    <a href="#outcomes">4. Outcomes</a>
+    <a href="#enquire">5. Enquire</a>
+  </div>
+</nav>
+
+<section class="hero" id="overview" style="padding-top:clamp(56px,8vw,96px);">
+  <div class="hero-inner">
+    <div>
+      <p class="section-label">Graphic Designing &middot; Future Vision</p>
+      <h1>UX/UI Design Course</h1>
+      <p class="hero-subtitle">5 Months &middot; Product &amp; Interface Design</p>
+      <p class="hero-proof">150+ students trained &middot; Surat, Gujarat &middot; Next batch starting soon</p>
+      <ul class="benefits">
+        <li>Research to high-fidelity prototype</li>
+        <li>Figma mastery from scratch</li>
+        <li>4&ndash;6 complete UX case studies</li>
+        <li>Career support &amp; placement guidance</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="../#enquiry" class="btn-primary">Enrol Now &rarr;</a>
         <a href="../#enquiry" class="btn-outline">Download Brochure</a>
       </div>
     </div>
-  </section>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Duration</span>
+        <span class="info-value">5 Months</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Format</span>
+        <span class="info-value">Offline &mdash; Surat Centres</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Batch Size</span>
+        <span class="info-value">Max 15 Students</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Starts</span>
+        <span class="info-value">Rolling Batches</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section class="for-section" id="for">
-    <div class="container">
-      <div class="section-label">Is This For You?</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">Who Is This For?</h2>
-      <div class="for-grid">
-        <div class="for-card">
-          <div class="for-card-label">Profile 01</div>
-          <h3>Graphic &amp; Visual Designers</h3>
-          <p>You have visual skills. Now learn the research, structure and interaction design thinking that lets you work on apps, SaaS products and digital platforms.</p>
+<div class="cta-strip">
+  <p class="cta-strip-text">Limited seats per batch. Speak to us before enrolling.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Who Is This For</p>
+    <h2 class="section-h2">Is This For Me?</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <h3>Graphic &amp; Visual Designers</h3>
+        <p>You have visual skills. Now add UX research, information architecture and interaction design to work on apps and digital products at the highest level.</p>
+      </div>
+      <div class="for-card">
+        <h3>Developers &amp; Tech Professionals</h3>
+        <p>You build products but want to design them. Understanding UX makes you a rare full-stack contributor every product team wants on board.</p>
+      </div>
+      <div class="for-card">
+        <h3>Career Changers</h3>
+        <p>Psychology, communications, business or arts background &mdash; your thinking skills are an asset in UX research. This course adds the craft to your instinct.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Ready to design digital products people love? Let&rsquo;s talk.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section id="curriculum">
+  <div class="section-inner">
+    <p class="section-label">Course Curriculum</p>
+    <h2 class="section-h2">What You&rsquo;ll Learn</h2>
+    <div class="curriculum-stack">
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <div>
+          <p class="phase-title">UX Foundations</p>
+          <p class="phase-duration">Weeks 1&ndash;5</p>
+          <p class="phase-desc">User research methods, personas, empathy mapping, user journey mapping, competitor analysis and problem framing. Build the thinking skills that underpin great product design.</p>
         </div>
-        <div class="for-card">
-          <div class="for-card-label">Profile 02</div>
-          <h3>Developers &amp; Tech Professionals</h3>
-          <p>You build products but want to design them too. Understanding UX will make you a rare full-stack contributor every product team wants.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <div>
+          <p class="phase-title">Wireframing &amp; Prototyping</p>
+          <p class="phase-duration">Weeks 6&ndash;10</p>
+          <p class="phase-desc">Information architecture, low-fidelity wireframes, Figma from scratch, clickable prototypes and design system basics. Every concept becomes interactive.</p>
         </div>
-        <div class="for-card">
-          <div class="for-card-label">Profile 03</div>
-          <h3>Career Changers</h3>
-          <p>Psychology, communication, business, arts — your background is an advantage in UX research. This course gives you the craft skills to match.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <div>
+          <p class="phase-title">Visual UI Design</p>
+          <p class="phase-duration">Weeks 11&ndash;16</p>
+          <p class="phase-desc">High-fidelity UI screens, typography and colour for digital contexts, icon systems, responsive design, micro-interactions and advanced Figma techniques.</p>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <div>
+          <p class="phase-title">Testing &amp; Portfolio</p>
+          <p class="phase-duration">Weeks 17&ndash;20</p>
+          <p class="phase-desc">Usability testing, design iteration, Webflow basics, UX case study writing, portfolio presentation and mock client pitches with mentor critique.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="curriculum" id="curriculum">
-    <div class="container">
-      <div class="section-label">Course Structure</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">What You'll Learn</h2>
-      <div class="phases">
-        <div class="phase dark">
-          <div class="phase-num">01</div>
-          <div class="phase-content">
-            <div class="phase-weeks">Weeks 1–5</div>
-            <h3>UX Foundations</h3>
-            <p>User research methods, personas, empathy mapping, user journey mapping, competitor analysis and problem framing.</p>
-          </div>
-        </div>
-        <div class="phase light">
-          <div class="phase-num">02</div>
-          <div class="phase-content">
-            <div class="phase-weeks">Weeks 6–10</div>
-            <h3>Wireframing &amp; Prototyping</h3>
-            <p>Information architecture, low-fidelity wireframes, Figma from scratch, clickable prototypes and design system basics.</p>
-          </div>
-        </div>
-        <div class="phase dark">
-          <div class="phase-num">03</div>
-          <div class="phase-content">
-            <div class="phase-weeks">Weeks 11–16</div>
-            <h3>Visual UI Design</h3>
-            <p>High-fidelity UI, typography and colour in digital contexts, icon systems, responsive design, micro-interactions and Figma advanced features.</p>
-          </div>
-        </div>
-        <div class="phase light">
-          <div class="phase-num">04</div>
-          <div class="phase-content">
-            <div class="phase-weeks">Weeks 17–20</div>
-            <h3>Testing, Portfolio &amp; Career</h3>
-            <p>Usability testing, iteration, Webflow basics, portfolio presentation, case study writing and mock client pitches.</p>
-          </div>
-        </div>
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Tools You&rsquo;ll Master</p>
+    <h2 class="section-h2">Your Creative Toolkit</h2>
+    <div class="tools-grid">
+      <span class="tool-pill">Figma</span>
+      <span class="tool-pill">Adobe XD</span>
+      <span class="tool-pill">Miro</span>
+      <span class="tool-pill">Maze</span>
+      <span class="tool-pill">Webflow</span>
+      <span class="tool-pill">Framer</span>
+      <span class="tool-pill">Notion</span>
+    </div>
+  </div>
+</section>
+
+<section id="outcomes">
+  <div class="section-inner">
+    <p class="section-label">Career Outcomes</p>
+    <h2 class="section-h2">Real Careers</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UX Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UI Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Product Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Interaction Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UX Researcher</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Digital Product Consultant</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mentors-section" id="mentors">
+  <div class="section-inner">
+    <p class="section-label">Faculty</p>
+    <h2 class="section-h2">Your Mentors</h2>
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="../mansi.jpeg" alt="Mansi Agarwal" class="mentor-photo">
+        <p class="mentor-name">Mansi Agarwal</p>
+        <p class="mentor-role">Graphic &amp; Brand Design Expert</p>
+        <p class="mentor-bio">10+ years in brand design and visual communication. Mansi has worked with FMCG brands, advertising agencies and design studios across Gujarat. She brings real-world briefs and industry-grade critique to every session.</p>
+      </div>
+      <div class="mentor-card">
+        <img src="../subin.jpeg" alt="Subin Vijayan" class="mentor-photo">
+        <p class="mentor-name">Subin Vijayan</p>
+        <p class="mentor-role">UI/UX &amp; Motion Design Expert</p>
+        <p class="mentor-bio">Product designer with experience at tech startups and digital agencies. Subin specialises in building design systems, motion graphics and interaction design, bringing a digital-first lens to every project.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="tools" id="tools">
-    <div class="container">
-      <div class="section-label">Industry Software</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">Tools You'll Master</h2>
-      <div class="tools-pills">
-        <span class="pill">Figma</span>
-        <span class="pill">Adobe XD</span>
-        <span class="pill">Miro</span>
-        <span class="pill">Maze</span>
-        <span class="pill">Webflow</span>
-        <span class="pill">Framer</span>
-        <span class="pill">Notion</span>
-        <span class="pill">Loom</span>
-      </div>
+<section>
+  <div class="section-inner">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-h2">FAQs</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need coding skills?</summary>
+        <p class="faq-answer">No. Design skills are the focus. Basic HTML/CSS awareness is a bonus but not a requirement. You&rsquo;ll leave with Figma and Webflow skills that cover most digital design workflows.</p>
+      </details>
+      <details>
+        <summary>Is 5 months enough to get job-ready?</summary>
+        <p class="faq-answer">Yes. The curriculum is intensive and project-led. You graduate with 4&ndash;6 full UX case studies &mdash; more than most applicants at entry level.</p>
+      </details>
+      <details>
+        <summary>What&rsquo;s the difference between UX and UI?</summary>
+        <p class="faq-answer">UX covers research, structure and logic &mdash; how a product works. UI covers visual design and interaction &mdash; how it looks and feels. This course teaches both in depth.</p>
+      </details>
+      <details>
+        <summary>Will I work on real briefs?</summary>
+        <p class="faq-answer">Yes. Every phase uses industry-style briefs across fintech, healthcare, e-commerce and SaaS. Your portfolio will show real-world problem-solving, not just exercises.</p>
+      </details>
+      <details>
+        <summary>Is placement support provided?</summary>
+        <p class="faq-answer">Portfolio reviews, interview preparation and placement guidance are all included. Our support is structured and active throughout and after the programme.</p>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="careers" id="careers">
-    <div class="container">
-      <div class="section-label">Where You'll Go</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">Career Outcomes</h2>
-      <div class="careers-grid">
-        <div class="career-card"><div class="career-card-icon">🔍</div><h4>UX Designer</h4></div>
-        <div class="career-card"><div class="career-card-icon">🎨</div><h4>UI Designer</h4></div>
-        <div class="career-card"><div class="career-card-icon">📱</div><h4>Product Designer</h4></div>
-        <div class="career-card"><div class="career-card-icon">⚡</div><h4>Interaction Designer</h4></div>
-        <div class="career-card"><div class="career-card-icon">📊</div><h4>UX Researcher</h4></div>
-        <div class="career-card"><div class="career-card-icon">💡</div><h4>Digital Product Consultant</h4></div>
-      </div>
-    </div>
-  </section>
+<section class="enquiry-cta" id="enquire">
+  <div class="section-inner">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-h2">Ready to Start Your Design Career?</h2>
+    <p>Speak to our team. We&rsquo;ll walk you through batches, what to expect and answer every question &mdash; honestly.</p>
+    <a href="../#enquiry" class="btn-white-lg">Enquire Now &rarr;</a>
+  </div>
+</section>
 
-  <section class="faculty" id="faculty">
-    <div class="container">
-      <div class="section-label">Meet Your Teachers</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">Your Mentors</h2>
-      <div class="faculty-grid">
-        <div class="faculty-card">
-          <img src="../mansi.jpeg" alt="Mansi Agarwal" class="faculty-img">
-          <div class="faculty-name">Mansi Agarwal</div>
-          <div class="faculty-role">Graphic &amp; Brand Design Expert</div>
-          <p class="faculty-bio">10+ years in brand design and visual communication. Mansi has worked with FMCG brands, advertising agencies and design studios across Gujarat. She brings real-world briefs and industry-grade critique to every session.</p>
-        </div>
-        <div class="faculty-card">
-          <img src="../subin.jpeg" alt="Subin Vijayan" class="faculty-img">
-          <div class="faculty-name">Subin Vijayan</div>
-          <div class="faculty-role">UI/UX &amp; Motion Design Expert</div>
-          <p class="faculty-bio">Product designer with experience at tech startups and digital agencies. Subin specialises in building design systems, motion graphics and interaction design, bringing a digital-first lens to every project.</p>
-        </div>
-      </div>
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2025 Future Vision Computers Institute &middot; Surat, Gujarat</p>
+    <div class="footer-links">
+      <a href="../../">Home</a>
+      <a href="../">Graphic Designing</a>
+      <a href="../#enquiry">Contact</a>
     </div>
-  </section>
-
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="section-label">Common Questions</div>
-      <h2 class="section-h" style="font-size: clamp(36px, 5vw, 60px);">FAQ</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q">Do I need coding skills?</div>
-          <div class="faq-a">No. This is a design course. Understanding basic HTML/CSS is a bonus but not required.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Is 5 months enough?</div>
-          <div class="faq-a">Yes — the curriculum is intensive and project-led. You'll graduate with 4–6 full UX case studies.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What is the difference between UX and UI?</div>
-          <div class="faq-a">UX covers research, structure and logic. UI covers visual design and interaction. This course teaches both.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Will I work on real briefs?</div>
-          <div class="faq-a">Yes. Every phase involves live industry-style briefs across fintech, healthcare, e-commerce and SaaS.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Can I get placed after this course?</div>
-          <div class="faq-a">We provide portfolio reviews, interview prep and guidance. Placements are not guaranteed but our support is structured and active.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="enquiry" id="enquiry">
-    <div class="container">
-      <h2>Ready to Start?</h2>
-      <p>Speak to our team. We'll walk you through batches, fees and what to expect — honestly.</p>
-      <div class="enquiry-ctas">
-        <a href="../#enquiry" class="btn-primary" style="background:#fff; color:#1d3a6b;">Enquire Now →</a>
-        <a href="../#enquiry" class="btn-outline">Download Brochure</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="foot-copy">© 2025 Future Vision Computers Institute · Surat, Gujarat</div>
-      <div class="foot-links">
-        <a href="../../">Home</a>
-        <a href="../">Graphic Designing</a>
-        <a href="../../#enquiry">Contact</a>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
