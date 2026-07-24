@@ -17,7 +17,7 @@
       '#fv-ham.open span:nth-child(1){transform:translateY(8.75px) rotate(45deg);}',
       '#fv-ham.open span:nth-child(2){opacity:0;}',
       '#fv-ham.open span:nth-child(3){transform:translateY(-8.75px) rotate(-45deg);}',
-      '@media(max-width:900px){#fv-ham{display:flex!important;}.hp-navlinks>div:not(:last-child),[class*="navlinks"]>a{display:none!important;}header nav{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 16px!important;width:100%!important;}header{padding:0!important;position:sticky!important;top:0!important;z-index:1000!important;background:#fff!important;}header a[href^="tel:"],header [class*="enrol"]{display:none!important;}}',
+      '@media(max-width:900px){#fv-ham{display:flex!important;order:-1!important;}.hp-navlinks>div:not(:last-child),[class*="navlinks"]>a{display:none!important;}header nav{display:none!important;}header{padding:0!important;position:sticky!important;top:0!important;z-index:1000!important;background:#fff!important;}header a[href^="tel:"],header [class*="enrol"]{display:none!important;}[class*="hdr-inner"]{justify-content:flex-start!important;gap:14px!important;}}',
       '@media(max-width:768px){[class*="rev-track"],[class*="revtrack"]{display:flex!important;flex-direction:column!important;gap:16px!important;overflow-x:visible!important;}[class*="rev-track"]>*,[class*="revtrack"]>*{flex:0 0 auto!important;width:100%!important;max-width:100%!important;}[style*="flex: 0 0 420px"],[style*="flex:0 0 420px"]{flex:0 0 100%!important;width:100%!important;}[style*="max-width: 420px"],[style*="max-width:420px"]{max-width:100%!important;}section{padding-left:16px!important;padding-right:16px!important;}h1{font-size:clamp(1.4rem,5vw,2.2rem)!important;}h2{font-size:clamp(1.2rem,4vw,1.8rem)!important;}footer{padding:24px 16px!important;}}',
       '#fv-mob{display:none;position:fixed;inset:0;z-index:99999;}',
       '#fv-mob.open{display:block;}',
@@ -112,10 +112,11 @@
     return links;
   }
 
-  function addHamToNav(nav) {
+  function addHam(hdr, logoImg) {
     if (document.getElementById('fv-ham')) return;
     var ham = document.createElement('button');
     ham.id = 'fv-ham';
+    ham.type = 'button';
     ham.setAttribute('aria-label', 'Open menu');
     ham.setAttribute('aria-expanded', 'false');
     ham.innerHTML = '<span></span><span></span><span></span>';
@@ -128,7 +129,15 @@
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    nav.appendChild(ham);
+    // Insert directly before the logo link so it renders left of the logo,
+    // rather than inside <nav> where forced mobile nav widths pushed/clipped it.
+    var logoAnchor = logoImg.closest('a') || logoImg.parentElement;
+    var parent = (logoAnchor && logoAnchor.parentElement) || hdr;
+    if (logoAnchor && parent) {
+      parent.insertBefore(ham, logoAnchor);
+    } else {
+      hdr.insertBefore(ham, hdr.firstChild);
+    }
   }
 
   function tick() {
@@ -136,9 +145,10 @@
     var hdr = document.querySelector('header');
     if (!hdr) return;
 
+    var logoImg = hdr.querySelector('img');
+
     if (!overlayDone) {
       var nav = hdr.querySelector('nav');
-      var logoImg = hdr.querySelector('img');
       var navEl = hdr.querySelector('[class*="navlinks"]') || nav;
       var hasLinks = navEl && navEl.querySelectorAll('a').length > 0;
       if (nav && logoImg && logoImg.src && hasLinks) {
@@ -147,8 +157,7 @@
       }
     }
 
-    var nav2 = hdr.querySelector('nav');
-    if (nav2) addHamToNav(nav2);
+    if (logoImg) addHam(hdr, logoImg);
   }
 
   var count = 0;
