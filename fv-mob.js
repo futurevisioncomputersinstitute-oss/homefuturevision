@@ -106,7 +106,7 @@
       var id = 'fv-cat-' + ci;
       html += '<div class="fv-cat-wrap">';
       html += '<button class="fv-cat-hdr" data-cat="' + id + '" aria-expanded="false">';
-      html += '<span class="fv-cat-hdr-left"><span class="fv-cat-hdr-icon">' + cat.icon + '</span>' + cat.label + '</span>';
+      html += '<span class="fv-cat-hdr-left">' + cat.label + '</span>';
       html += '<span class="fv-cat-chev">' + CHEVRON + '</span>';
       html += '</button>';
       html += '<div class="fv-cat-links" id="' + id + '">';
