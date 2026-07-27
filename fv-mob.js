@@ -7,7 +7,7 @@
 
   var CATS = [
     {
-      label: 'Development',
+      label: 'Development & Agentic AI',
       icon: '&#x1F4BB;',
       courses: [
         ['Python Foundations Program', 'python-foundation/'],
@@ -32,7 +32,7 @@
       ]
     },
     {
-      label: 'Designing & Media',
+      label: 'Designing & Marketing',
       icon: '&#x1F3A8;',
       courses: [
         ['Graphic Design + AI Course', 'graphic-designing/'],
@@ -40,7 +40,7 @@
       ]
     },
     {
-      label: 'Digital Business & Office',
+      label: 'Foundation Programs',
       icon: '&#x1F4BC;',
       courses: [
         ['Computer Basics & Gen AI', 'computer-basics-genai/'],
