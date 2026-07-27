@@ -270,6 +270,38 @@
     });
   }
 
+  var CAT_KEYS = ['dev', 'ana', 'des', 'dig'];
+
+  function buildDesktopDropdown() {
+    var dd = document.getElementById('fv-dd-main');
+    if (!dd || dd.dataset.fvSynced) return;
+    dd.dataset.fvSynced = '1';
+
+    CATS.forEach(function(cat, i) {
+      var key = CAT_KEYS[i];
+      if (!key) return;
+
+      var catBtn = document.getElementById('fvcat-' + key);
+      if (catBtn) {
+        var svg = catBtn.querySelector('svg');
+        catBtn.textContent = cat.label + ' ';
+        if (svg) catBtn.appendChild(svg);
+      }
+
+      var panel = document.getElementById('fvpanel-' + key);
+      if (panel) {
+        var rtitle = panel.querySelector('.fv-dd-rtitle');
+        if (rtitle) rtitle.textContent = cat.label;
+        var grid = panel.querySelector('.fv-dd-grid');
+        if (grid) {
+          grid.innerHTML = cat.courses.map(function(c) {
+            return '<a class="fv-dd-course" href="' + BASE + c[1] + '"><span>' + c[0] + '<\/span><\/a>';
+          }).join('');
+        }
+      }
+    });
+  }
+
   function tick() {
     injectCSS();
     initReviewCarousels();
@@ -287,6 +319,8 @@
         buildOverlay(logoImg.src, hdr);
       }
     }
+
+    buildDesktopDropdown();
 
     if (logoImg) addHam(hdr, logoImg);
   }
