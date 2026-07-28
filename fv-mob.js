@@ -21,13 +21,10 @@
       label: 'Analysis & Accounting',
       icon: '&#x1F4CA;',
       courses: [
-        ['Advanced Excel Course', 'advanced-excel/'],
-        ['Microsoft Power BI Course', 'power-bi/'],
         ['Advanced Excel & Power BI', 'excel-powerbi/'],
         ['Business Analytics Course', 'business-analytics/'],
         ['Advanced Data Analytics', 'data-analytics/'],
         ['Data Science & Agentic AI', 'data-science/'],
-        ['Tally Prime with GST', 'tally-prime-gst/'],
         ['Computer Accounting & GST', 'advanced-computer-accounting/'],
       ]
     },
