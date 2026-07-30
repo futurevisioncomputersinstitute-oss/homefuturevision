@@ -55,6 +55,7 @@
     s.textContent = [
       '*{box-sizing:border-box;}',
       'body{overflow-x:clip;}',
+      'div[style*="overflow-x:hidden"]{overflow-x:clip!important;}',
       'img{max-width:100%;height:auto;}',
       'header img{max-width:160px!important;height:auto!important;max-height:50px!important;}',
       '#fv-ham{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;z-index:100;}',
