@@ -320,6 +320,7 @@
       '#top>div>div:first-child>div:nth-of-type(2){justify-content:center!important;}' +
       '#top>div>div:first-child>div:nth-of-type(3){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
       '#top>div>div:first-child>div:nth-of-type(4){justify-content:center!important;}' +
+      '#top+section>div>div>div:last-child{grid-column:1/-1!important;border-right:none!important;}' +
       '}';
     (document.head || document.documentElement).appendChild(s);
   }
