@@ -309,7 +309,7 @@
     }
   }
 
-  var HERO_CENTER_PAGES = ['/homefuturevision/computer-basics-genai/'];
+  var HERO_CENTER_PAGES = ['/homefuturevision/computer-basics-genai/', '/homefuturevision/professional-office-genai/'];
 
   function injectHeroCenterCSS() {
     if (document.getElementById('fv-hero-center-css')) return;
