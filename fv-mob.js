@@ -12,7 +12,7 @@
       courses: [
         ['Python Foundations Program', 'python-foundation/'],
         ['Professional Python Developer', 'python/'],
-        ['Python & Agentic AI', 'agentic-ai/'],
+        ['Advanced Certificate in Python & Agentic AI', 'agentic-ai/'],
         ['C Programming Course', 'c-programming/'],
         ['C++ Programming Course', 'cpp-programming/'],
       ]
@@ -24,29 +24,53 @@
         ['Advanced Excel & Power BI', 'excel-powerbi/'],
         ['Business Analytics Course', 'business-analytics/'],
         ['Advanced Data Analytics', 'data-analytics/'],
-        ['Data Science & Agentic AI', 'data-science/'],
-        ['Computer Accounting & GST', 'advanced-computer-accounting/'],
+        ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
+        ['Computer Accounting with GST & Zoho Books', 'advanced-computer-accounting/'],
+        ['Professional Business Finance & Accounting', '#'],
+        ['Financial Modelling & Analysis', '#'],
       ]
     },
     {
       label: 'Designing & Marketing',
       icon: '&#x1F3A8;',
       courses: [
+        ['Social Media Content & Ad Architect', '#'],
+        ['Basic Graphic Designing Course', '#'],
         ['Graphic Design + AI Course', 'graphic-designing/'],
-        ['Digital Marketing & SEO', 'digital-marketing-seo/'],
+        ['Advance Graphic Design Course', '#'],
+        ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
+        ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
+        ['Advanced Certificate in Digital Design & Advertisement with Gen AI', '#'],
       ]
     },
     {
       label: 'Foundation Programs',
       icon: '&#x1F4BC;',
       courses: [
-        ['Computer Basics & Gen AI', 'computer-basics-genai/'],
-        ['Professional Office & Gen AI', 'professional-office-genai/'],
+        ['Computer Basics & Gen AI Foundation', 'computer-basics-genai/'],
+        ['Professional Office & Generative AI Essentials', 'professional-office-genai/'],
+      ]
+    },
+    {
+      label: 'Professional Courses',
+      icon: '&#x1F393;',
+      courses: [
+        ['Advanced Data Analytics', 'data-analytics/'],
+        ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
+        ['Advanced Certificate in Python & Agentic AI', 'agentic-ai/'],
+        ['Advance Graphic Design Course', '#'],
+        ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
+        ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
+        ['Advanced Certificate in Digital Design & Advertisement with Gen AI', '#'],
       ]
     },
   ];
 
   var CHEVRON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+
+  function courseHref(path) {
+    return path === '#' ? '#' : (BASE + path);
+  }
 
   function injectCSS() {
     if (document.getElementById('fv-mob-css')) return;
@@ -113,7 +137,7 @@
       html += '</button>';
       html += '<div class="fv-cat-links" id="' + id + '">';
       cat.courses.forEach(function(c) {
-        html += '<a href="' + BASE + c[1] + '">' + c[0] + '</a>';
+        html += '<a href="' + courseHref(c[1]) + '">' + c[0] + '</a>';
       });
       html += '</div>';
       html += '</div>';
@@ -269,12 +293,42 @@
     });
   }
 
-  var CAT_KEYS = ['dev', 'ana', 'des', 'dig'];
+  var CAT_KEYS = ['dev', 'ana', 'des', 'dig', 'pro'];
+
+  function ensureDesktopSlots(dd) {
+    var left = dd.querySelector('.fv-dd-left');
+    var right = dd.querySelector('.fv-dd-right');
+    if (!left || !right) return;
+
+    var refBtn = document.getElementById('fvcat-' + CAT_KEYS[0]);
+    var refPanel = document.getElementById('fvpanel-' + CAT_KEYS[0]);
+    if (!refBtn || !refPanel) return;
+
+    CAT_KEYS.forEach(function(key) {
+      if (!document.getElementById('fvcat-' + key)) {
+        var btn = refBtn.cloneNode(true);
+        btn.id = 'fvcat-' + key;
+        btn.classList.remove('active');
+        btn.addEventListener('mouseenter', function() {
+          if (window.fvSetCat) window.fvSetCat(key);
+        });
+        left.appendChild(btn);
+      }
+      if (!document.getElementById('fvpanel-' + key)) {
+        var panel = refPanel.cloneNode(true);
+        panel.id = 'fvpanel-' + key;
+        panel.style.display = 'none';
+        right.appendChild(panel);
+      }
+    });
+  }
 
   function buildDesktopDropdown() {
     var dd = document.getElementById('fv-dd-main');
     if (!dd || dd.dataset.fvSynced) return;
     dd.dataset.fvSynced = '1';
+
+    ensureDesktopSlots(dd);
 
     CATS.forEach(function(cat, i) {
       var key = CAT_KEYS[i];
@@ -294,7 +348,7 @@
         var grid = panel.querySelector('.fv-dd-grid');
         if (grid) {
           grid.innerHTML = cat.courses.map(function(c) {
-            return '<a class="fv-dd-course" href="' + BASE + c[1] + '"><span>' + c[0] + '<\/span><\/a>';
+            return '<a class="fv-dd-course" href="' + courseHref(c[1]) + '"><span>' + c[0] + '<\/span><\/a>';
           }).join('');
         }
       }
