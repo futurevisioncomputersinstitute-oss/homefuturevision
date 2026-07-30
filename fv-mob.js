@@ -309,6 +309,18 @@
     }
   }
 
+  function tagWhoCanJoin() {
+    var divs = document.querySelectorAll('section div');
+    for (var i = 0; i < divs.length; i++) {
+      var txt = (divs[i].textContent || '').trim();
+      if (txt === 'Who Can Join') {
+        var sec = divs[i].closest('section');
+        if (sec) sec.classList.add('fv-join-sec');
+        break;
+      }
+    }
+  }
+
   var HERO_CENTER_PAGES = ['/homefuturevision/computer-basics-genai/', '/homefuturevision/professional-office-genai/'];
 
   function injectHeroCenterCSS() {
@@ -326,6 +338,10 @@
       '#why>div>div:nth-of-type(2){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
       '#why>div>div:nth-of-type(2)>div{flex-direction:column!important;align-items:center!important;text-align:center!important;padding:18px 12px!important;}' +
       '#why>div>div:nth-of-type(2)>div>span{margin:0 0 8px!important;}' +
+      '.fv-join-sec>div>div:nth-of-type(2){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
+      '.fv-join-sec>div>div:nth-of-type(2)>div{text-align:center!important;padding:18px 14px!important;}' +
+      '.fv-join-sec>div>div:nth-of-type(2)>div>div:first-child{margin:0 auto!important;}' +
+      '.fv-join-sec>div>div:nth-of-type(2)>div:nth-child(odd):last-child{grid-column:1/-1!important;}' +
       '}';
     (document.head || document.documentElement).appendChild(s);
   }
@@ -335,6 +351,7 @@
     injectHeroCenterCSS();
     initReviewCarousels();
     tagHeroButtons();
+    if (HERO_CENTER_PAGES.indexOf(location.pathname) !== -1) tagWhoCanJoin();
     var hdr = document.querySelector('header');
     if (!hdr) return;
 
