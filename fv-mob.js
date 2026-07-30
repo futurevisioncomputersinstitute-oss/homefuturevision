@@ -308,8 +308,25 @@
     }
   }
 
+  var HERO_CENTER_PAGES = ['/homefuturevision/computer-basics-genai/'];
+
+  function injectHeroCenterCSS() {
+    if (document.getElementById('fv-hero-center-css')) return;
+    if (HERO_CENTER_PAGES.indexOf(location.pathname) === -1) return;
+    var s = document.createElement('style');
+    s.id = 'fv-hero-center-css';
+    s.textContent = '@media(max-width:768px){' +
+      '#top>div>div:first-child{text-align:center!important;}' +
+      '#top>div>div:first-child>div:nth-of-type(2){justify-content:center!important;}' +
+      '#top>div>div:first-child>div:nth-of-type(3){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
+      '#top>div>div:first-child>div:nth-of-type(4){justify-content:center!important;}' +
+      '}';
+    (document.head || document.documentElement).appendChild(s);
+  }
+
   function tick() {
     injectCSS();
+    injectHeroCenterCSS();
     initReviewCarousels();
     tagHeroButtons();
     var hdr = document.querySelector('header');
