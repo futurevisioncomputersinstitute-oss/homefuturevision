@@ -400,6 +400,27 @@
     (document.head || document.documentElement).appendChild(s);
   }
 
+  var SERVICES_URL = BASE + 'services/';
+
+  function addServicesLink(hdr) {
+    var navEl = hdr.querySelector('[class*="navlinks"]') || hdr.querySelector('nav');
+    if (!navEl || navEl.dataset.fvSvc) return;
+    navEl.dataset.fvSvc = '1';
+    if (navEl.querySelector('a[href="' + SERVICES_URL + '"]')) return;
+    var links = navEl.querySelectorAll(':scope > a');
+    var ref = links.length ? links[links.length - 1] : null;
+    var a = document.createElement('a');
+    a.href = SERVICES_URL;
+    a.textContent = 'Services';
+    if (ref) {
+      if (ref.className) a.className = ref.className;
+      if (ref.getAttribute('style')) a.setAttribute('style', ref.getAttribute('style'));
+      ref.parentNode.insertBefore(a, ref.nextSibling);
+    } else {
+      navEl.appendChild(a);
+    }
+  }
+
   function tick() {
     injectCSS();
     injectHeroCenterCSS();
@@ -408,6 +429,8 @@
     if (HERO_CENTER_PAGES.indexOf(location.pathname) !== -1) tagWhoCanJoin();
     var hdr = document.querySelector('header');
     if (!hdr) return;
+
+    addServicesLink(hdr);
 
     var logoImg = hdr.querySelector('img');
 
