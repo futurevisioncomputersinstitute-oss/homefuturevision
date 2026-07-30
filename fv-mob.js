@@ -322,6 +322,7 @@
       '#top>div>div:first-child>div:nth-of-type(3){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
       '#top>div>div:first-child>div:nth-of-type(4){justify-content:center!important;}' +
       '#top+section>div>div>div:last-child{grid-column:1/-1!important;border-right:none!important;}' +
+      '#top+section+section>div>div:nth-of-type(2){display:flex!important;flex-direction:column!important;}' +
       '#why>div>div:nth-of-type(2){display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:10px!important;}' +
       '#why>div>div:nth-of-type(2)>div{flex-direction:column!important;align-items:center!important;text-align:center!important;padding:18px 12px!important;}' +
       '#why>div>div:nth-of-type(2)>div>span{margin:0 0 8px!important;}' +
