@@ -11,8 +11,8 @@
       icon: '&#x1F4BB;',
       courses: [
         ['Python Foundations Program', 'python-foundation/'],
-        ['Professional Python Developer', 'python/'],
-        ['Advanced Certificate in Python & Agentic AI', 'agentic-ai/'],
+        ['Professional Python Developer', 'professionalpythondeveloper/'],
+        ['Advanced Certificate in Python & Agentic AI', 'pythonagentic-ai/'],
         ['C Programming Course', 'c-programming/'],
         ['C++ Programming Course', 'cpp-programming/'],
       ]
@@ -57,7 +57,7 @@
       courses: [
         ['Advanced Data Analytics', 'data-analytics/'],
         ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
-        ['Advanced Certificate in Python & Agentic AI', 'agentic-ai/'],
+        ['Advanced Certificate in Python & Agentic AI', 'pythonagentic-ai/'],
         ['Advance Graphic Design Course', '#'],
         ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
         ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
