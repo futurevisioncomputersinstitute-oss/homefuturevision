@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Design Course (11 Months) | Future Vision Computers Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:'Space Grotesk',sans-serif;overflow-x:clip;color:#0f0f0f;background:#fff;}
+a{text-decoration:none;color:inherit;}
+/* HEADER */
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;top:0;left:0;right:0;height:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:1000;display:flex;align-items:center;padding:0 28px;justify-content:space-between;}
+.logo{font-family:'Anton',sans-serif;font-size:20px;color:#1d3a6b;letter-spacing:.02em;}
+.logo span{color:#5b8def;}
+.btn-primary{background:#0f0f0f;color:#fff;padding:11px 24px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{background:#1d3a6b;}
+/* JUMP NAV */
+.jump-nav{position:sticky;top:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:100;padding:0 28px;}
+.jump-nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.jump-nav-inner::-webkit-scrollbar{display:none;}
+.jump-nav a{display:block;padding:16px 20px;font-size:13px;font-weight:600;color:#55565a;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.jump-nav a:hover{color:#0f0f0f;border-bottom-color:#1d3a6b;}
+/* HERO */
+.hero{padding:clamp(72px,10vw,120px) 28px clamp(64px,9vw,100px);background:#fff;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:start;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d3a6b;margin-bottom:20px;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(52px,8vw,92px);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:#0f0f0f;margin:0 0 24px;}
+.hero-subtitle{font-size:clamp(17px,2vw,21px);font-weight:600;color:#0f0f0f;margin:0 0 16px;}
+.hero-proof{font-size:14px;color:#55565a;margin:0 0 28px;}
+.benefits{list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:10px;}
+.benefits li{font-size:15px;color:#0f0f0f;display:flex;gap:10px;align-items:flex-start;}
+.benefits li::before{content:'✓';color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-outline{background:transparent;color:#0f0f0f;border:2px solid #0f0f0f;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;cursor:pointer;}
+.btn-outline:hover{background:#0f0f0f;color:#fff;}
+.info-card{background:#f4f3f1;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;align-self:start;margin-top:40px;}
+.info-row{display:flex;flex-direction:column;gap:4px;padding-bottom:20px;border-bottom:1px solid #dde3ea;}
+.info-row:last-child{padding-bottom:0;border-bottom:none;}
+.info-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8a9bb0;}
+.info-value{font-size:15px;font-weight:700;color:#0f0f0f;}
+/* CTA STRIP */
+.cta-strip{background:#0f0f0f;padding:40px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-strip-text{font-size:clamp(16px,2vw,20px);font-weight:700;color:#fff;}
+.btn-white{background:#fff;color:#0f0f0f;padding:13px 28px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;white-space:nowrap;}
+.btn-white:hover{background:#f4f3f1;}
+/* SECTIONS */
+section{padding:clamp(64px,9vw,120px) 28px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-h2{font-family:'Anton',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;color:#0f0f0f;margin:0 0 48px;line-height:1;}
+/* WHO IS IT FOR */
+.for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.for-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.for-card h3{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#1d3a6b;margin:0 0 14px;}
+.for-card p{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+/* CURRICULUM */
+.curriculum-stack{display:flex;flex-direction:column;gap:20px;}
+.phase-card{background:#f4f3f1;border-radius:12px;padding:32px;border-left:4px solid #1d3a6b;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;}
+.phase-num{font-family:'Anton',sans-serif;font-size:56px;color:rgba(29,58,107,.15);line-height:1;}
+.phase-title{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#0f0f0f;margin:0 0 6px;}
+.phase-duration{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5b8def;margin-bottom:12px;}
+.phase-desc{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+/* TOOLS */
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.tool-pill{display:inline-block;border:1.5px solid rgba(0,0,0,.18);color:#0f0f0f;font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;background:#fff;}
+/* OUTCOMES */
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.outcome-card{background:#f4f3f1;border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:14px;}
+.outcome-arrow{font-size:20px;color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.outcome-title{font-weight:700;font-size:15px;color:#0f0f0f;}
+/* MENTORS */
+.mentors-section{background:#0f0f0f;}
+.mentors-section .section-label{color:#5b8def;}
+.mentors-section .section-h2{color:#fff;}
+.mentors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;}
+.mentor-card{text-align:center;}
+.mentor-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px;border:3px solid #1d3a6b;}
+.mentor-name{font-family:'Anton',sans-serif;font-size:24px;text-transform:uppercase;color:#fff;margin:0 0 6px;}
+.mentor-role{font-size:13px;font-weight:700;color:#5b8def;margin-bottom:12px;}
+.mentor-bio{font-size:15px;line-height:1.6;color:#ccc;max-width:380px;margin:0 auto;}
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;}
+details{border-bottom:1px solid #e8edf5;padding:0;}
+details:first-child{border-top:1px solid #e8edf5;}
+summary{padding:22px 0;font-size:16px;font-weight:700;color:#0f0f0f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:22px;color:#1d3a6b;font-weight:400;flex-shrink:0;}
+details[open] summary::after{content:'−';}
+.faq-answer{padding:0 0 22px;font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+/* ENQUIRY CTA */
+.enquiry-cta{background:#1d3a6b;text-align:center;}
+.enquiry-cta .section-label{color:#5b8def;justify-content:center;}
+.enquiry-cta .section-h2{color:#fff;max-width:720px;margin-left:auto;margin-right:auto;}
+.enquiry-cta p{color:#cdd6e8;font-size:17px;margin:0 auto 36px;max-width:560px;}
+.btn-white-lg{background:#fff;color:#1d3a6b;padding:16px 36px;border-radius:100px;font-weight:700;font-size:16px;display:inline-block;}
+.btn-white-lg:hover{background:#f4f3f1;}
+/* FOOTER */
+footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.footer-copy{font-size:14px;color:#8a9bb0;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:14px;color:#8a9bb0;font-weight:600;}
+.footer-links a:hover{color:#fff;}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .info-card{margin-top:0;}
+  .for-grid{grid-template-columns:1fr;}
+  .outcomes-grid{grid-template-columns:1fr 1fr;}
+  .mentors-grid{grid-template-columns:1fr;}
+  .phase-card{grid-template-columns:60px 1fr;gap:16px;}
+  .phase-num{font-size:40px;}
+}
+@media(max-width:600px){
+  .hero{padding-top:36px;}
+  .outcomes-grid{grid-template-columns:1fr;}
+  .cta-strip{flex-direction:column;text-align:center;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline,.btn-white{width:100%;text-align:center;display:block;}
+}
+
+/* PORTFOLIO */
+.port-filter-btn{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;border:2px solid #0f0f0f;background:#fff;color:#0f0f0f;transition:all .2s;}
+.port-filter-btn.active{background:#1d3a6b;color:#fff;border-color:#1d3a6b;}
+.port-item{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.08);cursor:pointer;}
+.port-item.hidden{display:none;}
+.port-thumb{aspect-ratio:4/3;overflow:hidden;}
+.port-info{padding:16px 18px;}
+.port-cat-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3a6b;}
+.port-title{font-size:15px;font-weight:700;color:#0f0f0f;margin-top:4px;}
+@media(max-width:768px){#port-dd-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:480px){#port-dd-grid{grid-template-columns:1fr!important;}}
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <a href="../../" class="logo">Future <span>Vision</span></a>
+  <a href="https://wa.me/919825771678" class="btn-wa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;">&#128222; 9825771678</a><a href="../#enquiry" class="btn-primary">Enquire Now &rarr;</a>
+</header>
+
+<!-- JUMP NAV -->
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="jump-nav-inner">
+    <a href="#overview">1. Overview</a>
+    <a href="#curriculum">2. Curriculum</a>
+    <a href="#mentors">3. Mentors</a>
+    <a href="#outcomes">4. Outcomes</a>
+    <a href="#enquire">5. Enquire</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview" style="padding-top:clamp(56px,8vw,96px);">
+  <div class="hero-inner">
+    <div>
+      <p class="section-label">Graphic Designing &middot; Future Vision</p>
+      <h1>Digital Design Course</h1>
+      <p class="hero-subtitle">11 Months for Marketing Professionals</p>
+      <p class="hero-proof">200+ students trained &middot; Surat, Gujarat &middot; Next batch starting soon</p>
+      <ul class="benefits">
+        <li>No prior experience needed</li>
+        <li>Adobe + Figma + Motion tools</li>
+        <li>Portfolio of 10+ real projects</li>
+        <li>Career support &amp; placement guidance</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="../#enquiry" class="btn-primary">Enrol Now &rarr;</a>
+        <a href="../#enquiry" class="btn-outline">Download Brochure</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Duration</span>
+        <span class="info-value">11 Months</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Format</span>
+        <span class="info-value">Offline &mdash; Surat Centres</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Batch Size</span>
+        <span class="info-value">Max 20 Students</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Starts</span>
+        <span class="info-value">Rolling Batches</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<!-- SHOWREEL -->
+<section style="background:#0f0f0f;padding:0;">
+  <div style="max-width:100%;aspect-ratio:16/9;overflow:hidden;">
+    <video src="https://media.shillingtoneducation.com/documents/Graphic_Design_Course_Video_JHoqeXe_1_1.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Limited seats per batch. Speak to us before enrolling.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<!-- WHO IS THIS FOR -->
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Who Is This For</p>
+    <h2 class="section-h2">Is This For Me?</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <h3>Marketing Professionals</h3>
+        <p>You understand brand and audience. Now design end-to-end campaigns without relying on agencies. Take creative ownership of every asset you publish.</p>
+      </div>
+      <div class="for-card">
+        <h3>Content Creators</h3>
+        <p>You post every day. Level up with production-grade design skills and brand-consistent aesthetics that set your content apart from the crowd.</p>
+      </div>
+      <div class="for-card">
+        <h3>Career Changers</h3>
+        <p>No design background needed. Graduate with a portfolio of real marketing assets &mdash; social campaigns, brand kits, ad creatives &mdash; that gets you hired.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <p class="cta-strip-text">Ready to build a career in design? Talk to our team today.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="section-inner">
+    <p class="section-label">Course Curriculum</p>
+    <h2 class="section-h2">11 Months. 6 Phases.</h2>
+    <div class="curriculum-stack">
+
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <div>
+          <p class="phase-title">Design Foundations</p>
+          <p class="phase-duration">Months 1&ndash;2 &middot; Adobe Photoshop &middot; Adobe Illustrator</p>
+          <p class="phase-desc">Start with the two most essential tools in professional design. Learn Photoshop for photo editing, compositing and retouching. Learn Illustrator for logos, vector graphics and brand assets. You&rsquo;ll complete real briefs from week one &mdash; ad banners, social posts and posters. By the end of Phase 1, you can handle any visual production task a marketing team throws at you.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Photoshop: selections, masking, layers, retouching, compositing</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Illustrator: pen tool, shapes, logo construction, icon design</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Typography, colour theory, visual hierarchy, grid systems</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Projects: social media post, event poster, product label</li></ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <div>
+          <p class="phase-title">Brand &amp; Marketing Design</p>
+          <p class="phase-duration">Months 3&ndash;4 &middot; Canva Pro &middot; Adobe Express</p>
+          <p class="phase-desc">Build brand identities and marketing collateral at professional speed. Canva and Adobe Express are not shortcuts &mdash; in marketing teams they are primary tools. You&rsquo;ll learn to customise templates beyond recognition, build brand kits, create email campaign graphics, pitch decks and social media content systems at scale.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Canva Pro: brand kits, team templates, batch design</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Adobe Express: social graphics, flyers, quick campaign assets</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Brand identity: logo system, colour palette, typography hierarchy</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Projects: brand kit, email template series, social content calendar</li></ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <div>
+          <p class="phase-title">Web &amp; UI Design for Marketing</p>
+          <p class="phase-duration">Months 5&ndash;6 &middot; Figma</p>
+          <p class="phase-desc">Every marketing professional needs to design for screens. Figma is the industry standard for web and UI design. You&rsquo;ll design landing pages, hero sections, email layouts and ad creatives that hand off cleanly to developers. No coding required &mdash; you&rsquo;ll learn to think in grids, components and design systems the way product and marketing teams work.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Figma: frames, auto-layout, components, variants, prototyping</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Landing page design, web banner ad systems, mobile layouts</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Responsive design principles, design handoff to developers</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Projects: landing page, mobile screen design, display ad set</li></ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <div>
+          <p class="phase-title">AI-Powered Design Workflows</p>
+          <p class="phase-duration">Months 7&ndash;8 &middot; Adobe Firefly &middot; Midjourney &middot; Ideogram &middot; Canva AI &middot; ChatGPT &middot; Claude &middot; Gemini</p>
+          <p class="phase-desc">AI is not replacing designers &mdash; it is replacing designers who don&rsquo;t use AI. This phase teaches you to generate, edit and direct AI visuals across every major platform. You&rsquo;ll use language models (ChatGPT, Claude, Gemini) to write briefs and generate copy, and image AI (Firefly, Midjourney, Ideogram) to create visuals you refine in Photoshop and Illustrator.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Adobe Firefly: generative fill, text-to-image, style transfer inside Photoshop</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Midjourney &amp; Ideogram: prompt engineering for marketing visuals</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>ChatGPT, Claude &amp; Gemini: brief writing, copy, design ideation</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Canva AI: Magic Write, Dream Lab, background removal at scale</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Projects: AI-assisted campaign, 10 social posts using AI + Photoshop</li></ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">05</div>
+        <div>
+          <p class="phase-title">Video Editing &amp; AI Video</p>
+          <p class="phase-duration">Months 9&ndash;10 &middot; Adobe Premiere Pro &middot; Runway &middot; Google Veo</p>
+          <p class="phase-desc">Video is the dominant format in digital marketing. You&rsquo;ll learn professional editing in Premiere Pro &mdash; cuts, colour grading, captions, transitions &mdash; then layer in AI video generation with Runway and Google Veo to create content that used to require a full production team. Reels, YouTube ads, brand films and product videos all covered.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Premiere Pro: timeline editing, colour grading, captions, export for social</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Runway: text-to-video, image-to-video, AI video effects</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Google Veo: prompt-driven cinematic video generation</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Projects: 30-second brand video, AI-generated product Reel</li></ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">06</div>
+        <div>
+          <p class="phase-title">Portfolio &amp; Career Launch</p>
+          <p class="phase-duration">Month 11 &middot; All Tools</p>
+          <p class="phase-desc">Your final month is dedicated to building a portfolio that gets you hired. Curate 10&ndash;12 projects into a professional case-study portfolio, set up your Behance or personal website, refine your CV and LinkedIn, and present your best work to a panel of industry mentors for live feedback. Placement guidance, mock interviews and client brief simulations included.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Portfolio curation: 10&ndash;12 real-world projects across all 5 phases</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Behance profile + personal portfolio website setup</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>CV, LinkedIn &amp; personal brand makeover</li><li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Mock interviews, client brief simulations, mentor presentation</li></ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Tools You&rsquo;ll Master</p>
+    <h2 class="section-h2">Your Creative Toolkit</h2>
+    <p style="color:#55565a;font-size:16px;margin:0 0 32px;max-width:560px;">6 industry-standard software tools + 9 AI platforms. Graduate knowing the full modern design stack.</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">Software</p>
+    <div class="tools-grid" style="margin-bottom:28px;">
+      <span class="tool-pill">Adobe Photoshop</span>
+      <span class="tool-pill">Adobe Illustrator</span>
+      <span class="tool-pill">Figma</span>
+      <span class="tool-pill">Canva Pro</span>
+      <span class="tool-pill">Adobe Express</span>
+      <span class="tool-pill">Adobe Premiere Pro</span>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">AI Tools</p>
+    <div class="tools-grid">
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">ChatGPT</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Claude</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Gemini</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Adobe Firefly</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Midjourney</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Ideogram</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Canva AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Runway</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Google Veo</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- CAREER OUTCOMES -->
+<section id="outcomes">
+  <div class="section-inner">
+    <p class="section-label">Career Outcomes</p>
+    <h2 class="section-h2">Real Careers</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Brand Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Marketing Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Social Media Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Visual Content Creator</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Art Director (Marketing)</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Freelance Creative</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTORS -->
+<section class="mentors-section" id="mentors">
+  <div class="section-inner">
+    <p class="section-label">Faculty</p>
+    <h2 class="section-h2">Your Mentors</h2>
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="../mansi.jpeg" alt="Mansi Agarwal" class="mentor-photo">
+        <p class="mentor-name">Mansi Agarwal</p>
+        <p class="mentor-role">Graphic &amp; Brand Design Expert</p>
+        <p class="mentor-bio">10+ years in brand design and visual communication. Mansi has worked with FMCG brands, advertising agencies and design studios across Gujarat. She brings real-world briefs and industry-grade critique to every session.</p>
+      </div>
+      <div class="mentor-card">
+        <img src="../subin.jpeg" alt="Subin Vijayan" class="mentor-photo">
+        <p class="mentor-name">Subin Vijayan</p>
+        <p class="mentor-role">UI/UX &amp; Motion Design Expert</p>
+        <p class="mentor-bio">Product designer with experience at tech startups and digital agencies. Subin specialises in building design systems, motion graphics and interaction design, bringing a digital-first lens to every project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-h2">FAQs</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need a design background?</summary>
+        <p class="faq-answer">No. This course starts from zero and builds professional skills systematically. Many students have never used design software before enrolling.</p>
+      </details>
+      <details>
+        <summary>What software do I need?</summary>
+        <p class="faq-answer">Adobe Creative Cloud (student pricing available) and Figma (free plan). You&rsquo;ll need a laptop with at least 8GB RAM. All tools are taught from the beginning.</p>
+      </details>
+      <details>
+        <summary>How long are classes each week?</summary>
+        <p class="faq-answer">3 sessions per week, 3 hours each, at our Surat centres. Classes are kept small &mdash; max 20 students &mdash; for focused, personalised attention.</p>
+      </details>
+      <details>
+        <summary>What do I graduate with?</summary>
+        <p class="faq-answer">A portfolio of 10&ndash;12 production-ready marketing design projects plus a complete brand kit &mdash; ready to show employers or clients.</p>
+      </details>
+      <details>
+        <summary>Is placement assistance provided?</summary>
+        <p class="faq-answer">Yes. Resume curation, portfolio review, interview preparation and placement guidance are all included in the programme.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:#f4f3f1;padding:clamp(64px,9vw,120px) 28px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label">Student Work</p>
+    <h2 class="section-h2" style="margin-bottom:12px;">Portfolio.</h2>
+    <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
+    <div data-port-filters="port-dd-grid" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-dd-grid')">All Work</button>
+      <button type="button" class="port-filter-btn" data-cat="brand" onclick="filterPort(this,'brand','port-dd-grid')">Brand Identity</button>
+      <button type="button" class="port-filter-btn" data-cat="social" onclick="filterPort(this,'social','port-dd-grid')">Social Media</button>
+      <button type="button" class="port-filter-btn" data-cat="motion" onclick="filterPort(this,'motion','port-dd-grid')">Motion</button>
+    </div>
+    <div id="port-dd-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="port-item" data-cat="brand">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/brand1/800/533" alt="Brand Refresh" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Brand Identity</div>
+          <div class="port-title">Brand Refresh</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="brand">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/brand2/800/533" alt="Logo System" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Brand Identity</div>
+          <div class="port-title">Logo System</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="brand">
+        <div class="port-thumb"><video src="../firstintro.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Brand Identity</div>
+          <div class="port-title">Visual Identity</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="social">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/social1/800/533" alt="Instagram Campaign" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Social Media</div>
+          <div class="port-title">Instagram Campaign</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="social">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/social2/800/533" alt="Social Media Kit" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Social Media</div>
+          <div class="port-title">Social Media Kit</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="social">
+        <div class="port-thumb"><video src="../digital-design-course.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Social Media</div>
+          <div class="port-title">Content Calendar Design</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="motion">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/motion1/800/533" alt="Animated Logo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Motion</div>
+          <div class="port-title">Animated Logo</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="motion">
+        <div class="port-thumb"><img src="https://picsum.photos/seed/motion2/800/533" alt="Reel Template" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Motion</div>
+          <div class="port-title">Reel Template</div>
+        </div>
+      </div>
+      <div class="port-item" data-cat="motion">
+        <div class="port-thumb"><video src="../firstintro.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+        <div class="port-info">
+          <div class="port-cat-tag">Motion</div>
+          <div class="port-title">Email Banner GIF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ENQUIRY CTA -->
+<section class="enquiry-cta" id="enquire">
+  <div class="section-inner">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-h2">Ready to Start Your Design Career?</h2>
+    <p>Speak to our team. We&rsquo;ll walk you through batches, what to expect and answer every question &mdash; honestly.</p>
+    <a href="../#enquiry" class="btn-white-lg">Enquire Now &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2025 Future Vision Computers Institute &middot; Surat, Gujarat</p>
+    <div class="footer-links">
+      <a href="../../">Home</a>
+      <a href="../">Graphic Designing</a>
+      <a href="../#enquiry">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
+  });
+}
+</script>
+</body>
+</html>

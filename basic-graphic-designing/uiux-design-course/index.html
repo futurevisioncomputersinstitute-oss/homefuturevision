@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX/UI Design Course (5 Months) | Future Vision Computers Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:'Space Grotesk',sans-serif;overflow-x:clip;color:#0f0f0f;background:#fff;}
+a{text-decoration:none;color:inherit;}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;top:0;left:0;right:0;height:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:1000;display:flex;align-items:center;padding:0 28px;justify-content:space-between;}
+.logo{font-family:'Anton',sans-serif;font-size:20px;color:#1d3a6b;letter-spacing:.02em;}
+.logo span{color:#5b8def;}
+.btn-primary{background:#0f0f0f;color:#fff;padding:11px 24px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{background:#1d3a6b;}
+.jump-nav{position:sticky;top:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:100;padding:0 28px;}
+.jump-nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.jump-nav-inner::-webkit-scrollbar{display:none;}
+.jump-nav a{display:block;padding:16px 20px;font-size:13px;font-weight:600;color:#55565a;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.jump-nav a:hover{color:#0f0f0f;border-bottom-color:#1d3a6b;}
+.hero{padding:clamp(72px,10vw,120px) 28px clamp(64px,9vw,100px);background:#fff;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:start;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d3a6b;margin-bottom:20px;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(52px,8vw,92px);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:#0f0f0f;margin:0 0 24px;}
+.hero-subtitle{font-size:clamp(17px,2vw,21px);font-weight:600;color:#0f0f0f;margin:0 0 16px;}
+.hero-proof{font-size:14px;color:#55565a;margin:0 0 28px;}
+.benefits{list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:10px;}
+.benefits li{font-size:15px;color:#0f0f0f;display:flex;gap:10px;align-items:flex-start;}
+.benefits li::before{content:'✓';color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-outline{background:transparent;color:#0f0f0f;border:2px solid #0f0f0f;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;cursor:pointer;}
+.btn-outline:hover{background:#0f0f0f;color:#fff;}
+.info-card{background:#f4f3f1;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;align-self:start;margin-top:40px;}
+.info-row{display:flex;flex-direction:column;gap:4px;padding-bottom:20px;border-bottom:1px solid #dde3ea;}
+.info-row:last-child{padding-bottom:0;border-bottom:none;}
+.info-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8a9bb0;}
+.info-value{font-size:15px;font-weight:700;color:#0f0f0f;}
+.cta-strip{background:#0f0f0f;padding:40px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-strip-text{font-size:clamp(16px,2vw,20px);font-weight:700;color:#fff;}
+.btn-white{background:#fff;color:#0f0f0f;padding:13px 28px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;white-space:nowrap;}
+.btn-white:hover{background:#f4f3f1;}
+section{padding:clamp(64px,9vw,120px) 28px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-h2{font-family:'Anton',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;color:#0f0f0f;margin:0 0 48px;line-height:1;}
+.for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.for-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.for-card h3{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#1d3a6b;margin:0 0 14px;}
+.for-card p{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.curriculum-stack{display:flex;flex-direction:column;gap:20px;}
+.phase-card{background:#f4f3f1;border-radius:12px;padding:32px;border-left:4px solid #1d3a6b;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;}
+.phase-num{font-family:'Anton',sans-serif;font-size:56px;color:rgba(29,58,107,.15);line-height:1;}
+.phase-title{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#0f0f0f;margin:0 0 6px;}
+.phase-duration{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5b8def;margin-bottom:12px;}
+.phase-desc{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.tool-pill{display:inline-block;border:1.5px solid rgba(0,0,0,.18);color:#0f0f0f;font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;background:#fff;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.outcome-card{background:#f4f3f1;border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:14px;}
+.outcome-arrow{font-size:20px;color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.outcome-title{font-weight:700;font-size:15px;color:#0f0f0f;}
+.mentors-section{background:#0f0f0f;}
+.mentors-section .section-label{color:#5b8def;}
+.mentors-section .section-h2{color:#fff;}
+.mentors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;}
+.mentor-card{text-align:center;}
+.mentor-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px;border:3px solid #1d3a6b;}
+.mentor-name{font-family:'Anton',sans-serif;font-size:24px;text-transform:uppercase;color:#fff;margin:0 0 6px;}
+.mentor-role{font-size:13px;font-weight:700;color:#5b8def;margin-bottom:12px;}
+.mentor-bio{font-size:15px;line-height:1.6;color:#ccc;max-width:380px;margin:0 auto;}
+.faq-list{display:flex;flex-direction:column;gap:0;}
+details{border-bottom:1px solid #e8edf5;padding:0;}
+details:first-child{border-top:1px solid #e8edf5;}
+summary{padding:22px 0;font-size:16px;font-weight:700;color:#0f0f0f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:22px;color:#1d3a6b;font-weight:400;flex-shrink:0;}
+details[open] summary::after{content:'−';}
+.faq-answer{padding:0 0 22px;font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.enquiry-cta{background:#1d3a6b;text-align:center;}
+.enquiry-cta .section-label{color:#5b8def;}
+.enquiry-cta .section-h2{color:#fff;max-width:720px;margin-left:auto;margin-right:auto;}
+.enquiry-cta p{color:#cdd6e8;font-size:17px;margin:0 auto 36px;max-width:560px;}
+.btn-white-lg{background:#fff;color:#1d3a6b;padding:16px 36px;border-radius:100px;font-weight:700;font-size:16px;display:inline-block;}
+.btn-white-lg:hover{background:#f4f3f1;}
+footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.footer-copy{font-size:14px;color:#8a9bb0;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:14px;color:#8a9bb0;font-weight:600;}
+.footer-links a:hover{color:#fff;}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .info-card{margin-top:0;}
+  .for-grid{grid-template-columns:1fr;}
+  .outcomes-grid{grid-template-columns:1fr 1fr;}
+  .mentors-grid{grid-template-columns:1fr;}
+  .phase-card{grid-template-columns:60px 1fr;gap:16px;}
+  .phase-num{font-size:40px;}
+}
+@media(max-width:600px){
+  .hero{padding-top:36px;}
+  .outcomes-grid{grid-template-columns:1fr;}
+  .cta-strip{flex-direction:column;text-align:center;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline,.btn-white{width:100%;text-align:center;display:block;}
+}
+
+/* PORTFOLIO */
+.port-filter-btn{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;border:2px solid #0f0f0f;background:#fff;color:#0f0f0f;transition:all .2s;}
+.port-filter-btn.active{background:#1d3a6b;color:#fff;border-color:#1d3a6b;}
+.port-item{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.08);cursor:pointer;}
+.port-item.hidden{display:none;}
+.port-thumb{aspect-ratio:4/3;overflow:hidden;}
+.port-info{padding:16px 18px;}
+.port-cat-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3a6b;}
+.port-title{font-size:15px;font-weight:700;color:#0f0f0f;margin-top:4px;}
+@media(max-width:768px){#port-ux-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:480px){#port-ux-grid{grid-template-columns:1fr!important;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../" class="logo">Future <span>Vision</span></a>
+  <a href="https://wa.me/919825771678" class="btn-wa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;">&#128222; 9825771678</a><a href="../#enquiry" class="btn-primary">Enquire Now &rarr;</a>
+</header>
+
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="jump-nav-inner">
+    <a href="#overview">1. Overview</a>
+    <a href="#curriculum">2. Curriculum</a>
+    <a href="#mentors">3. Mentors</a>
+    <a href="#outcomes">4. Outcomes</a>
+    <a href="#enquire">5. Enquire</a>
+  </div>
+</nav>
+
+<section class="hero" id="overview" style="padding-top:clamp(56px,8vw,96px);">
+  <div class="hero-inner">
+    <div>
+      <p class="section-label">Graphic Designing &middot; Future Vision</p>
+      <h1>UX/UI Design Course</h1>
+      <p class="hero-subtitle">5 Months &middot; Product &amp; Interface Design</p>
+      <p class="hero-proof">150+ students trained &middot; Surat, Gujarat &middot; Next batch starting soon</p>
+      <ul class="benefits">
+        <li>Research to high-fidelity prototype</li>
+        <li>Figma mastery from scratch</li>
+        <li>4&ndash;6 complete UX case studies</li>
+        <li>Career support &amp; placement guidance</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="../#enquiry" class="btn-primary">Enrol Now &rarr;</a>
+        <a href="../#enquiry" class="btn-outline">Download Brochure</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Duration</span>
+        <span class="info-value">5 Months</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Format</span>
+        <span class="info-value">Offline &mdash; Surat Centres</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Batch Size</span>
+        <span class="info-value">Max 15 Students</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Starts</span>
+        <span class="info-value">Rolling Batches</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWREEL -->
+<section style="background:#0f0f0f;padding:0;">
+  <div style="max-width:100%;aspect-ratio:16/9;overflow:hidden;">
+    <video src="https://media.shillingtoneducation.com/documents/Graphic_Design_Course_Video_JHoqeXe_1_1.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Limited seats per batch. Speak to us before enrolling.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Who Is This For</p>
+    <h2 class="section-h2">Is This For Me?</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <h3>Graphic &amp; Visual Designers</h3>
+        <p>You have visual skills. Now add UX research, information architecture and interaction design to work on apps and digital products at the highest level.</p>
+      </div>
+      <div class="for-card">
+        <h3>Developers &amp; Tech Professionals</h3>
+        <p>You build products but want to design them. Understanding UX makes you a rare full-stack contributor every product team wants on board.</p>
+      </div>
+      <div class="for-card">
+        <h3>Career Changers</h3>
+        <p>Psychology, communications, business or arts background &mdash; your thinking skills are an asset in UX research. This course adds the craft to your instinct.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Ready to design digital products people love? Let&rsquo;s talk.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section id="curriculum">
+  <div class="section-inner">
+    <p class="section-label">Course Curriculum</p>
+    <h2 class="section-h2">5 Months. 5 Phases.</h2>
+    <div class="curriculum-stack">
+
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <div>
+          <p class="phase-title">UX Research &amp; Strategy</p>
+          <p class="phase-duration">Month 1 &middot; FigJam &middot; Notion AI &middot; NotebookLM &middot; Perplexity &middot; ChatGPT &middot; Claude &middot; Gemini</p>
+          <p class="phase-desc">Great design starts with understanding people. You&rsquo;ll learn the full UX research toolkit &mdash; user interviews, surveys, competitor analysis and synthesis &mdash; and use AI to accelerate every step. NotebookLM and Perplexity become your research assistants. ChatGPT, Claude and Gemini help you analyse data, write research reports and generate user scenarios at speed. FigJam is where all research gets mapped visually.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>User research methods: interviews, surveys, contextual inquiry</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>FigJam: collaborative empathy maps, affinity diagrams, user journey maps</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>AI research: NotebookLM for insight extraction, Perplexity for competitive analysis</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>ChatGPT, Claude, Gemini: personas, user stories, problem statement writing</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Notion AI: research documentation, project management for UX sprints</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: persona deck, user journey map, research report</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <div>
+          <p class="phase-title">Wireframing &amp; Information Architecture</p>
+          <p class="phase-duration">Month 2 &middot; Figma &middot; FigJam &middot; Uizard &middot; Galileo AI &middot; Relume AI</p>
+          <p class="phase-desc">Turn research into structure. You&rsquo;ll learn information architecture &mdash; how to organise content so users find what they need &mdash; then build low and mid-fidelity wireframes in Figma. AI tools like Uizard, Galileo AI and Relume AI let you generate initial wireframe directions from text prompts, which you then evaluate, critique and refine. This phase teaches you to think before you design.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Information architecture: sitemaps, card sorting, user flows, navigation systems</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Figma: low-fi and mid-fi wireframes, frames, layout grids, auto-layout</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Uizard &amp; Galileo AI: prompt-to-wireframe, sketch-to-UI conversion</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Relume AI: sitemap and wireframe generation for web projects</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: full app sitemap, annotated wireframe set (20+ screens)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <div>
+          <p class="phase-title">High-Fidelity UI Design</p>
+          <p class="phase-duration">Month 3 &middot; Figma &middot; Figma AI &middot; Adobe Photoshop &middot; Photoshop AI &middot; Adobe Firefly &middot; Canva &middot; Canva AI</p>
+          <p class="phase-desc">This is where the product comes to life visually. You&rsquo;ll build pixel-perfect screens, design systems and component libraries in Figma. Figma AI accelerates repetitive tasks and helps generate design variants. Photoshop and Firefly create custom imagery. Canva fills rapid marketing and onboarding asset needs. You&rsquo;ll design for mobile, tablet and desktop with full responsive logic.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Figma: high-fidelity UI, design systems, component libraries, variables, tokens</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Figma AI: auto-rename layers, design suggestions, content generation</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Photoshop + Photoshop AI: custom hero images, background removal, generative expand</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Adobe Firefly: text-to-image, generative fill for UI illustration assets</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Canva + Canva AI: onboarding illustrations, app store screenshots, marketing screens</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: complete UI design system + 40+ high-fidelity screens</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <div>
+          <p class="phase-title">Prototyping, No-Code &amp; AI Dev Tools</p>
+          <p class="phase-duration">Month 4 &middot; Figma &middot; Framer &middot; Webflow &middot; Lovable &middot; v0 &middot; Bolt.new</p>
+          <p class="phase-desc">Modern UX designers are expected to go beyond static screens. You&rsquo;ll build interactive Figma prototypes, then use Framer and Webflow to create live websites from your designs &mdash; no code needed. The real edge in this phase is AI dev tools: Lovable, v0 and Bolt.new let you generate full working interfaces from prompts, which you design, direct and refine. You become the designer who can ship.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Figma: advanced prototyping, micro-interactions, smart animate, usability testing</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Framer: component-based web design, animations, CMS, publish to live URL</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Webflow: visual web builder, interactions, CMS collections, responsive layout</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Lovable, v0 &amp; Bolt.new: AI-generated UI code, prompt-to-product workflows</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: interactive prototype, live Framer or Webflow site, AI-built app screen</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">05</div>
+        <div>
+          <p class="phase-title">Portfolio, Case Studies &amp; Career Launch</p>
+          <p class="phase-duration">Month 5 &middot; All Tools &middot; Notion AI &middot; Claude &middot; ChatGPT</p>
+          <p class="phase-desc">Your UX portfolio is your interview. This phase is entirely dedicated to curating, writing and presenting 3&ndash;5 complete UX case studies that walk hiring managers through your research-to-design process. Claude and ChatGPT sharpen your case study writing. Notion AI organises your process documentation. You receive live feedback from mentors in mock portfolio reviews and interview simulations.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>3&ndash;5 complete UX case studies: problem, research, wireframes, UI, outcome</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Portfolio website built in Framer or Webflow</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Claude &amp; ChatGPT: case study copy, cover letter writing, LinkedIn bio</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Mock interviews, portfolio presentations, mentor feedback sessions</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Placement guidance: resume, LinkedIn, job application strategy</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Tools You&rsquo;ll Master</p>
+    <h2 class="section-h2">Your Creative Toolkit</h2>
+    <p style="color:#55565a;font-size:16px;margin:0 0 32px;max-width:560px;">6 industry-standard software tools + 16 AI platforms. The most AI-forward UX curriculum in Surat.</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">Software</p>
+    <div class="tools-grid" style="margin-bottom:28px;">
+      <span class="tool-pill">Figma</span>
+      <span class="tool-pill">FigJam</span>
+      <span class="tool-pill">Adobe Photoshop</span>
+      <span class="tool-pill">Canva</span>
+      <span class="tool-pill">Framer</span>
+      <span class="tool-pill">Webflow</span>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">AI Tools</p>
+    <div class="tools-grid">
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">ChatGPT</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Claude</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Gemini</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Perplexity</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">NotebookLM</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Figma AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Galileo AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Uizard</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Relume AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Lovable</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">v0</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Bolt.new</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Adobe Firefly</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Photoshop AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Canva AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Notion AI</span>
+    </div>
+  </div>
+</section>
+
+<section id="outcomes">
+  <div class="section-inner">
+    <p class="section-label">Career Outcomes</p>
+    <h2 class="section-h2">Real Careers</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UX Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UI Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Product Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Interaction Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">UX Researcher</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Digital Product Consultant</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mentors-section" id="mentors">
+  <div class="section-inner">
+    <p class="section-label">Faculty</p>
+    <h2 class="section-h2">Your Mentors</h2>
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="../mansi.jpeg" alt="Mansi Agarwal" class="mentor-photo">
+        <p class="mentor-name">Mansi Agarwal</p>
+        <p class="mentor-role">Graphic &amp; Brand Design Expert</p>
+        <p class="mentor-bio">10+ years in brand design and visual communication. Mansi has worked with FMCG brands, advertising agencies and design studios across Gujarat. She brings real-world briefs and industry-grade critique to every session.</p>
+      </div>
+      <div class="mentor-card">
+        <img src="../subin.jpeg" alt="Subin Vijayan" class="mentor-photo">
+        <p class="mentor-name">Subin Vijayan</p>
+        <p class="mentor-role">UI/UX &amp; Motion Design Expert</p>
+        <p class="mentor-bio">Product designer with experience at tech startups and digital agencies. Subin specialises in building design systems, motion graphics and interaction design, bringing a digital-first lens to every project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-h2">FAQs</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need coding skills?</summary>
+        <p class="faq-answer">No. Design skills are the focus. Basic HTML/CSS awareness is a bonus but not a requirement. You&rsquo;ll leave with Figma and Webflow skills that cover most digital design workflows.</p>
+      </details>
+      <details>
+        <summary>Is 5 months enough to get job-ready?</summary>
+        <p class="faq-answer">Yes. The curriculum is intensive and project-led. You graduate with 4&ndash;6 full UX case studies &mdash; more than most applicants at entry level.</p>
+      </details>
+      <details>
+        <summary>What&rsquo;s the difference between UX and UI?</summary>
+        <p class="faq-answer">UX covers research, structure and logic &mdash; how a product works. UI covers visual design and interaction &mdash; how it looks and feels. This course teaches both in depth.</p>
+      </details>
+      <details>
+        <summary>Will I work on real briefs?</summary>
+        <p class="faq-answer">Yes. Every phase uses industry-style briefs across fintech, healthcare, e-commerce and SaaS. Your portfolio will show real-world problem-solving, not just exercises.</p>
+      </details>
+      <details>
+        <summary>Is placement support provided?</summary>
+        <p class="faq-answer">Portfolio reviews, interview preparation and placement guidance are all included. Our support is structured and active throughout and after the programme.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section style="background:#f4f3f1;padding:clamp(64px,9vw,120px) 28px;" id="portfolio">
+  <div class="section-inner">
+    <p class="section-label">Student Work</p>
+    <h2 class="section-h2">Portfolio.</h2>
+    <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
+    <div data-port-filters="port-ux-grid" id="port-ux-filters" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-ux-grid')">All</button>
+      <button type="button" class="port-filter-btn" data-cat="research" onclick="filterPort(this,'research','port-ux-grid')">UX Research</button>
+      <button type="button" class="port-filter-btn" data-cat="wireframe" onclick="filterPort(this,'wireframe','port-ux-grid')">Wireframes</button>
+      <button type="button" class="port-filter-btn" data-cat="ui" onclick="filterPort(this,'ui','port-ux-grid')">UI Design</button>
+    </div>
+    <div id="port-ux-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="port-item" data-cat="research"><div class="port-thumb"><img src="https://picsum.photos/seed/ux1/800/533" alt="User Journey Map" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UX Research</div><div class="port-title">User Journey Map</div></div></div>
+      <div class="port-item" data-cat="research"><div class="port-thumb"><img src="https://picsum.photos/seed/ux2/800/533" alt="Persona Sheet" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UX Research</div><div class="port-title">Persona Sheet</div></div></div>
+      <div class="port-item" data-cat="research"><div class="port-thumb"><img src="https://picsum.photos/seed/ux3/800/533" alt="Research Report" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UX Research</div><div class="port-title">Research Report</div></div></div>
+      <div class="port-item" data-cat="wireframe"><div class="port-thumb"><img src="https://picsum.photos/seed/wire1/800/533" alt="App Wireframe" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Wireframes</div><div class="port-title">App Wireframe</div></div></div>
+      <div class="port-item" data-cat="wireframe"><div class="port-thumb"><img src="https://picsum.photos/seed/wire2/800/533" alt="Information Architecture" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Wireframes</div><div class="port-title">Information Architecture</div></div></div>
+      <div class="port-item" data-cat="wireframe"><div class="port-thumb"><video src="../uiux.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div><div class="port-info"><div class="port-cat-tag">Wireframes</div><div class="port-title">Low-Fi Prototype</div></div></div>
+      <div class="port-item" data-cat="ui"><div class="port-thumb"><img src="https://picsum.photos/seed/ui1/800/533" alt="Mobile App UI" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UI Design</div><div class="port-title">Mobile App UI</div></div></div>
+      <div class="port-item" data-cat="ui"><div class="port-thumb"><img src="https://picsum.photos/seed/ui2/800/533" alt="Dashboard Design" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">UI Design</div><div class="port-title">Dashboard Design</div></div></div>
+      <div class="port-item" data-cat="ui"><div class="port-thumb"><video src="../uiux.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div><div class="port-info"><div class="port-cat-tag">UI Design</div><div class="port-title">E-Commerce UI</div></div></div>
+    </div>
+  </div>
+</section>
+<section class="enquiry-cta" id="enquire">
+  <div class="section-inner">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-h2">Ready to Start Your Design Career?</h2>
+    <p>Speak to our team. We&rsquo;ll walk you through batches, what to expect and answer every question &mdash; honestly.</p>
+    <a href="../#enquiry" class="btn-white-lg">Enquire Now &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2025 Future Vision Computers Institute &middot; Surat, Gujarat</p>
+    <div class="footer-links">
+      <a href="../../">Home</a>
+      <a href="../">Graphic Designing</a>
+      <a href="../#enquiry">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
+  });
+}
+</script>
+</body>
+</html>

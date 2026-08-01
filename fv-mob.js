@@ -35,7 +35,6 @@
       icon: '&#x1F3A8;',
       courses: [
         ['Graphic Design + AI Course', 'graphic-designing/'],
-        ['Advance Graphic Design Course', '#'],
         ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
         ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
         ['Advanced Certificate in Digital Design & Advertisement with Gen AI', '#'],
@@ -47,7 +46,7 @@
       courses: [
         ['Computer Basics & Gen AI Foundation', 'computer-basics-genai/'],
         ['Professional Office & Generative AI Essentials', 'professional-office-genai/'],
-        ['Basic Graphic Designing Course', '#'],
+        ['Basic Graphic Designing Course', 'basic-graphic-designing/'],
       ]
     },
     {
@@ -57,7 +56,6 @@
         ['Advanced Data Analytics', 'data-analytics/'],
         ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
         ['Advanced Certificate in Python & Agentic AI', 'pythonagentic-ai/'],
-        ['Advance Graphic Design Course', '#'],
         ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
         ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
         ['Advanced Certificate in Digital Design & Advertisement with Gen AI', '#'],

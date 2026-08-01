@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Package Design Course (6 Months) | Future Vision Computers Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:'Space Grotesk',sans-serif;overflow-x:clip;color:#0f0f0f;background:#fff;}
+a{text-decoration:none;color:inherit;}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;top:0;left:0;right:0;height:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:1000;display:flex;align-items:center;padding:0 28px;justify-content:space-between;}
+.logo{font-family:'Anton',sans-serif;font-size:20px;color:#1d3a6b;letter-spacing:.02em;}
+.logo span{color:#5b8def;}
+.btn-primary{background:#0f0f0f;color:#fff;padding:11px 24px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;}
+.btn-primary:hover{background:#1d3a6b;}
+.jump-nav{position:sticky;top:64px;background:#fff;border-bottom:1px solid #e8edf5;z-index:100;padding:0 28px;}
+.jump-nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.jump-nav-inner::-webkit-scrollbar{display:none;}
+.jump-nav a{display:block;padding:16px 20px;font-size:13px;font-weight:600;color:#55565a;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.jump-nav a:hover{color:#0f0f0f;border-bottom-color:#1d3a6b;}
+.hero{padding:clamp(72px,10vw,120px) 28px clamp(64px,9vw,100px);background:#fff;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:start;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1d3a6b;margin-bottom:20px;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(52px,8vw,92px);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:#0f0f0f;margin:0 0 24px;}
+.hero-subtitle{font-size:clamp(17px,2vw,21px);font-weight:600;color:#0f0f0f;margin:0 0 16px;}
+.hero-proof{font-size:14px;color:#55565a;margin:0 0 28px;}
+.benefits{list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:10px;}
+.benefits li{font-size:15px;color:#0f0f0f;display:flex;gap:10px;align-items:flex-start;}
+.benefits li::before{content:'✓';color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-outline{background:transparent;color:#0f0f0f;border:2px solid #0f0f0f;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;cursor:pointer;}
+.btn-outline:hover{background:#0f0f0f;color:#fff;}
+.info-card{background:#f4f3f1;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;align-self:start;margin-top:40px;}
+.info-row{display:flex;flex-direction:column;gap:4px;padding-bottom:20px;border-bottom:1px solid #dde3ea;}
+.info-row:last-child{padding-bottom:0;border-bottom:none;}
+.info-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8a9bb0;}
+.info-value{font-size:15px;font-weight:700;color:#0f0f0f;}
+.cta-strip{background:#0f0f0f;padding:40px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-strip-text{font-size:clamp(16px,2vw,20px);font-weight:700;color:#fff;}
+.btn-white{background:#fff;color:#0f0f0f;padding:13px 28px;border-radius:100px;font-weight:700;font-size:14px;font-family:'Space Grotesk',sans-serif;white-space:nowrap;}
+.btn-white:hover{background:#f4f3f1;}
+section{padding:clamp(64px,9vw,120px) 28px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-h2{font-family:'Anton',sans-serif;font-size:clamp(32px,5vw,56px);text-transform:uppercase;color:#0f0f0f;margin:0 0 48px;line-height:1;}
+.for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.for-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.for-card h3{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#1d3a6b;margin:0 0 14px;}
+.for-card p{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.curriculum-stack{display:flex;flex-direction:column;gap:20px;}
+.phase-card{background:#f4f3f1;border-radius:12px;padding:32px;border-left:4px solid #1d3a6b;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;}
+.phase-num{font-family:'Anton',sans-serif;font-size:56px;color:rgba(29,58,107,.15);line-height:1;}
+.phase-title{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#0f0f0f;margin:0 0 6px;}
+.phase-duration{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5b8def;margin-bottom:12px;}
+.phase-desc{font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.tool-pill{display:inline-block;border:1.5px solid rgba(0,0,0,.18);color:#0f0f0f;font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;background:#fff;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.outcome-card{background:#f4f3f1;border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:14px;}
+.outcome-arrow{font-size:20px;color:#1d3a6b;font-weight:800;flex-shrink:0;}
+.outcome-title{font-weight:700;font-size:15px;color:#0f0f0f;}
+.mentors-section{background:#0f0f0f;}
+.mentors-section .section-label{color:#5b8def;}
+.mentors-section .section-h2{color:#fff;}
+.mentors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;}
+.mentor-card{text-align:center;}
+.mentor-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 20px;border:3px solid #1d3a6b;}
+.mentor-name{font-family:'Anton',sans-serif;font-size:24px;text-transform:uppercase;color:#fff;margin:0 0 6px;}
+.mentor-role{font-size:13px;font-weight:700;color:#5b8def;margin-bottom:12px;}
+.mentor-bio{font-size:15px;line-height:1.6;color:#ccc;max-width:380px;margin:0 auto;}
+.faq-list{display:flex;flex-direction:column;gap:0;}
+details{border-bottom:1px solid #e8edf5;padding:0;}
+details:first-child{border-top:1px solid #e8edf5;}
+summary{padding:22px 0;font-size:16px;font-weight:700;color:#0f0f0f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:'+';font-size:22px;color:#1d3a6b;font-weight:400;flex-shrink:0;}
+details[open] summary::after{content:'−';}
+.faq-answer{padding:0 0 22px;font-size:15px;line-height:1.6;color:#55565a;margin:0;}
+.enquiry-cta{background:#1d3a6b;text-align:center;}
+.enquiry-cta .section-label{color:#5b8def;}
+.enquiry-cta .section-h2{color:#fff;max-width:720px;margin-left:auto;margin-right:auto;}
+.enquiry-cta p{color:#cdd6e8;font-size:17px;margin:0 auto 36px;max-width:560px;}
+.btn-white-lg{background:#fff;color:#1d3a6b;padding:16px 36px;border-radius:100px;font-weight:700;font-size:16px;display:inline-block;}
+.btn-white-lg:hover{background:#f4f3f1;}
+footer{background:#0f0f0f;padding:40px 28px;text-align:center;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.footer-copy{font-size:14px;color:#8a9bb0;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:14px;color:#8a9bb0;font-weight:600;}
+.footer-links a:hover{color:#fff;}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .info-card{margin-top:0;}
+  .for-grid{grid-template-columns:1fr;}
+  .outcomes-grid{grid-template-columns:1fr 1fr;}
+  .mentors-grid{grid-template-columns:1fr;}
+  .phase-card{grid-template-columns:60px 1fr;gap:16px;}
+  .phase-num{font-size:40px;}
+}
+@media(max-width:600px){
+  .hero{padding-top:36px;}
+  .outcomes-grid{grid-template-columns:1fr;}
+  .cta-strip{flex-direction:column;text-align:center;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary,.btn-outline,.btn-white{width:100%;text-align:center;display:block;}
+}
+
+/* PORTFOLIO */
+.port-filter-btn{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;border:2px solid #0f0f0f;background:#fff;color:#0f0f0f;transition:all .2s;}
+.port-filter-btn.active{background:#1d3a6b;color:#fff;border-color:#1d3a6b;}
+.port-item{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.08);cursor:pointer;}
+.port-item.hidden{display:none;}
+.port-thumb{aspect-ratio:4/3;overflow:hidden;}
+.port-info{padding:16px 18px;}
+.port-cat-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d3a6b;}
+.port-title{font-size:15px;font-weight:700;color:#0f0f0f;margin-top:4px;}
+@media(max-width:768px){#port-pkg-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:480px){#port-pkg-grid{grid-template-columns:1fr!important;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../" class="logo">Future <span>Vision</span></a>
+  <a href="https://wa.me/919825771678" class="btn-wa" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;">&#128222; 9825771678</a><a href="../#enquiry" class="btn-primary">Enquire Now &rarr;</a>
+</header>
+
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="jump-nav-inner">
+    <a href="#overview">1. Overview</a>
+    <a href="#curriculum">2. Curriculum</a>
+    <a href="#mentors">3. Mentors</a>
+    <a href="#outcomes">4. Outcomes</a>
+    <a href="#enquire">5. Enquire</a>
+  </div>
+</nav>
+
+<section class="hero" id="overview" style="padding-top:clamp(56px,8vw,96px);">
+  <div class="hero-inner">
+    <div>
+      <p class="section-label">Graphic Designing &middot; Future Vision</p>
+      <h1>Package Design Course</h1>
+      <p class="hero-subtitle">6 Months &middot; Structural &amp; 3D Packaging</p>
+      <p class="hero-proof">100+ students trained &middot; Surat, Gujarat &middot; Next batch starting soon</p>
+      <ul class="benefits">
+        <li>Dieline to shelf-ready pack</li>
+        <li>3D visualisation with Blender + Dimension</li>
+        <li>6 complete packaging projects</li>
+        <li>Career support &amp; placement guidance</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="../#enquiry" class="btn-primary">Enrol Now &rarr;</a>
+        <a href="../#enquiry" class="btn-outline">Download Brochure</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">Duration</span>
+        <span class="info-value">6 Months</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Format</span>
+        <span class="info-value">Offline &mdash; Surat Centres</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Batch Size</span>
+        <span class="info-value">Max 15 Students</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Starts</span>
+        <span class="info-value">Rolling Batches</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWREEL -->
+<section style="background:#0f0f0f;padding:0;">
+  <div style="max-width:100%;aspect-ratio:16/9;overflow:hidden;">
+    <video src="https://media.shillingtoneducation.com/documents/Graphic_Design_Course_Video_JHoqeXe_1_1.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Limited seats per batch. Speak to us before enrolling.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Who Is This For</p>
+    <h2 class="section-h2">Is This For Me?</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <h3>Graphic Designers</h3>
+        <p>Specialise in one of the highest-paying design niches. Packaging designers are consistently in demand across FMCG, pharma and retail — and in short supply.</p>
+      </div>
+      <div class="for-card">
+        <h3>Product &amp; Industrial Designers</h3>
+        <p>You understand form and manufacturing. Now add the visual brand layer &mdash; surface design, print production and commercial packaging aesthetics that sell.</p>
+      </div>
+      <div class="for-card">
+        <h3>Brand &amp; Marketing Professionals</h3>
+        <p>You brief packaging agencies. This course gives you the skills to art-direct with precision &mdash; or execute the work yourself when the brief demands it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <p class="cta-strip-text">Design the packs that line retail shelves. Speak to our team.</p>
+  <a href="../#enquiry" class="btn-white">Enquire Now &rarr;</a>
+</div>
+
+<section id="curriculum">
+  <div class="section-inner">
+    <p class="section-label">Course Curriculum</p>
+    <h2 class="section-h2">6 Months. 6 Phases.</h2>
+    <div class="curriculum-stack">
+
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <div>
+          <p class="phase-title">Brand Fundamentals &amp; Vector Design</p>
+          <p class="phase-duration">Month 1 &middot; Adobe Illustrator &middot; ChatGPT &middot; Claude &middot; Gemini &middot; Perplexity &middot; NotebookLM</p>
+          <p class="phase-desc">Every great package starts with a brand that is understood. You&rsquo;ll master Adobe Illustrator from scratch &mdash; vector drawing, the Pen tool, bezier curves, typography, logo construction and colour theory for print. In parallel, AI tools become your research engine: Perplexity and NotebookLM for competitive market analysis, ChatGPT, Claude and Gemini for writing brand strategy briefs, naming concepts and target audience profiles that inform every design decision.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Illustrator: vector fundamentals, Pen tool, Pathfinder, type, colour systems</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Logo and wordmark construction for packaging identity</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Perplexity &amp; NotebookLM: market research, competitor shelf analysis</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>ChatGPT, Claude, Gemini: brand brief writing, naming, audience personas</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Print colour: CMYK, Pantone, spot colour, ink trapping basics</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: brand identity kit, colour palette, typography system</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <div>
+          <p class="phase-title">Packaging Structure &amp; Dieline Design</p>
+          <p class="phase-duration">Month 2 &middot; Adobe Illustrator &middot; Canva &middot; ChatGPT &middot; Claude</p>
+          <p class="phase-desc">Packaging is a 3D problem solved on a flat surface. You&rsquo;ll learn structural design &mdash; how boxes, sleeves, pouches, tubes and labels are engineered &mdash; and build technical dielines in Illustrator with bleed, safe zones and fold marks. Canva handles rapid concept layouts for label design and social mockups. ChatGPT and Claude help generate copy frameworks, regulatory text blocks and ingredient list structures so the design and copy always work together.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Dieline construction: boxes, cartons, sleeves, pouches, bottle labels</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Illustrator: bleed, safe zones, fold/cut lines, layer organisation for print</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Canva: quick label layouts, digital mockups, social media packaging shots</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>ChatGPT &amp; Claude: packaging copy, ingredient lists, regulatory text, nutritional claims</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Prepress: print-ready file preparation, preflight checklist</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: 3 complete dielines with all print panels designed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <div>
+          <p class="phase-title">Product Photography &amp; Image Retouching</p>
+          <p class="phase-duration">Month 3 &middot; Adobe Photoshop &middot; Photoshop AI &middot; Adobe Firefly</p>
+          <p class="phase-desc">Premium packaging demands premium imagery. You&rsquo;ll learn Adobe Photoshop inside out for product retouching &mdash; clipping paths, colour correction, light manipulation and surface texture work. Photoshop AI&rsquo;s generative expand and object removal tools transform complex retouching tasks into seconds. Adobe Firefly generates photorealistic backgrounds, surface textures and abstract compositions that would take hours to shoot or source, all fully commercial-use safe.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Photoshop: layer masking, clipping paths, adjustment layers, smart objects</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Product retouching: colour correction, glare removal, surface cleaning</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Photoshop AI: generative expand, object removal, background replacement</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Adobe Firefly: text-to-image backgrounds, texture generation, atmospheric scenes</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>E-commerce packaging shots: white background, lifestyle, detail crops</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: full retouched image set for 2 packaging projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <div>
+          <p class="phase-title">3D Packaging &amp; Photorealistic Mockups</p>
+          <p class="phase-duration">Month 4 &middot; Adobe Dimension &middot; Blender &middot; Midjourney &middot; Recraft</p>
+          <p class="phase-desc">Clients and buyers need to see a product before it exists. You&rsquo;ll use Adobe Dimension to wrap your flat artwork onto 3D bottle, box and pouch models and render photorealistic presentations in minutes. Blender takes this further with custom 3D geometry, lighting rigs and camera angles for hero shots. Midjourney and Recraft generate stunning concept imagery and lifestyle scenes that you composite with your 3D renders to produce presentation decks that win client approval.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Adobe Dimension: material placement, label wrapping, lighting, rendering</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Blender: 3D modelling for custom packaging shapes, HDRI lighting, Cycles render</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Midjourney: concept art, lifestyle imagery, atmospheric backgrounds</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Recraft: vector illustrations, brand icons, label artwork at production quality</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Client presentation decks: mockup compositions, shelf renders, hero shots</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: photorealistic 3D renders for all project packaging</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">05</div>
+        <div>
+          <p class="phase-title">AI-First Design Workflows</p>
+          <p class="phase-duration">Month 5 &middot; Midjourney &middot; Ideogram &middot; Recraft &middot; Canva AI &middot; Adobe Firefly &middot; ChatGPT &middot; Claude &middot; Gemini</p>
+          <p class="phase-desc">This phase rewires how you design. You&rsquo;ll build complete AI-first workflows where every creative decision is accelerated by AI generation and human refinement. Ideogram produces typographic label concepts with legible text. Midjourney and Recraft generate illustration-led packaging artwork. Canva AI produces variants at speed. The real skill is prompt engineering, directing AI output, then refining in Illustrator and Photoshop to production standard. You&rsquo;ll complete a full product line using nothing but AI-first methods.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Ideogram: text-accurate AI label concepts, typography-led packaging visuals</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Midjourney: illustration-led label art, premium lifestyle imagery</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Recraft: scalable vector illustrations, icons, pattern systems for labels</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Canva AI + Firefly: rapid design variations, A/B test concepts, social assets</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>ChatGPT, Claude, Gemini: naming, taglines, pitch decks, client email scripts</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Deliverables: complete product line (3 SKUs) designed with AI-first workflow</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">06</div>
+        <div>
+          <p class="phase-title">Portfolio, Case Studies &amp; Career Launch</p>
+          <p class="phase-duration">Month 6 &middot; All Tools &middot; Claude &middot; ChatGPT &middot; Canva</p>
+          <p class="phase-desc">Your portfolio is your pitch book to every brand and agency. This final phase is dedicated to curating 4&ndash;6 complete packaging projects &mdash; each presented as a professional case study from brief through production-ready files. Claude and ChatGPT sharpen your case study writing and pitch copy. Canva builds the presentation decks. You leave with a Behance profile, a PDF portfolio, a Freelancing starter kit and mentor sign-off ready for the job market.</p>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>4&ndash;6 complete packaging case studies: brief, research, design, 3D, final files</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Behance and portfolio PDF presentation build</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Claude &amp; ChatGPT: case study writing, client proposal templates, pitch scripts</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Freelancing primer: pricing, client briefs, revision management, contracts</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Mock client presentations and mentor critique sessions</li>
+            <li style="font-size:14px;color:#55565a;display:flex;gap:8px;"><span style="color:#1d3a6b;font-weight:800;">&#10003;</span>Placement guidance: resume, LinkedIn, agency and brand outreach</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background:#f4f3f1;">
+  <div class="section-inner">
+    <p class="section-label">Tools You&rsquo;ll Master</p>
+    <h2 class="section-h2">Your Creative Toolkit</h2>
+    <p style="color:#55565a;font-size:16px;margin:0 0 32px;max-width:560px;">5 industry-standard software tools + 11 AI platforms. The most hands-on packaging design curriculum in Surat.</p>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">Software</p>
+    <div class="tools-grid" style="margin-bottom:28px;">
+      <span class="tool-pill">Adobe Illustrator</span>
+      <span class="tool-pill">Adobe Photoshop</span>
+      <span class="tool-pill">Adobe Dimension</span>
+      <span class="tool-pill">Blender</span>
+      <span class="tool-pill">Canva</span>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a9bb0;margin:0 0 12px;">AI Tools</p>
+    <div class="tools-grid">
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">ChatGPT</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Claude</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Gemini</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Perplexity</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">NotebookLM</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Adobe Firefly</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Midjourney</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Ideogram</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Recraft</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Canva AI</span>
+      <span class="tool-pill" style="border-color:#1d3a6b;color:#1d3a6b;">Photoshop AI</span>
+    </div>
+  </div>
+</section>
+
+<section id="outcomes">
+  <div class="section-inner">
+    <p class="section-label">Career Outcomes</p>
+    <h2 class="section-h2">Real Careers</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Packaging Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Brand Packaging Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Structural Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">3D Product Visualiser</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">Print Production Designer</span></div>
+      <div class="outcome-card"><span class="outcome-arrow">&rarr;</span><span class="outcome-title">FMCG Brand Designer</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mentors-section" id="mentors">
+  <div class="section-inner">
+    <p class="section-label">Faculty</p>
+    <h2 class="section-h2">Your Mentors</h2>
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="../mansi.jpeg" alt="Mansi Agarwal" class="mentor-photo">
+        <p class="mentor-name">Mansi Agarwal</p>
+        <p class="mentor-role">Graphic &amp; Brand Design Expert</p>
+        <p class="mentor-bio">10+ years in brand design and visual communication. Mansi has worked with FMCG brands, advertising agencies and design studios across Gujarat. She brings real-world briefs and industry-grade critique to every session.</p>
+      </div>
+      <div class="mentor-card">
+        <img src="../subin.jpeg" alt="Subin Vijayan" class="mentor-photo">
+        <p class="mentor-name">Subin Vijayan</p>
+        <p class="mentor-role">UI/UX &amp; Motion Design Expert</p>
+        <p class="mentor-bio">Product designer with experience at tech startups and digital agencies. Subin specialises in building design systems, motion graphics and interaction design, bringing a digital-first lens to every project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-h2">FAQs</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Is this course for beginners?</summary>
+        <p class="faq-answer">Basic Illustrator familiarity helps but is not required. All tools are taught from the level needed for packaging design work. Many students start with minimal software experience.</p>
+      </details>
+      <details>
+        <summary>Do I need a 3D background?</summary>
+        <p class="faq-answer">No. Adobe Dimension and Blender are taught from scratch within the course. You&rsquo;ll produce professional-quality 3D renders by Phase 3 regardless of prior experience.</p>
+      </details>
+      <details>
+        <summary>What industries hire packaging designers?</summary>
+        <p class="faq-answer">FMCG, pharma, cosmetics, food and beverage, e-commerce, retail and luxury goods are all major employers. Packaging is one of the most consistently in-demand design specialisms.</p>
+      </details>
+      <details>
+        <summary>Will I learn sustainable packaging?</summary>
+        <p class="faq-answer">Yes. Phase 1 covers materials, sustainability principles and eco-friendly structural choices &mdash; increasingly important criteria for brand clients and agencies.</p>
+      </details>
+      <details>
+        <summary>What does my final portfolio include?</summary>
+        <p class="faq-answer">A minimum of 6 complete packaging projects: labels, primary packs, secondary packs, retail display and a full 3D-rendered brand packaging system across a product line.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section style="background:#f4f3f1;padding:clamp(64px,9vw,120px) 28px;" id="portfolio">
+  <div class="section-inner">
+    <p class="section-label">Student Work</p>
+    <h2 class="section-h2">Portfolio.</h2>
+    <p style="color:#55565a;font-size:17px;margin:0 0 40px;max-width:560px;">Real projects made by Future Vision students. Work that gets them hired.</p>
+    <div data-port-filters="port-pkg-grid" id="port-pkg-filters" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;">
+      <button type="button" class="port-filter-btn active" data-cat="all" onclick="filterPort(this,'all','port-pkg-grid')">All</button>
+      <button type="button" class="port-filter-btn" data-cat="label" onclick="filterPort(this,'label','port-pkg-grid')">Label Design</button>
+      <button type="button" class="port-filter-btn" data-cat="primary" onclick="filterPort(this,'primary','port-pkg-grid')">Primary Packaging</button>
+      <button type="button" class="port-filter-btn" data-cat="3d" onclick="filterPort(this,'3d','port-pkg-grid')">3D Visualisation</button>
+    </div>
+    <div id="port-pkg-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="port-item" data-cat="label"><div class="port-thumb"><img src="https://picsum.photos/seed/pkg1/800/533" alt="Tea Brand Label" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Label Design</div><div class="port-title">Tea Brand Label</div></div></div>
+      <div class="port-item" data-cat="label"><div class="port-thumb"><img src="https://picsum.photos/seed/pkg2/800/533" alt="Cosmetics Label" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Label Design</div><div class="port-title">Cosmetics Label</div></div></div>
+      <div class="port-item" data-cat="label"><div class="port-thumb"><img src="https://picsum.photos/seed/pkg3/800/533" alt="Spice Pack Label" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Label Design</div><div class="port-title">Spice Pack Label</div></div></div>
+      <div class="port-item" data-cat="primary"><div class="port-thumb"><img src="https://picsum.photos/seed/box1/800/533" alt="Cereal Box Design" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Primary Packaging</div><div class="port-title">Cereal Box Design</div></div></div>
+      <div class="port-item" data-cat="primary"><div class="port-thumb"><img src="https://picsum.photos/seed/box2/800/533" alt="Soap Box Design" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">Primary Packaging</div><div class="port-title">Soap Box Design</div></div></div>
+      <div class="port-item" data-cat="primary"><div class="port-thumb"><video src="../package.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div><div class="port-info"><div class="port-cat-tag">Primary Packaging</div><div class="port-title">Pharma Pack</div></div></div>
+      <div class="port-item" data-cat="3d"><div class="port-thumb"><img src="https://picsum.photos/seed/3d1/800/533" alt="Bottle Mockup" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">3D Visualisation</div><div class="port-title">Bottle Mockup</div></div></div>
+      <div class="port-item" data-cat="3d"><div class="port-thumb"><img src="https://picsum.photos/seed/3d2/800/533" alt="Box 3D Render" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="port-info"><div class="port-cat-tag">3D Visualisation</div><div class="port-title">Box 3D Render</div></div></div>
+      <div class="port-item" data-cat="3d"><div class="port-thumb"><video src="../package.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video></div><div class="port-info"><div class="port-cat-tag">3D Visualisation</div><div class="port-title">Retail Display</div></div></div>
+    </div>
+  </div>
+</section>
+<section class="enquiry-cta" id="enquire">
+  <div class="section-inner">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-h2">Ready to Start Your Design Career?</h2>
+    <p>Speak to our team. We&rsquo;ll walk you through batches, what to expect and answer every question &mdash; honestly.</p>
+    <a href="../#enquiry" class="btn-white-lg">Enquire Now &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2025 Future Vision Computers Institute &middot; Surat, Gujarat</p>
+    <div class="footer-links">
+      <a href="../../">Home</a>
+      <a href="../">Graphic Designing</a>
+      <a href="../#enquiry">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterPort(btn,cat,gid){
+  btn.parentElement.querySelectorAll(".port-filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
+  document.getElementById(gid).querySelectorAll(".port-item").forEach(function(item){
+    item.style.display=(cat==="all"||item.getAttribute("data-cat")===cat)?"":"none";
+  });
+}
+</script>
+</body>
+</html>
