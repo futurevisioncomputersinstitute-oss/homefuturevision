@@ -421,6 +421,125 @@
     }
   }
 
+  var SUBNAV_LABELS = {
+    top: 'Overview',
+    why: 'Why This Course',
+    playground: 'Live Playground',
+    curriculum: 'Curriculum',
+    course: 'Courses',
+    tracks: 'Pricing',
+    projects: 'Projects',
+    faculty: 'Faculty',
+    mentor: 'Mentors',
+    faq: 'FAQs',
+    fees: 'Fees',
+    pricing: 'Pricing',
+    services: 'Services',
+    enquiry: 'Enquiry',
+  };
+
+  var HOME_PATHS = ['/homefuturevision/', '/'];
+
+  function subNavLabel(id) {
+    if (SUBNAV_LABELS[id]) return SUBNAV_LABELS[id];
+    return id.replace(/[-_]/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function injectSubNavCSS() {
+    if (document.getElementById('fv-subnav-css')) return;
+    var s = document.createElement('style');
+    s.id = 'fv-subnav-css';
+    s.textContent = [
+      '#fv-subnav{position:fixed;left:0;right:0;z-index:900;background:#fff;border-bottom:1px solid #e2e9f1;box-shadow:0 6px 18px rgba(11,27,58,.08);transform:translateY(-110%);transition:transform .28s ease;}',
+      '#fv-subnav.fv-show{transform:translateY(0);}',
+      '#fv-subnav-inner{display:flex;align-items:center;gap:4px;max-width:1200px;margin:0 auto;padding:0 16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}',
+      '#fv-subnav-inner::-webkit-scrollbar{display:none;height:0;}',
+      '#fv-subnav a{flex-shrink:0;display:inline-block;padding:13px 16px;font-size:13.5px;font-weight:700;color:#44546b;text-decoration:none;white-space:nowrap;border-bottom:2.5px solid transparent;}',
+      '#fv-subnav a.fv-active{color:#163d6d;border-bottom-color:#163d6d;}',
+      '#fv-subnav a:hover{color:#163d6d;}',
+    ].join('');
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  var subNavBuilt = false;
+  var subNavLinks = [];
+  var subNavHeaderH = 0;
+
+  function buildSubNav(hdr) {
+    if (subNavBuilt) return;
+    if (HOME_PATHS.indexOf(location.pathname) !== -1) { subNavBuilt = true; return; }
+
+    var sections = Array.prototype.filter.call(
+      document.querySelectorAll('section[id]'),
+      function (sec) { return sec.closest('header') === null; }
+    );
+    if (sections.length < 3) { subNavBuilt = true; return; }
+
+    subNavBuilt = true;
+    injectSubNavCSS();
+
+    var nav = document.createElement('div');
+    nav.id = 'fv-subnav';
+    var inner = document.createElement('div');
+    inner.id = 'fv-subnav-inner';
+    nav.appendChild(inner);
+
+    sections.forEach(function (sec) {
+      var id = sec.id;
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = subNavLabel(id);
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var offset = (document.querySelector('header') || {}).offsetHeight || 0;
+        offset += nav.offsetHeight;
+        var top = sec.getBoundingClientRect().top + window.pageYOffset - offset - 10;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+      inner.appendChild(a);
+      subNavLinks.push({ id: id, el: sec, link: a });
+    });
+
+    (document.body || document.documentElement).appendChild(nav);
+
+    var heroSec = sections[0];
+
+    function positionAndToggle() {
+      var hh = (document.querySelector('header') || {}).offsetHeight || 0;
+      subNavHeaderH = hh;
+      nav.style.top = hh + 'px';
+      var heroBottom = heroSec.getBoundingClientRect().bottom + window.pageYOffset;
+      if (window.pageYOffset > heroBottom - hh - 40) {
+        nav.classList.add('fv-show');
+      } else {
+        nav.classList.remove('fv-show');
+      }
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { positionAndToggle(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', positionAndToggle);
+    positionAndToggle();
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var match = subNavLinks.filter(function (l) { return l.el === entry.target; })[0];
+          if (!match) return;
+          if (entry.isIntersecting) {
+            subNavLinks.forEach(function (l) { l.link.classList.remove('fv-active'); });
+            match.link.classList.add('fv-active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (sec) { io.observe(sec); });
+    }
+  }
+
   function tick() {
     injectCSS();
     injectHeroCenterCSS();
@@ -429,6 +548,7 @@
     if (HERO_CENTER_PAGES.indexOf(location.pathname) !== -1) tagWhoCanJoin();
     var hdr = document.querySelector('header');
     if (!hdr) return;
+    buildSubNav(hdr);
 
     addServicesLink(hdr);
 
