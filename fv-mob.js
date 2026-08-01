@@ -450,7 +450,8 @@
     var s = document.createElement('style');
     s.id = 'fv-subnav-css';
     s.textContent = [
-      '#fv-subnav{position:fixed;left:0;right:0;z-index:900;background:#fff;border-bottom:1px solid #e2e9f1;box-shadow:0 6px 18px rgba(11,27,58,.08);transform:translateY(-110%);transition:transform .28s ease;}',
+      '#fv-subnav{position:fixed;left:0;right:0;z-index:45;background:#fff;border-bottom:1px solid #e2e9f1;box-shadow:0 6px 18px rgba(11,27,58,.08);transform:translateY(-110%);transition:transform .28s ease;visibility:hidden;}',
+      '#fv-subnav.fv-show{visibility:visible;}',
       '#fv-subnav.fv-show{transform:translateY(0);}',
       '#fv-subnav-inner{display:flex;align-items:center;gap:4px;max-width:1200px;margin:0 auto;padding:0 16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}',
       '#fv-subnav-inner::-webkit-scrollbar{display:none;height:0;}',
@@ -464,6 +465,7 @@
   var subNavBuilt = false;
   var subNavLinks = [];
   var subNavHeaderH = 0;
+  var subNavRecalc = null;
 
   function buildSubNav(hdr) {
     if (subNavBuilt) return;
@@ -505,11 +507,12 @@
     var heroSec = sections[0];
 
     function positionAndToggle() {
-      var hh = (document.querySelector('header') || {}).offsetHeight || 0;
-      subNavHeaderH = hh;
-      nav.style.top = hh + 'px';
-      var heroBottom = heroSec.getBoundingClientRect().bottom + window.pageYOffset;
-      if (window.pageYOffset > heroBottom - hh - 40) {
+      var liveHdr = document.querySelector('header');
+      var hdrBottom = liveHdr ? Math.max(liveHdr.getBoundingClientRect().bottom, 0) : 0;
+      subNavHeaderH = hdrBottom;
+      nav.style.top = hdrBottom + 'px';
+      var heroBottom = heroSec.getBoundingClientRect().bottom;
+      if (heroBottom < hdrBottom + 10) {
         nav.classList.add('fv-show');
       } else {
         nav.classList.remove('fv-show');
@@ -524,6 +527,7 @@
     }, { passive: true });
     window.addEventListener('resize', positionAndToggle);
     positionAndToggle();
+    subNavRecalc = positionAndToggle;
 
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -549,6 +553,7 @@
     var hdr = document.querySelector('header');
     if (!hdr) return;
     buildSubNav(hdr);
+    if (subNavRecalc) subNavRecalc();
 
     addServicesLink(hdr);
 
