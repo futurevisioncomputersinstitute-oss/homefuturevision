@@ -428,6 +428,7 @@
     curriculum: 'Curriculum',
     course: 'Courses',
     tracks: 'Pricing',
+    toolkit: 'Toolkit',
     projects: 'Projects',
     faculty: 'Faculty',
     mentor: 'Mentors',
