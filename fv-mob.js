@@ -34,7 +34,6 @@
       label: 'Designing & Marketing',
       icon: '&#x1F3A8;',
       courses: [
-        ['Social Media Content & Ad Architect', '#'],
         ['Basic Graphic Designing Course', '#'],
         ['Graphic Design + AI Course', 'graphic-designing/'],
         ['Advance Graphic Design Course', '#'],
