@@ -26,7 +26,7 @@
         ['Advanced Data Analytics', 'data-analytics/'],
         ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
         ['Computer Accounting with GST & Zoho Books', 'advanced-computer-accounting/'],
-        ['Professional Business Finance & Accounting', '#'],
+        ['Professional Business Finance & Accounting', 'business-finance-accounting/'],
         ['Financial Modelling & Analysis', '#'],
       ]
     },
@@ -34,7 +34,6 @@
       label: 'Designing & Marketing',
       icon: '&#x1F3A8;',
       courses: [
-        ['Basic Graphic Designing Course', '#'],
         ['Graphic Design + AI Course', 'graphic-designing/'],
         ['Advance Graphic Design Course', '#'],
         ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
@@ -48,6 +47,7 @@
       courses: [
         ['Computer Basics & Gen AI Foundation', 'computer-basics-genai/'],
         ['Professional Office & Generative AI Essentials', 'professional-office-genai/'],
+        ['Basic Graphic Designing Course', '#'],
       ]
     },
     {
