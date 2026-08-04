@@ -25,7 +25,7 @@
         ['Business Analytics Course', 'business-analytics/'],
         ['Advanced Data Analytics', 'data-analytics/'],
         ['Advanced Certificate in Data Science & Agentic AI', 'data-science/'],
-        ['Computer Accounting with GST & Zoho Books', 'advanced-computer-accounting/'],
+        ['Advanced Computer Accounting with GST & Zoho Books', 'advanced-computer-accounting/'],
         ['Professional Business Finance & Accounting', 'business-finance-accounting/'],
       ]
     },
