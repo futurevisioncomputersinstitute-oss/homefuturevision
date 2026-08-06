@@ -243,6 +243,15 @@
     ham.innerHTML = '<span></span><span></span><span></span>';
     ham.addEventListener('click', function() {
       var overlay = document.getElementById('fv-mob');
+      if (!overlay) {
+        var hdrEl = document.querySelector('header');
+        var logoImgEl = hdrEl && hdrEl.querySelector('img');
+        if (hdrEl && logoImgEl && logoImgEl.src) {
+          buildOverlay(logoImgEl.src, hdrEl);
+          overlayDone = true;
+          overlay = document.getElementById('fv-mob');
+        }
+      }
       if (!overlay) return;
       var open = !overlay.classList.contains('open');
       overlay.classList.toggle('open', open);
