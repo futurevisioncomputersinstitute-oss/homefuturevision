@@ -2,13 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Redirecting...</title>
+<title>Redirecting…</title>
 <script>
-  location.replace("https://blog.futurevisioncomputers.com" + location.pathname + location.search);
+  // Blog posts still live on the blog subdomain, so unmatched paths go there.
+  // Old /computer-courses-surat/ course URLs are the exception: many were
+  // deleted from WordPress and forwarding them lands on a 404 there, so send
+  // those to the course listing instead of a dead end.
+  (function () {
+    var p = location.pathname;
+    var target = p.indexOf('/computer-courses-surat/') === 0
+      ? 'https://futurevisioncomputers.com/services/'
+      : 'https://blog.futurevisioncomputers.com' + p + location.search;
+    location.replace(target);
+    document.addEventListener('DOMContentLoaded', function () {
+      var a = document.getElementById('l');
+      if (a) { a.href = target; a.textContent = target; }
+    });
+  })();
 </script>
 </head>
 <body>
-<p>This page has moved. Redirecting to <a id="l" href="#">blog.futurevisioncomputers.com</a>.</p>
-<script>document.getElementById("l").href = "https://blog.futurevisioncomputers.com" + location.pathname + location.search;</script>
+<p>This page has moved. Redirecting to <a id="l" href="https://futurevisioncomputers.com/">futurevisioncomputers.com</a>.</p>
 </body>
 </html>

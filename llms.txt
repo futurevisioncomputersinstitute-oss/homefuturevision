@@ -1,0 +1,37 @@
+# Future Vision Computer Institute
+
+> Computer training institute in Surat, Gujarat, India, teaching Python, data science, data analytics, agentic AI, accounting, graphic design and digital marketing. Established 2006. Courses run in-centre in Surat and as live online sessions, in 1-on-1 and small group formats, with study material included.
+
+Contact: +91 98257 71678 · futurevisioncomputersinstitute@gmail.com
+Location: 115, Raj Victoria Complex, Pal Gam Circle, Surat, Gujarat, India
+Branches: Pal, Vesu, Citylight
+
+## Courses
+
+- [Python Foundation](https://futurevisioncomputers.com/python-foundation/): Beginner to pro Python. From ₹7,000.
+- [Professional Python Developer](https://futurevisioncomputers.com/professionalpythondeveloper/): OOP, Django, DSA and agentic AI development. From ₹26,500.
+- [Python & Agentic AI](https://futurevisioncomputers.com/pythonagentic-ai/): LangChain, AutoGen, CrewAI and Claude. ₹77,000.
+- [Data Science & Machine Learning](https://futurevisioncomputers.com/data-science/): Python, TensorFlow and agentic AI over 11 months. ₹77,000.
+- [Data Analytics](https://futurevisioncomputers.com/data-analytics/): SQL, Power BI, Tableau and agentic AI. From ₹52,000.
+- [Business Analytics](https://futurevisioncomputers.com/business-analytics/): Excel, Power BI and AI automation. From ₹25,600.
+- [C Programming](https://futurevisioncomputers.com/c-programming/): Programming fundamentals in C. From ₹7,000.
+- [C++ Programming](https://futurevisioncomputers.com/cpp-programming/): Object-oriented programming in C++. From ₹7,000.
+- [Advanced Excel](https://futurevisioncomputers.com/advanced-excel/): Spreadsheet analysis and reporting. ₹5,000.
+- [Excel & Power BI](https://futurevisioncomputers.com/excel-powerbi/): Data analysis and visualisation. From ₹7,200.
+- [Power BI](https://futurevisioncomputers.com/power-bi/): Business reporting and dashboards. From ₹7,000.
+- [Tally Prime with GST](https://futurevisioncomputers.com/tally-prime-gst/): Accounting, billing, inventory, payroll, TDS and GST reporting over 4 weeks. ₹6,000.
+- [Advanced Computer Accounting](https://futurevisioncomputers.com/advanced-computer-accounting/): Computerised accounting with GST and Zoho Books. From ₹6,000.
+- [Business Finance & Accounting](https://futurevisioncomputers.com/business-finance-accounting/): Professional finance and accounting practice. ₹28,000.
+- [Graphic Design + AI](https://futurevisioncomputers.com/graphic-designing/): Photoshop, Illustrator and AI design tools. From ₹21,600.
+- [Digital Marketing & SEO](https://futurevisioncomputers.com/digital-marketing-seo/): Google, Meta and AI marketing tools. ₹28,000.
+- [Computer Basics & Gen AI](https://futurevisioncomputers.com/computer-basics-genai/): Foundation computer skills with generative AI. ₹6,000.
+- [Professional Office & Gen AI](https://futurevisioncomputers.com/professional-office-genai/): MS Office skills with AI tools. ₹7,200.
+
+## About
+
+- [About the institute](https://futurevisioncomputers.com/about-future-vision-computer-institute/): History since 2006, trainers and branches.
+- [Services](https://futurevisioncomputers.com/services/): Website, e-commerce and digital services for businesses.
+
+## Notes
+
+Fees above are the current advertised price in Indian rupees and are the figure a student pays; several courses price per delivery mode, so the lowest plan is quoted as "From". Confirm current fees and batch dates with the institute directly.
