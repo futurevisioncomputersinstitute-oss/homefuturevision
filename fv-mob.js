@@ -3,7 +3,7 @@
 
   var overlayDone = false;
 
-  var BASE = 'https://futurevisioncomputersinstitute-oss.github.io/homefuturevision/';
+  var BASE = 'https://futurevisioncomputers.com/';
 
   var CATS = [
     {
@@ -45,7 +45,7 @@
       courses: [
         ['Computer Basics & Gen AI Foundation', 'computer-basics-genai/'],
         ['Professional Office & Generative AI Essentials', 'professional-office-genai/'],
-        ['Basic Graphic Designing Course', 'basic-graphic-designing/'],
+        ['Basic Graphic Designing Course', 'graphic-designing/'],
       ]
     },
     {
