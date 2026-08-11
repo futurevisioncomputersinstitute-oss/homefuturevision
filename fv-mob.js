@@ -33,7 +33,7 @@
       label: 'Designing & Marketing',
       icon: '&#x1F3A8;',
       courses: [
-        ['Advanced Graphic Designing Course with Gen AI', 'graphic-designing/'],
+        ['Advanced Graphic Designing with Gen AI', 'graphic-designing/'],
         ['Digital Marketing with Strategies & Business Automation', 'digital-marketing-seo/'],
         ['Advanced Certificate in Digital Design & Marketing with Gen AI', '#'],
         ['Advanced Certificate in Digital Design & Advertisement with Gen AI', '#'],

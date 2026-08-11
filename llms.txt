@@ -22,7 +22,7 @@ Branches: Pal, Vesu, Citylight
 - [Tally Prime with GST](https://futurevisioncomputers.com/tally-prime-gst/): Accounting, billing, inventory, payroll, TDS and GST reporting over 4 weeks. ₹6,000.
 - [Advanced Computer Accounting](https://futurevisioncomputers.com/advanced-computer-accounting/): Computerised accounting with GST and Zoho Books. From ₹6,000.
 - [Business Finance & Accounting](https://futurevisioncomputers.com/business-finance-accounting/): Professional finance and accounting practice. ₹28,000.
-- [Advanced Graphic Designing Course with Gen AI](https://futurevisioncomputers.com/graphic-designing/): Photoshop, Illustrator and AI design tools. From ₹21,600.
+- [Advanced Graphic Designing with Gen AI](https://futurevisioncomputers.com/graphic-designing/): Photoshop, Illustrator and AI design tools. From ₹21,600.
 - [Digital Marketing & SEO](https://futurevisioncomputers.com/digital-marketing-seo/): Google, Meta and AI marketing tools. ₹28,000.
 - [Computer Basics & Gen AI](https://futurevisioncomputers.com/computer-basics-genai/): Foundation computer skills with generative AI. ₹6,000.
 - [Professional Office & Gen AI](https://futurevisioncomputers.com/professional-office-genai/): MS Office skills with AI tools. ₹7,200.
