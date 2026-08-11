@@ -8,24 +8,31 @@ Branches: Pal, Vesu, Citylight
 
 ## Courses
 
-- [Python Foundation](https://futurevisioncomputers.com/python-foundation/): Beginner to pro Python. From ₹7,000.
-- [Professional Python Developer](https://futurevisioncomputers.com/professionalpythondeveloper/): OOP, Django, DSA and agentic AI development. From ₹26,500.
-- [Python & Agentic AI](https://futurevisioncomputers.com/pythonagentic-ai/): LangChain, AutoGen, CrewAI and Claude. ₹77,000.
-- [Data Science & Machine Learning](https://futurevisioncomputers.com/data-science/): Python, TensorFlow and agentic AI over 11 months. ₹77,000.
-- [Data Analytics](https://futurevisioncomputers.com/data-analytics/): SQL, Power BI, Tableau and agentic AI. From ₹52,000.
-- [Business Analytics](https://futurevisioncomputers.com/business-analytics/): Excel, Power BI and AI automation. From ₹25,600.
-- [C Programming](https://futurevisioncomputers.com/c-programming/): Programming fundamentals in C. From ₹7,000.
-- [C++ Programming](https://futurevisioncomputers.com/cpp-programming/): Object-oriented programming in C++. From ₹7,000.
-- [Advanced Excel](https://futurevisioncomputers.com/advanced-excel/): Spreadsheet analysis and reporting. ₹5,000.
-- [Excel & Power BI](https://futurevisioncomputers.com/excel-powerbi/): Data analysis and visualisation. From ₹7,200.
-- [Power BI](https://futurevisioncomputers.com/power-bi/): Business reporting and dashboards. From ₹7,000.
-- [Tally Prime with GST](https://futurevisioncomputers.com/tally-prime-gst/): Accounting, billing, inventory, payroll, TDS and GST reporting over 4 weeks. ₹6,000.
-- [Advanced Computer Accounting](https://futurevisioncomputers.com/advanced-computer-accounting/): Computerised accounting with GST and Zoho Books. From ₹6,000.
-- [Business Finance & Accounting](https://futurevisioncomputers.com/business-finance-accounting/): Professional finance and accounting practice. ₹28,000.
-- [Advanced Graphic Designing with Gen AI](https://futurevisioncomputers.com/graphic-designing/): Photoshop, Illustrator and AI design tools. From ₹21,600.
-- [Digital Marketing & SEO](https://futurevisioncomputers.com/digital-marketing-seo/): Google, Meta and AI marketing tools. ₹28,000.
-- [Computer Basics & Gen AI](https://futurevisioncomputers.com/computer-basics-genai/): Foundation computer skills with generative AI. ₹6,000.
-- [Professional Office & Gen AI](https://futurevisioncomputers.com/professional-office-genai/): MS Office skills with AI tools. ₹7,200.
+- [Python Foundations Program](https://futurevisioncomputers.com/python-foundation/): Python from zero — syntax, logic, data structures and real problem solving, for people who have never coded. 1.5 months, beginner. From ₹7,000.
+- [Professional Python Developer](https://futurevisioncomputers.com/professionalpythondeveloper/): Python, OOP, advanced SQL, Flask and AI tools for building real backend applications. 4 months, beginner to job-ready. From ₹26,500.
+- [Advanced Certificate in Python & Agentic AI](https://futurevisioncomputers.com/pythonagentic-ai/): Python through machine learning, generative AI and autonomous agentic AI systems, using LangChain, AutoGen, CrewAI and Claude. 11 months, advanced, ends in placement support. ₹77,000.
+- [C Programming Course](https://futurevisioncomputers.com/c-programming/): C as the foundation language for logic building and system programming. 1 month, beginner. From ₹7,000.
+- [C++ Programming Course](https://futurevisioncomputers.com/cpp-programming/): Object-oriented programming in C++ for strong fundamentals and DSA readiness. 1 month, intermediate. From ₹7,000.
+- [Advanced Excel & Power BI](https://futurevisioncomputers.com/excel-powerbi/): Advanced Excel combined with Power BI for reporting and dashboards. 2 months, beginner. From ₹7,200.
+- [Power BI](https://futurevisioncomputers.com/power-bi/): Business reporting and dashboard building in Power BI. 4 weeks. From ₹7,000.
+- [Business Analytics Course](https://futurevisioncomputers.com/business-analytics/): Turning business data into decisions with Excel, Power BI and AI automation. 3 months, beginner to job-ready. From ₹25,600.
+- [Advanced Data Analytics](https://futurevisioncomputers.com/data-analytics/): Deep-dive analytics with Excel, SQL, Power BI, Python, statistics and agentic AI on real datasets, aimed at Data Analyst roles. 6 months, advanced, ends in placement support. From ₹52,000.
+- [Advanced Certificate in Data Science & Agentic AI](https://futurevisioncomputers.com/data-science/): Statistics, machine learning, deep learning, NLP and agentic AI, with Python and TensorFlow. 11 months, advanced, ends in placement support. ₹77,000.
+- [Advanced Computer Accounting with GST & Zoho Books](https://futurevisioncomputers.com/advanced-computer-accounting/): Computerised accounting with GST and cloud bookkeeping in Zoho Books. 3 months, beginner to job-ready. From ₹6,000.
+- [Professional Business Finance & Accounting](https://futurevisioncomputers.com/business-finance-accounting/): Practical business finance, accounting principles and financial reporting. 4 months, beginner to job-ready. ₹28,000.
+- [Tally Prime with GST](https://futurevisioncomputers.com/tally-prime-gst/): Accounting, billing, inventory, payroll, TDS and GST reporting in Tally Prime. 4 weeks. ₹6,000.
+- [Advanced Graphic Designing with Gen AI](https://futurevisioncomputers.com/graphic-designing/): Adobe, Canva, Figma and Claude AI for designing faster and building a career-ready portfolio. 4-9 months, beginner to advanced, ends in placement support. From ₹21,600.
+- [Basic Graphic Designing Course](https://futurevisioncomputers.com/graphic-designing/): Core design principles, typography and tools for starting a design career. 2 months, beginner.
+- [Digital Marketing with Strategies & Business Automation](https://futurevisioncomputers.com/digital-marketing-seo/): Full-funnel digital marketing, growth strategy and business automation, covering SEO, paid ads and automation tooling. 4 months, advanced, ends in placement support. ₹28,000.
+- [Computer Basics & Gen AI Foundation](https://futurevisioncomputers.com/computer-basics-genai/): Computer fundamentals plus a hands-on introduction to generative AI tools. 1.5 months, beginner. ₹6,000.
+- [Professional Office & Generative AI Essentials](https://futurevisioncomputers.com/professional-office-genai/): MS Office and everyday generative AI tools for the modern workplace. 2 months, beginner. ₹7,200.
+
+## Courses without a page of their own
+
+These run at the institute but have no dedicated page yet, so ask directly for fees and batch dates.
+
+- Advanced Certificate in Digital Design & Marketing with Gen AI: design, content and digital marketing supercharged with generative AI. 9 months, advanced, ends in placement support.
+- Advanced Certificate in Digital Design & Advertisement with Gen AI: Photoshop, Illustrator, motion, CGI ads and AI-powered advertising campaigns. 9 months, advanced, ends in placement support.
 
 ## About
 
@@ -34,4 +41,8 @@ Branches: Pal, Vesu, Citylight
 
 ## Notes
 
-Fees above are the current advertised price in Indian rupees and are the figure a student pays; several courses price per delivery mode, so the lowest plan is quoted as "From". Confirm current fees and batch dates with the institute directly.
+Fees above are the current advertised price in Indian rupees and are the figure a student pays; several courses price per delivery mode, so the lowest plan is quoted as "From". Durations are the advertised course length. Confirm current fees and batch dates with the institute directly.
+
+Basic Graphic Designing and Advanced Graphic Designing with Gen AI are two separate courses that currently share one page, so that link covers both.
+
+No fee is listed for Basic Graphic Designing because the shared page prices the advanced programme; ask the institute for it.
