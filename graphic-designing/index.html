@@ -1559,7 +1559,49 @@ document.addEventListener('DOMContentLoaded', async function() {
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
+    // Carry the served head's SEO tags across the swap. Replacing documentElement
+    // discards our <head> wholesale, and the bundle's own head does not restate
+    // the title, description, canonical, social cards or JSON-LD. Crawlers and AI
+    // assistants read the rendered DOM, so anything dropped here is invisible to
+    // them even though it sits in the served HTML.
+    const carried = Array.from(document.head.querySelectorAll(
+      'title, meta[name="description"], link[rel="canonical"],' +
+      ' meta[property^="og:"], meta[name^="twitter:"],' +
+      ' script[type="application/ld+json"]'
+    ));
+    const carriedLd = carried.filter(function(n) { return n.tagName === 'SCRIPT'; });
+    const carriedTags = carried.filter(function(n) { return n.tagName !== 'SCRIPT'; });
+
     document.documentElement.replaceWith(doc.documentElement);
+
+    // Fill gaps only -- anything the bundle supplied for itself wins.
+    for (const node of carriedTags) {
+      const name = node.getAttribute('name');
+      const prop = node.getAttribute('property');
+      let selector;
+      if (node.tagName === 'TITLE') selector = 'title';
+      else if (node.tagName === 'LINK') selector = 'link[rel="canonical"]';
+      else if (name) selector = 'meta[name="' + name + '"]';
+      else if (prop) selector = 'meta[property="' + prop + '"]';
+      else continue;
+      const existing = document.head.querySelector(selector);
+      // An empty <title> counts as absent; the bundle emits one on some pages.
+      const emptyTitle = existing && selector === 'title' && !existing.textContent.trim();
+      if (!existing || emptyTitle) {
+        if (existing) existing.remove();
+        document.head.appendChild(node.cloneNode(true));
+      }
+    }
+
+    // All-or-nothing for JSON-LD: appending one block would make the next look
+    // already-present and silently drop the rest.
+    if (carriedLd.length && !document.head.querySelector('script[type="application/ld+json"]')) {
+      for (const node of carriedLd) document.head.appendChild(node.cloneNode(true));
+    }
+
+    // replaceWith leaves document.title stale when the bundle omitted its own.
+    const carriedTitle = document.head.querySelector('title');
+    if (carriedTitle) document.title = carriedTitle.textContent;
     const dead = Array.from(document.scripts);
     for (const old of dead) {
       const s = document.createElement('script');
