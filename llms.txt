@@ -22,7 +22,7 @@ Branches: Pal, Vesu, Citylight
 - [Professional Business Finance & Accounting](https://futurevisioncomputers.com/business-finance-accounting/): Practical business finance, accounting principles and financial reporting. 4 months, beginner to job-ready. ₹28,000.
 - [Tally Prime with GST](https://futurevisioncomputers.com/tally-prime-gst/): Accounting, billing, inventory, payroll, TDS and GST reporting in Tally Prime. 4 weeks. ₹6,000.
 - [Advanced Graphic Designing with Gen AI](https://futurevisioncomputers.com/graphic-designing/): Adobe, Canva, Figma and Claude AI for designing faster and building a career-ready portfolio. 4-9 months, beginner to advanced, ends in placement support. From ₹21,600.
-- [Basic Graphic Designing Course](https://futurevisioncomputers.com/graphic-designing/): Core design principles, typography and tools for starting a design career. 2 months, beginner.
+- [Basic Graphic Designing Course](https://futurevisioncomputers.com/basic-graphic-designing/): Core design principles, typography and tools for starting a design career. 2 months, beginner.
 - [Digital Marketing with Strategies & Business Automation](https://futurevisioncomputers.com/digital-marketing-seo/): Full-funnel digital marketing, growth strategy and business automation, covering SEO, paid ads and automation tooling. 4 months, advanced, ends in placement support. ₹28,000.
 - [Computer Basics & Gen AI Foundation](https://futurevisioncomputers.com/computer-basics-genai/): Computer fundamentals plus a hands-on introduction to generative AI tools. 1.5 months, beginner. ₹6,000.
 - [Professional Office & Generative AI Essentials](https://futurevisioncomputers.com/professional-office-genai/): MS Office and everyday generative AI tools for the modern workplace. 2 months, beginner. ₹7,200.
@@ -55,6 +55,6 @@ These run at the institute but have no dedicated page yet, so ask directly for f
 
 Fees above are the current advertised price in Indian rupees and are the figure a student pays; several courses price per delivery mode, so the lowest plan is quoted as "From". Durations are the advertised course length. Confirm current fees and batch dates with the institute directly.
 
-Basic Graphic Designing and Advanced Graphic Designing with Gen AI are two separate courses that currently share one page, so that link covers both.
+Basic Graphic Designing Course and Advanced Graphic Designing with Gen AI are two separate courses, each with its own page.
 
-No fee is listed for Basic Graphic Designing because the shared page prices the advanced programme; ask the institute for it.
+No fee is listed for Basic Graphic Designing here; ask the institute for current fees and batch dates.
