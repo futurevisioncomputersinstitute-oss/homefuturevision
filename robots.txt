@@ -42,4 +42,9 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+# Any AI crawler not named above (e.g. xAI/Grok, which has no public
+# crawler user-agent) is permitted by the wildcard rule at the top.
 Sitemap: https://futurevisioncomputers.com/sitemap.xml
