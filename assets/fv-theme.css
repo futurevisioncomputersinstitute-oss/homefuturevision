@@ -1,0 +1,230 @@
+/* ---------------------------------------------------------------------------
+   fv-theme.css — Future Vision Computer Institute
+   The shared design tokens for hand-built pages.
+
+   These values were not invented. They were measured out of the 22 pages
+   already on the site: the navy, the pale blue section ground, the slate
+   body colour and the Sora/Plus Jakarta pairing each appear on 19 to 21 of
+   them. This file writes them down once so that pages added from here on
+   stop drifting, which is exactly what happened when the graphic design
+   guide was built with its own palette.
+
+   The 20 bundled course pages carry these values inline already and are not
+   affected by this file. It governs the hand-written pages that link it.
+
+   Two families of page use it:
+
+     .fv-page            the default — Sora headings, navy, for guides and
+                         course pages outside the bundler
+     .fv-page.fv-design  the design-department variant — Anton display
+                         headings on the same palette, matching the graphic
+                         design course pages
+
+   Usage:
+     <link rel="stylesheet" href="/assets/fv-theme.css">
+     <body class="fv-page">           ... or
+     <body class="fv-page fv-design">
+--------------------------------------------------------------------------- */
+
+:root {
+  /* --- brand ------------------------------------------------------------ */
+  --fv-navy:        #163d6d;   /* primary brand navy      — on 21/22 pages */
+  --fv-navy-deep:   #122f54;   /* headings, footer ground — on 21/22 pages */
+  --fv-navy-mid:    #2a5fa0;   /* gradients, hover states */
+  --fv-link:        #1d3a6b;   /* in-copy links */
+
+  /* --- surfaces --------------------------------------------------------- */
+  --fv-paper:       #ffffff;   /* page ground */
+  --fv-surface:     #ffffff;   /* cards */
+  --fv-blue-pale:   #f4f8fd;   /* alternating section ground — 21/22 pages */
+  --fv-rule:        #e5e7ef;   /* hairline borders           — 19/22 pages */
+
+  /* --- text ------------------------------------------------------------- */
+  --fv-ink:         #0f2747;   /* headings */
+  --fv-body:        #44546b;   /* body copy                  — 21/22 pages */
+  --fv-muted:       #77808f;   /* captions, meta lines */
+
+  /* --- signal ----------------------------------------------------------- */
+  --fv-alert:       #dc2626;   /* offers, deadlines, urgency — 17/22 pages */
+  --fv-good:        #16a34a;   /* confirmations */
+
+  /* --- type ------------------------------------------------------------- */
+  --fv-font-head:  'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fv-font-body:  'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fv-font-display: 'Anton', 'Sora', Impact, sans-serif;   /* design pages only */
+
+  /* --- shape ------------------------------------------------------------ */
+  --fv-radius-card: 16px;
+  --fv-radius-pill: 100px;
+  --fv-radius-sm:   10px;
+
+  /* --- rhythm ----------------------------------------------------------- */
+  --fv-measure:     68ch;      /* reading width */
+  --fv-wrap:        1080px;    /* full page width */
+  --fv-shadow:      0 1px 2px rgba(22,61,109,.06), 0 10px 30px -14px rgba(22,61,109,.18);
+}
+
+/* --- base ---------------------------------------------------------------- */
+
+.fv-page {
+  margin: 0;
+  background: var(--fv-paper);
+  color: var(--fv-body);
+  font-family: var(--fv-font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fv-page * { box-sizing: border-box; }
+
+.fv-page h1, .fv-page h2, .fv-page h3, .fv-page h4 {
+  font-family: var(--fv-font-head);
+  color: var(--fv-ink);
+  line-height: 1.18;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.fv-page h1 { font-size: clamp(1.95rem, 5vw, 2.8rem); line-height: 1.1; letter-spacing: -.025em; }
+.fv-page h2 { font-size: clamp(1.35rem, 3vw, 1.7rem); margin-top: 46px; }
+.fv-page h3 { font-size: 1.12rem; margin-top: 28px; }
+.fv-page p  { margin: 0 0 16px; }
+
+/* Anton is a display face: all-caps, tight, and only for the design pages.
+   It carries no lowercase personality worth keeping at body sizes, so it is
+   confined to h1 and h2 and never applied to running text. */
+.fv-page.fv-design h1,
+.fv-page.fv-design h2 {
+  font-family: var(--fv-font-display);
+  font-weight: 400;
+  letter-spacing: -.005em;
+  text-transform: uppercase;
+}
+
+.fv-page a { color: var(--fv-link); text-underline-offset: 2px; }
+.fv-page a:focus-visible,
+.fv-page button:focus-visible { outline: 2px solid var(--fv-navy); outline-offset: 3px; border-radius: 3px; }
+
+/* --- layout -------------------------------------------------------------- */
+
+.fv-wrap { max-width: var(--fv-wrap); margin: 0 auto; padding: 0 22px 80px; }
+.fv-col  { max-width: var(--fv-measure); }
+
+.fv-nav {
+  border-bottom: 1px solid var(--fv-rule);
+  padding: 16px 0;
+  margin-bottom: 38px;
+  font-family: var(--fv-font-head);
+  font-size: 14px;
+}
+.fv-nav a { color: var(--fv-body); text-decoration: none; margin-right: 18px; }
+.fv-nav a:hover, .fv-nav a:focus { color: var(--fv-navy); text-decoration: underline; }
+
+.fv-meta {
+  font-size: 13px;
+  color: var(--fv-muted);
+  font-family: var(--fv-font-head);
+  border-bottom: 1px solid var(--fv-rule);
+  padding-bottom: 22px;
+  margin-bottom: 30px;
+}
+
+.fv-dek { font-size: 1.15rem; color: var(--fv-body); margin-bottom: 8px; }
+
+/* --- the direct-answer block --------------------------------------------
+   Every guide page opens with the answer before the explanation. This is
+   the passage AI assistants quote, so it is marked up plainly and sits in
+   the page's own pale blue rather than a colour of its own. */
+
+.fv-answer {
+  background: var(--fv-blue-pale);
+  border-left: 3px solid var(--fv-navy);
+  padding: 18px 22px;
+  margin: 0 0 26px;
+  border-radius: 0 var(--fv-radius-sm) var(--fv-radius-sm) 0;
+}
+.fv-answer p:last-child { margin-bottom: 0; }
+
+/* --- tables --------------------------------------------------------------- */
+
+.fv-tw { overflow-x: auto; margin: 0 0 20px; }
+.fv-page table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--fv-font-head);
+  font-size: 15px;
+  min-width: 460px;
+}
+.fv-page th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--fv-muted);
+  border-bottom: 1px solid var(--fv-rule);
+  padding: 9px 14px 9px 0;
+  white-space: nowrap;
+}
+.fv-page td {
+  padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--fv-rule);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.fv-page tbody tr:last-child td { border-bottom: none; }
+
+/* --- lists ---------------------------------------------------------------- */
+
+.fv-page ul, .fv-page ol { margin: 0 0 16px 22px; padding: 0; }
+.fv-page li { margin-bottom: 8px; }
+.fv-page li::marker { color: var(--fv-muted); }
+
+/* --- call to action ------------------------------------------------------- */
+
+.fv-cta {
+  background: var(--fv-blue-pale);
+  border: 1px solid var(--fv-rule);
+  border-radius: var(--fv-radius-card);
+  padding: 24px 26px;
+  margin: 38px 0;
+}
+.fv-cta h3 { margin-top: 0; }
+
+.fv-btn {
+  display: inline-block;
+  background: var(--fv-navy);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--fv-font-head);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--fv-radius-pill);
+  margin-top: 12px;
+}
+.fv-btn:hover, .fv-btn:focus { background: var(--fv-navy-deep); color: #fff; }
+
+/* --- faq ------------------------------------------------------------------ */
+
+.fv-faq h3 { font-size: 1.05rem; margin: 26px 0 6px; }
+
+/* --- footer --------------------------------------------------------------- */
+
+.fv-foot {
+  border-top: 1px solid var(--fv-rule);
+  margin-top: 48px;
+  padding-top: 22px;
+  font-size: 14px;
+  color: var(--fv-body);
+}
+
+/* --- accessibility -------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-page *, .fv-page *::before, .fv-page *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
