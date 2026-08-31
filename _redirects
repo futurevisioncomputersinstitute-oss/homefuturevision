@@ -1,0 +1,183 @@
+# Redirects for futurevisioncomputers.com, served by Netlify.
+#
+# GitHub Pages cannot answer with a 301, so these URLs used to be
+# stub files that returned 200 and pointed at their new home with a
+# canonical. A real 301 is obeyed rather than merely read, and it
+# keeps the redirects out of the working tree, where a hundred and
+# sixty folders buried the twenty-two pages that matter.
+#
+# First match wins, so the catch-alls sit at the bottom.
+
+# --- old course and category URLs, now pages on this site --------
+/agentic-ai/  https://futurevisioncomputers.com/pythonagentic-ai/  301
+/computer-classes-surat/data-analysis-in-python/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-classes-surat/data-analytics-in-python/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/adobe-illustrator-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/adobe-photoshop-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/adobe-premier-pro-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/advance-graphic-design-course/  https://futurevisioncomputers.com/graphic-designing/  301
+/computer-courses-surat/advance-python-programming-with-gen-ai/  https://futurevisioncomputers.com/professionalpythondeveloper/  301
+/computer-courses-surat/advanced-ai-deep-learning-program/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/advanced-certificate-in-digital-design-advertisement-course-2/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/advanced-certificate-in-python-development-generative-ai-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/advanced-computer-accounting-course-accounting-training-surat/  https://futurevisioncomputers.com/advanced-computer-accounting/  301
+/computer-courses-surat/advanced-data-analytics-with-ai/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/advanced-data-analytics-with-gen-ai/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/advanced-data-analytics/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/advanced-excel-course/  https://futurevisioncomputers.com/advanced-excel/  301
+/computer-courses-surat/advanced-excel-power-bi-course-surat/  https://futurevisioncomputers.com/excel-powerbi/  301
+/computer-courses-surat/agentic-ai-ai-automation-course/  https://futurevisioncomputers.com/agentic-ai/  301
+/computer-courses-surat/ai-data-science-professional-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/basic-computer-course-classes-in-surat/  https://futurevisioncomputers.com/computer-basics-genai/  301
+/computer-courses-surat/basic-graphic-designing-course/  https://futurevisioncomputers.com/basic-graphic-designing/  301
+/computer-courses-surat/basic-tally-accounting-course-beginner-friendly-tally-training/  https://futurevisioncomputers.com/tally-prime-gst/  301
+/computer-courses-surat/blender-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/business-analytics-course/  https://futurevisioncomputers.com/business-analytics/  301
+/computer-courses-surat/c-programming-course-c-programming-classes-in-surat-2/  https://futurevisioncomputers.com/cpp-programming/  301
+/computer-courses-surat/c-programming-course-c-programming-classes-in-surat/  https://futurevisioncomputers.com/c-programming/  301
+/computer-courses-surat/canva-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/cgi-advertising-masterclass/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/cinematic-reels-e-invite-masterclass/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/core-python-programming-course-core-python-course-in-surat/  https://futurevisioncomputers.com/python-foundation/  301
+/computer-courses-surat/data-analysis/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/data-science-course-surat/  https://futurevisioncomputers.com/data-science/  301
+/computer-courses-surat/data-structures-and-algorithms-dsa-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/digital-marketing-graphic-design-course-surat/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/digital-marketing-with-marketing-strategies-business-automation/  https://futurevisioncomputers.com/digital-marketing-seo/  301
+/computer-courses-surat/diploma-in-data-analysis/  https://futurevisioncomputers.com/data-analytics/  301
+/computer-courses-surat/ecommerce-developer-seo-specialist-program/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/financial-analysis-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/gen-ai-intelligent-automation-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/learn-data-science-certification-training-courses-in-surat-citylight-vesu/  https://futurevisioncomputers.com/data-science/  301
+/computer-courses-surat/microsoft-power-bi-course/  https://futurevisioncomputers.com/power-bi/  301
+/computer-courses-surat/mysql-database-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/performance-advertising-marketing-analytics-2/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/professional-business-finance-accounting/  https://futurevisioncomputers.com/business-finance-accounting/  301
+/computer-courses-surat/professional-office-generative-ai-essentials-course/  https://futurevisioncomputers.com/professional-office-genai/  301
+/computer-courses-surat/python-game-app-development-course-development-course/  https://futurevisioncomputers.com/services/  301
+/computer-courses-surat/social-media-content-ad-architect/  https://futurevisioncomputers.com/services/  301
+/computer-institute/data-analytics/  https://futurevisioncomputers.com/data-analytics/  301
+/data-analysis-course-2/  https://futurevisioncomputers.com/data-analytics/  301
+/data-analysis-course-in-surat-best-data-analysis-classes/  https://futurevisioncomputers.com/data-analytics/  301
+/data-analysis-course/  https://futurevisioncomputers.com/data-analytics/  301
+/data-analysis-learning/  https://futurevisioncomputers.com/data-analytics/  301
+/python/  https://futurevisioncomputers.com/professionalpythondeveloper/  301
+
+# --- articles that moved to the blog subdomain -------------------
+/48547-2/  https://blog.futurevisioncomputers.com/48547-2/  301
+/7-advantages-of-teaching-scratch-coding-for-kids/  https://blog.futurevisioncomputers.com/7-advantages-of-teaching-scratch-coding-for-kids/  301
+/a-3pm-pick-me-up-olipop-marketing-case-study/  https://blog.futurevisioncomputers.com/case-study-olipop-soda-disrupting-the-beverage-market-with-a-gut-healthy-twist/  301
+/about-us/  https://blog.futurevisioncomputers.com/about-us/  301
+/abs-function-in-excel-beginner-to-advanced-excel-data-analytics-training/  https://blog.futurevisioncomputers.com/abs-function-in-excel-beginner-to-advanced-excel-data-analytics-training/  301
+/adobe-illustrator-course-in-surat-best-adobe-illustrator-classes/  https://blog.futurevisioncomputers.com/adobe-illustrator-course-in-surat-best-adobe-illustrator-classes/  301
+/advanced-excel-skills-are-essential-for-professionals/  https://blog.futurevisioncomputers.com/advanced-excel-skills-are-essential-for-professionals/  301
+/average-function-in-advanced-excel-course/  https://blog.futurevisioncomputers.com/average-function-in-advanced-excel-course/  301
+/banner-designing/  https://blog.futurevisioncomputers.com/banner-designing/  301
+/blog/  https://blog.futurevisioncomputers.com/  301
+/case-study-adidas-india-how-a-global-giant-won-by-playing-a-local-game/  https://blog.futurevisioncomputers.com/case-study-adidas-india-how-a-global-giant-won-by-playing-a-local-game/  301
+/case-study-adidas-indias-marketing-strategies/  https://blog.futurevisioncomputers.com/case-study-adidas-india-how-a-global-giant-won-by-playing-a-local-game/  301
+/case-study-beauty-on-budget-purplles-winning-marketing-strategies/  https://blog.futurevisioncomputers.com/case-study-beauty-on-budget-purplles-winning-marketing-strategies/  301
+/case-study-bewakoof/  https://blog.futurevisioncomputers.com/case-study-bewakoof/  301
+/case-study-bingo-how-itcs-mad-shapes-and-flavors-disrupted-the-snack-market/  https://blog.futurevisioncomputers.com/case-study-bingo-how-itcs-mad-shapes-and-flavors-disrupted-the-snack-market/  301
+/case-study-bumble-india-how-empowering-women-built-a-dating-app-empire/  https://blog.futurevisioncomputers.com/case-study-bumble-india-how-empowering-women-built-a-dating-app-empire/  301
+/case-study-chaayos-brewing-a-billion-dollar-brand-from-indias-humble-chai/  https://blog.futurevisioncomputers.com/case-study-chaayos-brewing-a-billion-dollar-brand-from-indias-humble-chai/  301
+/case-study-complete-marketing-strategy-of-cred/  https://blog.futurevisioncomputers.com/case-study-complete-marketing-strategy-of-cred/  301
+/case-study-complete-marketing-strategy-of-mahindra-mahindra/  https://blog.futurevisioncomputers.com/case-study-mahindra-mahindra-how-a-jeep-assembler-conquered-indias-soul/  301
+/case-study-dabur-india-how-an-ayurvedic-legacy-built-a-modern-fmcg-empire/  https://blog.futurevisioncomputers.com/case-study-dabur-india-how-an-ayurvedic-legacy-built-a-modern-fmcg-empire/  301
+/case-study-frooti-how-the-fresh-n-juicy-giant-conquered-a-mango-loving-nation/  https://blog.futurevisioncomputers.com/case-study-frooti-how-the-fresh-n-juicy-giant-conquered-a-mango-loving-nation/  301
+/case-study-glucon-d-how-a-90-year-old-brand-owns-the-indian-summer/  https://blog.futurevisioncomputers.com/case-study-glucon-d-how-a-90-year-old-brand-owns-the-indian-summer/  301
+/case-study-goibibo-how-a-gocash-revolution-simplified-travel-for-millions/  https://blog.futurevisioncomputers.com/case-study-goibibo-how-a-gocash-revolution-simplified-travel-for-millions/  301
+/case-study-how-a-green-owl-taught-india-to-love-learning-duolingos-marketing-playbook/  https://blog.futurevisioncomputers.com/case-study-how-a-green-owl-taught-india-to-love-learning-duolingos-marketing-playbook/  301
+/case-study-how-bumble-becomes-the-3rd-most-used-dating-app-in-india/  https://blog.futurevisioncomputers.com/case-study-bumble-india-how-empowering-women-built-a-dating-app-empire/  301
+/case-study-how-center-fresh-has-a-31-market-share/  https://blog.futurevisioncomputers.com/case-study-how-center-fresh-has-a-31-market-share/  301
+/case-study-how-dabur-made-a-revenue-of-115-billion-inr/  https://blog.futurevisioncomputers.com/case-study-dabur-india-how-an-ayurvedic-legacy-built-a-modern-fmcg-empire/  301
+/case-study-how-glucon-d-has-a-60-market-share/  https://blog.futurevisioncomputers.com/case-study-glucon-d-how-a-90-year-old-brand-owns-the-indian-summer/  301
+/case-study-how-japan-turns-pink-flowers-into-billions-the-marketing-of-sakura-season/  https://blog.futurevisioncomputers.com/case-study-how-japan-turns-pink-flowers-into-billions-the-marketing-of-sakura-season/  301
+/case-study-how-redbus-conquered-indias-roads/  https://blog.futurevisioncomputers.com/case-study-redbus-how-a-diwali-ticket-crisis-revolutionized-indias-bus-travel/  301
+/case-study-how-shaadi-com-cracked-the-global-indian-matrimony-market/  https://blog.futurevisioncomputers.com/case-study-how-shaadi-com-cracked-the-global-indian-matrimony-market/  301
+/case-study-how-sleepy-owl-woke-up-indias-coffee-market/  https://blog.futurevisioncomputers.com/case-study-how-sleepy-owl-woke-up-indias-coffee-market/  301
+/case-study-kfc-india-how-the-colonel-conquered-a-nation-that-first-said-no/  https://blog.futurevisioncomputers.com/case-study-kfc-india-how-the-colonel-conquered-a-nation-that-first-said-no/  301
+/case-study-kfc-was-rejected-from-india-heres-how-it-came-back/  https://blog.futurevisioncomputers.com/case-study-kfc-india-how-the-colonel-conquered-a-nation-that-first-said-no/  301
+/case-study-mahindra-mahindra-how-a-jeep-assembler-conquered-indias-soul/  https://blog.futurevisioncomputers.com/case-study-mahindra-mahindra-how-a-jeep-assembler-conquered-indias-soul/  301
+/case-study-malabar-gold-diamonds-trust-led-marketing-strategy/  https://blog.futurevisioncomputers.com/case-study-malabar-gold-diamonds-trust-led-marketing-strategy/  301
+/case-study-mcaffeine-how-indias-first-caffeinated-brand-brewed-a-d2c-success-story/  https://blog.futurevisioncomputers.com/case-study-mcaffeine-how-indias-first-caffeinated-brand-brewed-a-d2c-success-story/  301
+/case-study-nokia-it-was-the-phone-that-could-survive-a-fall-from-a-balcony-but-it-couldnt-survive-the-market/  https://blog.futurevisioncomputers.com/case-study-nokia-it-was-the-phone-that-could-survive-a-fall-from-a-balcony-but-it-couldnt-survive-the-market/  301
+/case-study-olipop-soda-disrupting-the-beverage-market-with-a-gut-healthy-twist/  https://blog.futurevisioncomputers.com/case-study-olipop-soda-disrupting-the-beverage-market-with-a-gut-healthy-twist/  301
+/case-study-pepsi-india-winning-the-cola-war-with-a-local-heart/  https://blog.futurevisioncomputers.com/case-study-pepsi-india-winning-the-cola-war-with-a-local-heart/  301
+/case-study-pepsi-marketing-strategy-in-india/  https://blog.futurevisioncomputers.com/case-study-pepsi-india-winning-the-cola-war-with-a-local-heart/  301
+/case-study-royal-enfield-riding-a-legacy-into-a-lifestyle-empire/  https://blog.futurevisioncomputers.com/case-study-royal-enfield-riding-a-legacy-into-a-lifestyle-empire/  301
+/case-study-samsung-used-to-sell-noodlescase-study/  https://blog.futurevisioncomputers.com/case-study-from-selling-noodles-to-conquering-indias-tech-throne/  301
+/case-study-sleepwell-how-a-legacy-brand-built-an-empire-on-trust-and-comfort/  https://blog.futurevisioncomputers.com/case-study-sleepwell-how-a-legacy-brand-built-an-empire-on-trust-and-comfort/  301
+/case-study-sunsilk-how-affordable-expertise-built-indias-3rd-largest-shampoo-brand/  https://blog.futurevisioncomputers.com/case-study-sunsilk-how-affordable-expertise-built-indias-3rd-largest-shampoo-brand/  301
+/case-study-taste-mein-best-marketing-and-everest/  https://blog.futurevisioncomputers.com/case-study-everest-spices-how-a-legacy-brand-mastered-the-taste-of-india/  301
+/case-study-the-road-to-premium-marketing-royal-enfield/  https://blog.futurevisioncomputers.com/case-study-royal-enfield-riding-a-legacy-into-a-lifestyle-empire/  301
+/case-study-the-souled-stores-gen-z-marketing-tricks/  https://blog.futurevisioncomputers.com/case-study-the-souled-stores-gen-z-marketing-tricks/  301
+/case-study-they-have-zero-ad-spend-they-have-13-million-users/  https://blog.futurevisioncomputers.com/case-study-they-have-zero-ad-spend-they-have-13-million-users/  301
+/case-study-trend-affordability-instant-buy-in-thats-the-max-formula/  https://blog.futurevisioncomputers.com/case-study-trend-affordability-instant-buy-in-thats-the-max-formula/  301
+/case-study-uniqlos-lifewear-driven-marketing-strategy/  https://blog.futurevisioncomputers.com/case-study-uniqlos-lifewear-driven-marketing-strategy/  301
+/case-study-veeba-from-b2b-supplier-to-the-sauce-of-a-1000-cr-empire/  https://blog.futurevisioncomputers.com/case-study-veeba-from-b2b-supplier-to-the-sauce-of-a-1000-cr-empire/  301
+/case-study-veebas-saucy-marketing-strategies-to-1000-cr/  https://blog.futurevisioncomputers.com/case-study-veeba-from-b2b-supplier-to-the-sauce-of-a-1000-cr-empire/  301
+/case-study-yahoo-was-was-worth-125-billion-it-sold-for-4-8-billion/  https://blog.futurevisioncomputers.com/case-study-yahoo-was-was-worth-125-billion-it-sold-for-4-8-billion/  301
+/category/case-studies/  https://blog.futurevisioncomputers.com/category/case-studies/  301
+/category/daily-news/  https://blog.futurevisioncomputers.com/category/daily-news/  301
+/category/data-analytics-blogs/  https://blog.futurevisioncomputers.com/category/data-analytics-blogs/  301
+/category/digital-marketing-seo-blogs/  https://blog.futurevisioncomputers.com/category/digital-marketing-seo-blogs/  301
+/computer-institute-of-visiting-card-graphic-class-in-citylight-surat/  https://blog.futurevisioncomputers.com/computer-institute-of-visiting-card-graphic-class-in-citylight-surat/  301
+/computer-institute/  https://blog.futurevisioncomputers.com/computer-institute/  301
+/computer-institute/professional-courses/  https://blog.futurevisioncomputers.com/computer-institute/professional-courses/  301
+/concatenate-left-and-right-functions-in-excel/  https://blog.futurevisioncomputers.com/concatenate-left-and-right-functions-in-excel/  301
+/contact/  https://blog.futurevisioncomputers.com/contact/  301
+/count-function-in-excel-advance-excel-computer-course/  https://blog.futurevisioncomputers.com/count-function-in-excel-advance-excel-computer-course/  301
+/date-time-functions-in-excel-advanced-excel-training-center/  https://blog.futurevisioncomputers.com/date-time-functions-in-excel-advanced-excel-training-center/  301
+/datevalue-and-timevalue-in-excel-excel-advanced-training/  https://blog.futurevisioncomputers.com/datevalue-and-timevalue-in-excel-excel-advanced-training/  301
+/demystifying-front-end-and-back-end-web-development-understanding-the-key-differences/  https://blog.futurevisioncomputers.com/demystifying-front-end-and-back-end-web-development-understanding-the-key-differences/  301
+/demystifying-the-css-box-model-a-comprehensive-guide/  https://blog.futurevisioncomputers.com/demystifying-the-css-box-model-a-comprehensive-guide/  301
+/easily-remove-excel-password-protection/  https://blog.futurevisioncomputers.com/easily-remove-excel-password-protection/  301
+/effects-templates-in-after-effects/  https://blog.futurevisioncomputers.com/effects-templates-in-after-effects/  301
+/elevating-insights-unleashing-the-power-of-advanced-charts-in-power-bi/  https://blog.futurevisioncomputers.com/elevating-insights-unleashing-the-power-of-advanced-charts-in-power-bi/  301
+/excel-formula-to-use-count-function/  https://blog.futurevisioncomputers.com/excel-formula-to-use-count-function/  301
+/front-end-development-course-sticky-header-css-javascript/  https://blog.futurevisioncomputers.com/front-end-development-course-sticky-header-css-javascript/  301
+/growth-hack-learn-to-turn-live-photos-into-boomerangs/  https://blog.futurevisioncomputers.com/growth-hack-learn-to-turn-live-photos-into-boomerangs/  301
+/if-and-iferror-functions-complete-advanced-excel-course/  https://blog.futurevisioncomputers.com/if-and-iferror-functions-complete-advanced-excel-course/  301
+/if-and-sumif-in-excel-advanced-excel-course-institute-near-me/  https://blog.futurevisioncomputers.com/if-and-sumif-in-excel-advanced-excel-course-institute-near-me/  301
+/iferror-function-in-excel-from-beginner-to-expert/  https://blog.futurevisioncomputers.com/iferror-function-in-excel-from-beginner-to-expert/  301
+/instagrams-new-nudity-protection-feature-in-dms/  https://blog.futurevisioncomputers.com/instagrams-new-nudity-protection-feature-in-dms/  301
+/is-json-the-future-of-prompting-method/  https://blog.futurevisioncomputers.com/is-json-the-future-of-prompting-method/  301
+/left-right-mid-functions-in-excel-certified-advanced-excel-course-business-analyst-training/  https://blog.futurevisioncomputers.com/left-right-mid-functions-in-excel-certified-advanced-excel-course-business-analyst-training/  301
+/len-function-in-excel-advanced-excel-data-analysis-complete-course/  https://blog.futurevisioncomputers.com/len-function-in-excel-advanced-excel-data-analysis-complete-course/  301
+/magazine-design/  https://blog.futurevisioncomputers.com/magazine-design/  301
+/marketing-case-study-cadbury-dairy-milk/  https://blog.futurevisioncomputers.com/marketing-case-study-cadbury-dairy-milk/  301
+/mastering-data-presentation-exploring-multi-row-card-slicer-tables-and-matrix-visuals-in-power-bi/  https://blog.futurevisioncomputers.com/mastering-data-presentation-exploring-multi-row-card-slicer-tables-and-matrix-visuals-in-power-bi/  301
+/mastering-excel-a-comprehensive-guide-to-using-sumif-and-sumifs-functions/  https://blog.futurevisioncomputers.com/mastering-excel-a-comprehensive-guide-to-using-sumif-and-sumifs-functions/  301
+/mastering-the-trim-function-in-excel/  https://blog.futurevisioncomputers.com/mastering-the-trim-function-in-excel/  301
+/max-function-in-excel-advanced-excel-course-data-analyst-sql-training/  https://blog.futurevisioncomputers.com/max-function-in-excel-advanced-excel-course-data-analyst-sql-training/  301
+/min-function-in-excel-advanced-excel-data-science-data-analysis-business-analysis-certification/  https://blog.futurevisioncomputers.com/min-function-in-excel-advanced-excel-data-science-data-analysis-business-analysis-certification/  301
+/mod-function-in-excel-learn-advanced-excel-business-analysis-certification/  https://blog.futurevisioncomputers.com/mod-function-in-excel-learn-advanced-excel-business-analysis-certification/  301
+/motion-titles-after-effects/  https://blog.futurevisioncomputers.com/motion-titles-after-effects/  301
+/news-google-bakes-ads-into-ai-answers/  https://blog.futurevisioncomputers.com/news-google-bakes-ads-into-ai-answers/  301
+/news-groks-ai-companions-everyones-talking-about/  https://blog.futurevisioncomputers.com/news-groks-ai-companions-everyones-talking-about/  301
+/our-achievers/  https://blog.futurevisioncomputers.com/our-achievers/  301
+/pivot-tables-in-excel-advanced-excel-training-learn-advanced-excel-2/  https://blog.futurevisioncomputers.com/pivot-tables-in-excel-advanced-excel-training-learn-advanced-excel-2/  301
+/round-roundup-functions-in-excel-learn-advanced-excel-business-analytics/  https://blog.futurevisioncomputers.com/round-roundup-functions-in-excel-learn-advanced-excel-business-analytics/  301
+/roundup-ceiling-and-floor-functions-in-excel/  https://blog.futurevisioncomputers.com/roundup-ceiling-and-floor-functions-in-excel/  301
+/should-i-learn-coreldraw-or-adobe-illustrator-in-2020/  https://blog.futurevisioncomputers.com/should-i-learn-coreldraw-or-adobe-illustrator-in-2020/  301
+/sumif-and-sumifs-in-excel-microsoft-advanced-excel-course/  https://blog.futurevisioncomputers.com/sumif-and-sumifs-in-excel-microsoft-advanced-excel-course/  301
+/sumproduct-function-advanced-excel-training-institute/  https://blog.futurevisioncomputers.com/sumproduct-function-advanced-excel-training-institute/  301
+/sunsilk-is-the-third-largest-shampoo-brand-in-india/  https://blog.futurevisioncomputers.com/case-study-sunsilk-how-affordable-expertise-built-indias-3rd-largest-shampoo-brand/  301
+/telly-erp-9-course-you-can-learn-future-vision-computer-why-learn-tally/  https://blog.futurevisioncomputers.com/telly-erp-9-course-you-can-learn-future-vision-computer-why-learn-tally/  301
+/this-is-how-the-instagram-algorithm-actually-works-in-2022/  https://blog.futurevisioncomputers.com/this-is-how-the-instagram-algorithm-actually-works-in-2022/  301
+/trim-function-in-excel-advanced-excel-financial-modeling-training-certification/  https://blog.futurevisioncomputers.com/trim-function-in-excel-advanced-excel-financial-modeling-training-certification/  301
+/types-of-graphic-design/  https://blog.futurevisioncomputers.com/types-of-graphic-design/  301
+/vlookup-index-match-in-excel-advanced-excel-power-bi/  https://blog.futurevisioncomputers.com/vlookup-index-match-in-excel-advanced-excel-power-bi/  301
+/what-is-the-purpose-of-brochures-learn-brochure-design-course-in-surat/  https://blog.futurevisioncomputers.com/what-is-the-purpose-of-brochures-learn-brochure-design-course-in-surat/  301
+/zzz-home/  https://blog.futurevisioncomputers.com/zzz-home/  301
+
+# --- catch-alls ---------------------------------------------------
+# Course URLs deleted from WordPress land on a dead end at the blog,
+# so send whatever is left to the course listing instead.
+/computer-courses-surat/*  https://futurevisioncomputers.com/services/  301
+/computer-classes-surat/*  https://futurevisioncomputers.com/services/  301
+/computer-institute/*  https://futurevisioncomputers.com/services/  301
+
+# Anything else unmatched is almost certainly an old article.
+/*  https://blog.futurevisioncomputers.com/:splat  301
