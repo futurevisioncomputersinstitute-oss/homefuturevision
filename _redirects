@@ -181,3 +181,23 @@
 
 # Anything else unmatched is almost certainly an old article.
 /*  https://blog.futurevisioncomputers.com/:splat  301
+
+# Course-name searches that never had a page here. Without these the
+# catch-all forwards them to the blog, where they 404.
+/computer-courses-surat/  https://futurevisioncomputers.com/services/  301
+/computer-classes-in-surat/  https://futurevisioncomputers.com/services/  301
+/computer-classes-surat/  https://futurevisioncomputers.com/services/  301
+/computer-course-in-surat/  https://futurevisioncomputers.com/services/  301
+/computer-basic-course-surat/  https://futurevisioncomputers.com/computer-basics-genai/  301
+/basic-computer-course-surat/  https://futurevisioncomputers.com/computer-basics-genai/  301
+/data-science-course-surat/  https://futurevisioncomputers.com/data-science/  301
+/data-analytics-course-surat/  https://futurevisioncomputers.com/data-analytics/  301
+/data-analysis-course-surat/  https://futurevisioncomputers.com/data-analytics/  301
+/digital-marketing-course-surat/  https://futurevisioncomputers.com/digital-marketing-seo/  301
+/digital-marketing-classes-surat/  https://futurevisioncomputers.com/digital-marketing-seo/  301
+/graphic-design-course-surat/  https://futurevisioncomputers.com/graphic-design-courses/  301
+/graphic-designing-course-surat/  https://futurevisioncomputers.com/graphic-design-courses/  301
+/ai-tools-course-surat/  https://futurevisioncomputers.com/ai-course-surat/  301
+/tally-course-surat/  https://futurevisioncomputers.com/tally-prime-gst/  301
+/excel-course-surat/  https://futurevisioncomputers.com/advanced-excel/  301
+/python-course-surat/  https://futurevisioncomputers.com/python-foundation/  301
