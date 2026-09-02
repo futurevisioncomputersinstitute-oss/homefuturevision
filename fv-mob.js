@@ -408,13 +408,80 @@
 
   var SERVICES_URL = BASE + 'services/';
 
+  /*
+   * Lift the nav links out of the Courses dropdown wrapper.
+   *
+   * Why us, Our edge, Reviews and Centres are authored inside .fv-cw, the
+   * wrapper that also holds the Courses button and its mega menu. That
+   * wrapper is display:block and position:relative for the dropdown, so the
+   * links inside it are plain inline elements: the flex row's 22px gap never
+   * reaches them, they run together as "ReviewsCentres", and the whole group
+   * drops onto a second line under the Courses button.
+   *
+   * They are meant to be siblings of .fv-cw inside .fv-navlinks-pc, which is
+   * the flex row. Moving them there restores one line with even spacing, and
+   * leaves the dropdown itself untouched.
+   */
+  function liftNavLinks(hdr) {
+    var row = hdr.querySelector('[class*="navlinks"]');
+    if (!row || row.dataset.fvLifted) return;
+    var cw = row.querySelector('.fv-cw');
+    if (!cw) return;
+
+    var stray = cw.querySelectorAll(':scope > a.fv-navlink');
+    if (!stray.length) return;
+    row.dataset.fvLifted = '1';
+
+    /* Keep source order, and keep them ahead of the phone and enrol buttons. */
+    var anchor = row.querySelector(':scope > a.fv-phone, :scope > a.fv-enrol');
+    for (var i = 0; i < stray.length; i++) {
+      if (anchor) row.insertBefore(stray[i], anchor);
+      else row.appendChild(stray[i]);
+    }
+  }
+
   function addServicesLink(hdr) {
     var navEl = hdr.querySelector('[class*="navlinks"]') || hdr.querySelector('nav');
-    if (!navEl || navEl.dataset.fvSvc) return;
+    if (!navEl) return;
+
+    /*
+     * The presence check has to come before the dataset flag, not after. The
+     * flag is written onto the snapshot's nav, but the bundler replaces that
+     * element wholesale when it boots, so the replacement arrives with no flag
+     * and the link is added a second time. Asking the DOM what is actually
+     * there survives the swap; a flag on a discarded element does not.
+     */
+    if (navEl.querySelector('a[href="' + SERVICES_URL + '"]')) {
+      navEl.dataset.fvSvc = '1';
+      return;
+    }
+    if (navEl.dataset.fvSvc) return;
     navEl.dataset.fvSvc = '1';
-    if (navEl.querySelector('a[href="' + SERVICES_URL + '"]')) return;
-    var links = navEl.querySelectorAll(':scope > a');
-    var ref = links.length ? links[links.length - 1] : null;
+
+    /*
+     * Sit beside the other text links, not after the buttons.
+     *
+     * The plain links are not always direct children of the navlinks
+     * container - on several course pages Courses, the phone and Enrol Now
+     * are the only children, and Why us / Our edge / Reviews / Centres sit a
+     * level deeper. Searching only the immediate children therefore found no
+     * link to copy, so Services was appended past Enrol Now with no class of
+     * its own: an unstyled sixth item that pushed the row into a second line.
+     *
+     * Look for a real nav link anywhere in the header, take its class, and
+     * insert directly after it. Fall back to the last child that is not a
+     * button only when the header has no recognisable nav link at all.
+     */
+    var plain = hdr.querySelectorAll('a.fv-navlink');
+    var ref = plain.length ? plain[plain.length - 1] : null;
+    if (!ref) {
+      var links = navEl.querySelectorAll(':scope > a');
+      for (var i = links.length - 1; i >= 0; i--) {
+        var cls = links[i].className || '';
+        if (cls.indexOf('enrol') === -1 && cls.indexOf('phone') === -1) { ref = links[i]; break; }
+      }
+    }
+
     var a = document.createElement('a');
     a.href = SERVICES_URL;
     a.textContent = 'Services';
@@ -562,6 +629,7 @@
     buildSubNav(hdr);
     if (subNavRecalc) subNavRecalc();
 
+    liftNavLinks(hdr);
     addServicesLink(hdr);
 
     var logoImg = hdr.querySelector('img');
