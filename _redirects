@@ -180,8 +180,6 @@
 /computer-institute/*  https://futurevisioncomputers.com/services/  301
 
 # Anything else unmatched is almost certainly an old article.
-/*  https://blog.futurevisioncomputers.com/:splat  301
-
 # Course-name searches that never had a page here. Without these the
 # catch-all forwards them to the blog, where they 404.
 /computer-courses-surat/  https://futurevisioncomputers.com/services/  301
@@ -201,3 +199,5 @@
 /tally-course-surat/  https://futurevisioncomputers.com/tally-prime-gst/  301
 /excel-course-surat/  https://futurevisioncomputers.com/advanced-excel/  301
 /python-course-surat/  https://futurevisioncomputers.com/python-foundation/  301
+
+/*  https://blog.futurevisioncomputers.com/:splat  301
