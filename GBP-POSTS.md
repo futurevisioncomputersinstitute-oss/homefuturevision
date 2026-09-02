@@ -13,15 +13,51 @@ unclear in our own data it is left out rather than guessed.
 4. Paste the text. Add a photo. Set the button as noted.
 5. Click **Post**.
 
-Repeat for the other two branches. Same text is fine — these are separate
-listings and Google does not treat them as duplicates.
+Repeat for the other two branches — but change a line first. See below.
+
+## Change one line per branch
+
+GBP posts are not indexed as web pages, so posting the same text to three
+listings is not a duplicate-content penalty in the search sense. But posting
+it *identically* causes two real problems:
+
+- **Google's spam filters.** The same text, same photo and same link pushed to
+  three listings within a few minutes is a pattern automated tools produce.
+  Posts get rejected, or accepted and quietly never shown.
+- **It reads as a broadcast.** Anyone comparing your three listings sees one
+  block of text repeated. That is what a chain looks like, not a local centre.
+
+There is also a missed opportunity. Each branch is a different place, and
+local relevance is the thing GBP actually ranks on. A Vesu post that never
+mentions Vesu wastes that.
+
+**So: keep the post, swap the closing line.** Every post below ends with a
+line you can replace. Thirty seconds per branch.
+
+| Branch | Closing line to use |
+|---|---|
+| Citylight | Ask at our Citylight centre, opposite Agrasen Bhavan. |
+| Vesu | Ask at our Vesu centre on J9 High Street, Canal Road. |
+| Pal | Ask at our Pal centre, near Galaxy Circle on New Pal Lake Road. |
+
+Better still, change one detail in the body too — the branch that runs the
+most batches of that course, a timing that suits that area, a student from
+that centre. It does not need to be much. It needs to be different.
+
+**Use a different photo per branch.** This matters more than the text. A photo
+of the actual Vesu classroom on the Vesu listing is a genuine local signal,
+and it is the single strongest thing you can do for these posts.
+
+**Space them out.** Post to one branch, then the next an hour or two later —
+not all three inside five minutes. Different days is better still.
 
 ## Rules worth keeping
 
 - **Posts expire after 7 days.** One a week per branch is the minimum that
   keeps the profile looking alive.
 - **A photo roughly doubles engagement.** Real photos of the classroom, a
-  student's screen, a whiteboard. Never a stock image.
+  student's screen, a whiteboard. Never a stock image, and a different one
+  per branch.
 - **1,500 character limit**, but only the first ~100 show before "Read more".
   Put the point in the first sentence.
 - **Never put the phone number in the post text.** It is already on the
