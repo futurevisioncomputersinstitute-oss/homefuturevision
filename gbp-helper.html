@@ -1,0 +1,144 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>GBP Posting Helper</title>
+<style>
+:root{--ink:#122f54;--body:#44546b;--muted:#7787a0;--line:#dde6f2;--tint:#f4f8fd;--pri:#163d6d;--ok:#15803d}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--body);font:16px/1.6 'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif}
+header{background:linear-gradient(150deg,#0f2747,#163d6d);color:#fff;padding:26px 20px}
+.in{max-width:860px;margin:0 auto;padding:0 20px}
+header h1{margin:0;font-size:1.5rem;color:#fff}
+header p{margin:6px 0 0;color:#c8d8ef;font-size:14px}
+.steps{background:var(--tint);border-bottom:1px solid var(--line);padding:16px 0;font-size:14.5px}
+.steps ol{margin:0;padding-left:20px}
+.steps li{margin:3px 0}
+.card{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden}
+.card.done{opacity:.5}
+.ch{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--tint);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.wk{font-weight:700;color:var(--pri);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.ct{font-weight:700;color:var(--ink);flex:1;min-width:180px}
+.cb{padding:16px 18px}
+pre{white-space:pre-wrap;font:inherit;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin:0}
+.meta{font-size:13.5px;color:var(--muted);margin:12px 0 0}
+.meta b{color:var(--body)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+button{font:inherit;font-weight:600;font-size:14px;padding:9px 16px;border-radius:100px;border:1px solid var(--pri);background:var(--pri);color:#fff;cursor:pointer}
+button.ghost{background:#fff;color:var(--pri)}
+button:hover{opacity:.9}
+.br{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;color:var(--body);cursor:pointer;padding:5px 10px;border:1px solid var(--line);border-radius:100px;user-select:none}
+.br input{margin:0;cursor:pointer}
+.tick{color:var(--ok);font-weight:700;font-size:13.5px}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:20px 0 40px;font-size:14px;color:var(--muted)}
+a{color:var(--pri)}
+</style>
+<header><div class="in">
+<h1>GBP posting helper</h1>
+<p>Twelve weeks of posts. Copy, paste, add a photo, post. Three branches each week.</p>
+</div></header>
+
+<div class="steps"><div class="in">
+<ol>
+<li>Open <a href="https://business.google.com" target="_blank" rel="noopener">business.google.com</a> and pick a branch &mdash; Citylight, Vesu or Pal.</li>
+<li>Click <b>Add update</b>, paste the text, add a real photo, set the button.</li>
+<li>Post, then switch branch and repeat. Tick each box below as you go.</li>
+</ol>
+</div></div>
+
+<div class="in" id="list"></div>
+
+<footer><div class="in">
+Ticks are saved in this browser only. Posts expire after 7&nbsp;days, so one per
+branch per week is the minimum. After week&nbsp;12, start again at week&nbsp;1 with
+different photos.
+</div></footer>
+
+<script>
+const POSTS = [{"week": 1, "title": "Which AI course you actually need", "text": "Three AI courses run here and they cost ₹6,000, ₹7,200 and ₹77,000. The\ndifference is not quality, it is what you walk out able to do.\n\nNew to computers? Computer Basics & Gen AI Foundation, 6 weeks.\nAlready in an office job? Professional Office & Generative AI, 2 months.\nWant to build AI systems for a living? Python & Agentic AI, 11 months.\n\nOnly the last one is a career program. The first two make the work you already\ndo faster. Anyone telling you a six-week AI course leads to a job is selling\nyou something.", "button": "Learn more", "url": "https://futurevisioncomputers.com/ai-course-surat/", "photo": "a class in progress, screens visible", "chars": 515}, {"week": 2, "title": "Graphic design: which tool first", "text": "Students ask whether to start with Photoshop, Illustrator or Canva. Honest\nanswer: it depends what you want to make.\n\nPhotos and retouching → Photoshop.\nLogos, and anything that must print at any size → Illustrator.\nSocial posts fast, no design background → Canva.\n\nYou do not need all three on day one. Most paid design work in Surat needs\nIllustrator more than beginners expect.", "button": "Learn more", "url": "https://futurevisioncomputers.com/graphic-design-courses/", "photo": "student work on screen — a real logo or poster", "chars": 380}, {"week": 3, "title": "Tally Prime with GST, 4 weeks", "text": "Four weeks, beginner level, ₹6,000. Ledgers, GST billing, purchase and sale\nentries, and the returns an accountant actually files.\n\nIt suits shop owners doing their own books, people applying for accounts\nassistant roles, and anyone whose employer has just moved to Tally.\n\nYou do not need accounting background. You do need to be comfortable using a\ncomputer.", "button": "Learn more", "url": "https://futurevisioncomputers.com/tally-prime-gst/", "photo": "Tally on screen mid-entry", "chars": 360}, {"week": 4, "title": "What a certificate is not", "text": "We give certificates. They are not what gets you hired.\n\nEmployers in Surat ask to see something you built and can explain — a design\nyou can defend, a spreadsheet that solved a real problem, code you can walk\nthrough. That is why our courses end in project work rather than an exam.\n\nTreat any certificate — ours included — as proof you turned up, not proof you\ncan do the work.", "button": "Learn more", "url": "https://futurevisioncomputers.com/services/", "photo": "a student presenting work, or a portfolio page", "chars": 379}, {"week": 5, "title": "Excel before Power BI", "text": "People ask for Power BI having barely used Excel. Usually the wrong order.\n\nPower BI is excellent at showing what your data means. It cannot tell you the\nnumber is wrong. That judgement comes from knowing how the data was put\ntogether — which is Excel work.\n\nAdvanced Excel & Power BI runs 2 months and teaches them in that order,\ndeliberately.", "button": "Learn more", "url": "https://futurevisioncomputers.com/excel-powerbi/", "photo": "a dashboard on screen beside its source sheet", "chars": 344}, {"week": 6, "title": "Web development here means Python", "text": "Our web development teaching is the Professional Python Developer course:\n4 months of Flask, Django, SQL, REST APIs and deployment.\n\nThat is backend work. You learn enough HTML and CSS to build working pages,\nbut the weight is on the server side.\n\nIf you want visual front-end work in React, we do not teach that, and we would\nrather say so than take your fee.", "button": "Learn more", "url": "https://futurevisioncomputers.com/web-development-course-surat/", "photo": "code on screen, terminal visible", "chars": 360}, {"week": 7, "title": "Three centres", "text": "Citylight, Vesu and Pal. Same courses, same teaching, three locations.\n\nCitylight — G-40, Navmangalam Complex, opposite Agrasen Bhavan\nVesu — G-48-B, J9 High Street, Canal Road\nPal — 115, Raj Victoria Complex, New Pal Lake Road, near Galaxy Circle\n\nBatch timings differ by branch, so check before you travel if a particular\nslot matters.", "button": "Call now (this is the one post where the call button earns its place)", "url": "", "photo": "the branch exterior — a different one for each branch's post", "chars": 337}, {"week": 8, "title": "Video editing", "text": "Editing is not the hard part. Deciding what to cut is.\n\nOur video editing teaching covers the software, then the judgement — pacing,\nwhat a cut does to a viewer, when a shot has outstayed its welcome. Software\nyou can learn from videos. Judgement takes feedback on your own work.", "button": "Learn more", "url": "https://futurevisioncomputers.com/video-editing-course-surat/", "photo": "a timeline on screen mid-edit", "chars": 279}, {"week": 9, "title": "Free tools first", "text": "If you have never tried ChatGPT or Claude on your own work, do that before\npaying anyone — including us.\n\nIt is free, and it tells you a lot about whether you need a course. The people\nwho benefit most from our AI courses are the ones who already hit the limits\nof poking around alone: they need output reliable enough for work, or need to\nknow when the answer is wrong.", "button": "Learn more", "url": "https://futurevisioncomputers.com/ai-course-surat/", "photo": "an AI tool open on a classroom screen", "chars": 370}, {"week": 10, "title": "Python Foundations, 6 weeks", "text": "Six weeks, beginner, no programming background assumed.\n\nPython reads closer to English than most languages, so you spend your first\nweeks on the logic instead of the punctuation. That matters more than it\nsounds — beginners who see working code early keep going.\n\nIt leads into the 4-month developer course or the 11-month AI certificate, but\nplenty of people stop here and use it to automate their own work.", "button": "Learn more", "url": "https://futurevisioncomputers.com/python-foundation/", "photo": "a beginner's first working script on screen", "chars": 409}, {"week": 11, "title": "20 years in Surat", "text": "Twenty years teaching computers in this city, across three branches.\n\nThat means the syllabus has been rewritten many times. We taught things that\nmattered then and do not now, and we stopped teaching them rather than keep\nfilling seats. CorelDRAW is the recent example — good software, still used in\nprint shops, but Illustrator is what employers ask for.\n\nA course list that never changes is not a sign of stability.", "button": "Learn more", "url": "https://futurevisioncomputers.com/about-future-vision-computer-institute/", "photo": "the institute, or a long-running class", "chars": 418}, {"week": 12, "title": "Come and ask", "text": "Free counselling, no obligation, and we will tell you when the answer is a\ncheaper course than the one you asked about — or no course yet.\n\nBring what you are working on: your syllabus, your job description, the thing\nat work you cannot do. Ten minutes of conversation saves months in the wrong\ncourse.", "button": "Book online, or Call now", "url": "", "photo": "a counsellor with a prospective student", "chars": 302}];
+const KEY = 'fv-gbp-v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { state = {}; }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+
+const BRANCHES = ['Citylight','Vesu','Pal'];
+const list = document.getElementById('list');
+
+POSTS.forEach(function(p){
+  const st = state['w'+p.week] || {};
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const done = BRANCHES.every(function(b){ return st[b]; });
+  if (done) card.classList.add('done');
+
+  const h = document.createElement('div');
+  h.className = 'ch';
+  h.innerHTML = '<span class="wk">Week ' + p.week + '</span>' +
+                '<span class="ct">' + p.title + '</span>' +
+                '<span class="tick"' + (done ? '' : ' hidden') + '>All three posted</span>';
+  card.appendChild(h);
+
+  const b = document.createElement('div');
+  b.className = 'cb';
+  const pre = document.createElement('pre');
+  pre.textContent = p.text;
+  b.appendChild(pre);
+
+  const meta = document.createElement('p');
+  meta.className = 'meta';
+  meta.innerHTML = '<b>Button:</b> ' + p.button +
+      (p.url ? ' &rarr; <a href="' + p.url + '" target="_blank" rel="noopener">' + p.url.replace('https://futurevisioncomputers.com','') + '</a>' : '') +
+      '<br><b>Photo:</b> ' + p.photo +
+      '<br><b>Length:</b> ' + p.chars + ' characters';
+  b.appendChild(meta);
+
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  const copy = document.createElement('button');
+  copy.textContent = 'Copy text';
+  copy.onclick = function(){
+    navigator.clipboard.writeText(p.text).then(function(){
+      copy.textContent = 'Copied';
+      setTimeout(function(){ copy.textContent = 'Copy text'; }, 1400);
+    }).catch(function(){ copy.textContent = 'Press Ctrl+C'; });
+  };
+  row.appendChild(copy);
+
+  if (p.url) {
+    const cu = document.createElement('button');
+    cu.className = 'ghost';
+    cu.textContent = 'Copy link';
+    cu.onclick = function(){
+      navigator.clipboard.writeText(p.url).then(function(){
+        cu.textContent = 'Copied';
+        setTimeout(function(){ cu.textContent = 'Copy link'; }, 1400);
+      }).catch(function(){});
+    };
+    row.appendChild(cu);
+  }
+
+  BRANCHES.forEach(function(br){
+    const lab = document.createElement('label');
+    lab.className = 'br';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!st[br];
+    cb.onchange = function(){
+      state['w'+p.week] = state['w'+p.week] || {};
+      state['w'+p.week][br] = cb.checked;
+      save();
+      const all = BRANCHES.every(function(x){ return (state['w'+p.week]||{})[x]; });
+      card.classList.toggle('done', all);
+      h.querySelector('.tick').hidden = !all;
+    };
+    lab.appendChild(cb);
+    lab.appendChild(document.createTextNode(br));
+    row.appendChild(lab);
+  });
+
+  b.appendChild(row);
+  card.appendChild(b);
+  list.appendChild(card);
+});
+</script>
