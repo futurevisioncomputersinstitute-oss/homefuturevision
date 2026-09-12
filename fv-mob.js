@@ -424,10 +424,19 @@
    * The home "Our Programs" grid uses auto-fit/minmax(300px,1fr), which
    * lands on 2 columns at phone width, 3 at desktop's fixed 1200px
    * container (unchanged, as intended) and — awkwardly — also 3 in the
-   * ~950-1000px content width iPads get in landscape/large-portrait,
-   * wasting the extra tablet width. Force 4 only in that tablet band; the
-   * card internals need to shrink a bit to still fit their footer row
-   * (View course + WhatsApp + Enquire) at the narrower per-card width.
+   * ~950-1000px content width iPads get in landscape/large-portrait: a
+   * single stretched-wide row instead of a tidy grid.
+   *
+   * Every category section is populated by client-side JS from a fixed
+   * HOME_LIMIT = 3 (confirmed by testing: a manually-added 4th card node
+   * gets discarded the instant the page's own bootstrap script replaces
+   * the document from its component state) — there are always exactly 3
+   * cards here, on every device, and that count isn't something a CSS/DOM
+   * patch from this file can safely change without touching that render
+   * logic itself. So instead of forcing a 4th column that can only ever
+   * sit empty, lay tablet out as a real 2-column matrix: 2 cards on row
+   * one, the 3rd centered on its own row below — a proper grid instead of
+   * one oversized row, with no phantom empty slot.
    */
   function injectTabletCourseGridCSS() {
     if (document.getElementById('fv-tablet-courses-css')) return;
@@ -435,19 +444,8 @@
     var s = document.createElement('style');
     s.id = 'fv-tablet-courses-css';
     s.textContent = '@media(min-width:769px) and (max-width:1024px){' +
-      '#courses [style*="minmax(300px, 1fr)"]{grid-template-columns:repeat(4,1fr)!important;gap:14px!important}' +
-      '#courses [data-dc-tpl="145"]{padding:14px 12px 16px!important}' +
-      '#courses [data-dc-tpl="147"]{font-size:14.5px!important;line-height:1.25!important}' +
-      '#courses [data-dc-tpl="148"]{gap:8px!important;margin:8px 0 8px!important}' +
-      '#courses [data-dc-tpl="149"],#courses [data-dc-tpl="150"]{font-size:10.5px!important}' +
-      '#courses [data-dc-tpl="151"]{font-size:11.5px!important;margin-bottom:10px!important}' +
-      '#courses [data-dc-tpl="152"]{gap:5px!important;margin-bottom:10px!important}' +
-      '#courses [data-dc-tpl="154"]{font-size:10px!important;padding:4px 7px!important}' +
-      '#courses [data-dc-tpl="156"]{flex-direction:column!important;align-items:center!important;gap:10px!important;padding-top:10px!important}' +
-      '#courses [data-dc-tpl="157"]{font-size:12.5px!important;width:100%!important;text-align:center!important}' +
-      '#courses [data-dc-tpl="158"]{width:100%!important;justify-content:center!important;gap:8px!important}' +
-      '#courses [data-dc-tpl="159"]{width:32px!important;height:32px!important}' +
-      '#courses [data-dc-tpl="162"]{font-size:12px!important;padding:8px 14px!important;flex:1 1 auto!important;text-align:center!important}' +
+      '#courses [style*="minmax(300px, 1fr)"]{grid-template-columns:repeat(2,1fr)!important;gap:20px!important}' +
+      '#courses [style*="minmax(300px, 1fr)"]>[data-dc-tpl="142"]:nth-child(3):last-child{grid-column:1/-1!important;max-width:calc(50% - 10px)!important;margin:0 auto!important}' +
       '}';
     (document.head || document.documentElement).appendChild(s);
   }
