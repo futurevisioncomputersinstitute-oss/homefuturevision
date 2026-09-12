@@ -5,6 +5,36 @@
 
   var BASE = 'https://futurevisioncomputers.com/';
 
+  /*
+   * iOS Safari (this is what actual iPads run, not the desktop-Chrome
+   * device emulator) ignores `overflow:hidden` on body/html while a
+   * touch-scroll is in progress: the fixed overlay stays put but the page
+   * underneath keeps rubber-banding, and closing the menu can leave the
+   * scroll position jumped. Pinning body with position:fixed while the
+   * menu is open — and restoring the exact scrollY on close — is the
+   * standard fix for that iOS-only behavior.
+   */
+  var scrollLockY = 0;
+  function lockBodyScroll(open) {
+    if (open) {
+      scrollLockY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.body.style.position = 'fixed';
+      document.body.style.top = (-scrollLockY) + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollLockY);
+    }
+  }
+
   var CATS = [
     {
       label: 'Development & Agentic AI',
@@ -93,7 +123,7 @@
       '#fv-mob{display:none;position:fixed;inset:0;z-index:99999;}',
       '#fv-mob.open{display:block;}',
       '#fv-mob-bg{position:absolute;inset:0;background:rgba(0,0,0,.45);}',
-      '#fv-mob-panel{position:absolute;top:0;left:0;width:min(320px,88vw);height:100%;background:#fff;overflow-y:auto;display:flex;flex-direction:column;box-shadow:4px 0 40px rgba(0,0,0,.15);}',
+      '#fv-mob-panel{position:absolute;top:0;left:0;width:min(320px,88vw);height:100%;background:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;box-shadow:4px 0 40px rgba(0,0,0,.15);}',
       '.fv-mh{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dde6f2;position:sticky;top:0;background:#fff;z-index:2;}',
       '.fv-mx{background:none;border:none;cursor:pointer;font-size:28px;color:#44546b;line-height:1;padding:0;}',
       '.fv-ml{padding:12px 8px;display:flex;flex-direction:column;gap:2px;flex:1;}',
@@ -218,7 +248,7 @@
 
     function toggle(open) {
       overlay.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+      lockBodyScroll(open);
       var h = document.getElementById('fv-ham');
       if (h) { h.classList.toggle('open', open); h.setAttribute('aria-expanded', open ? 'true' : 'false'); }
     }
@@ -273,7 +303,7 @@
       overlay.classList.toggle('open', open);
       ham.classList.toggle('open', open);
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
+      lockBodyScroll(open);
     });
   }
 
@@ -388,6 +418,38 @@
         break;
       }
     }
+  }
+
+  /*
+   * The home "Our Programs" grid uses auto-fit/minmax(300px,1fr), which
+   * lands on 2 columns at phone width, 3 at desktop's fixed 1200px
+   * container (unchanged, as intended) and — awkwardly — also 3 in the
+   * ~950-1000px content width iPads get in landscape/large-portrait,
+   * wasting the extra tablet width. Force 4 only in that tablet band; the
+   * card internals need to shrink a bit to still fit their footer row
+   * (View course + WhatsApp + Enquire) at the narrower per-card width.
+   */
+  function injectTabletCourseGridCSS() {
+    if (document.getElementById('fv-tablet-courses-css')) return;
+    if (HOME_PATHS.indexOf(location.pathname) === -1) return;
+    var s = document.createElement('style');
+    s.id = 'fv-tablet-courses-css';
+    s.textContent = '@media(min-width:769px) and (max-width:1024px){' +
+      '#courses [style*="minmax(300px, 1fr)"]{grid-template-columns:repeat(4,1fr)!important;gap:14px!important}' +
+      '#courses [data-dc-tpl="145"]{padding:14px 12px 16px!important}' +
+      '#courses [data-dc-tpl="147"]{font-size:14.5px!important;line-height:1.25!important}' +
+      '#courses [data-dc-tpl="148"]{gap:8px!important;margin:8px 0 8px!important}' +
+      '#courses [data-dc-tpl="149"],#courses [data-dc-tpl="150"]{font-size:10.5px!important}' +
+      '#courses [data-dc-tpl="151"]{font-size:11.5px!important;margin-bottom:10px!important}' +
+      '#courses [data-dc-tpl="152"]{gap:5px!important;margin-bottom:10px!important}' +
+      '#courses [data-dc-tpl="154"]{font-size:10px!important;padding:4px 7px!important}' +
+      '#courses [data-dc-tpl="156"]{flex-direction:column!important;align-items:center!important;gap:10px!important;padding-top:10px!important}' +
+      '#courses [data-dc-tpl="157"]{font-size:12.5px!important;width:100%!important;text-align:center!important}' +
+      '#courses [data-dc-tpl="158"]{width:100%!important;justify-content:center!important;gap:8px!important}' +
+      '#courses [data-dc-tpl="159"]{width:32px!important;height:32px!important}' +
+      '#courses [data-dc-tpl="162"]{font-size:12px!important;padding:8px 14px!important;flex:1 1 auto!important;text-align:center!important}' +
+      '}';
+    (document.head || document.documentElement).appendChild(s);
   }
 
   var HERO_CENTER_PAGES = ['/homefuturevision/computer-basics-genai/', '/homefuturevision/professional-office-genai/'];
@@ -632,6 +694,7 @@
   function tick() {
     injectCSS();
     injectHeroCenterCSS();
+    injectTabletCourseGridCSS();
     initReviewCarousels();
     tagHeroButtons();
     if (HERO_CENTER_PAGES.indexOf(location.pathname) !== -1) tagWhoCanJoin();
