@@ -503,6 +503,8 @@
     tracks: 'Pricing',
     toolkit: 'Toolkit',
     projects: 'Projects',
+    'fv-reels': 'Student Stories',
+    'fv-certs': 'Certificates',
     faculty: 'Faculty',
     mentor: 'Mentors',
     faq: 'FAQs',
