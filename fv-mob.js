@@ -234,13 +234,29 @@
   }
 
   function addHam(hdr, logoImg) {
-    if (document.getElementById('fv-ham')) return;
-    var ham = document.createElement('button');
-    ham.id = 'fv-ham';
-    ham.type = 'button';
-    ham.setAttribute('aria-label', 'Open menu');
-    ham.setAttribute('aria-expanded', 'false');
-    ham.innerHTML = '<span></span><span></span><span></span>';
+    var ham = document.getElementById('fv-ham');
+    if (ham && ham.getAttribute('data-fv-wired') === '1') return;
+    if (!ham) {
+      ham = document.createElement('button');
+      ham.id = 'fv-ham';
+      ham.type = 'button';
+      ham.setAttribute('aria-label', 'Open menu');
+      ham.setAttribute('aria-expanded', 'false');
+      ham.innerHTML = '<span></span><span></span><span></span>';
+      var logoAnchor = logoImg.closest('a') || logoImg.parentElement;
+      var parent = (logoAnchor && logoAnchor.parentElement) || hdr;
+      if (logoAnchor && parent) {
+        parent.insertBefore(ham, logoAnchor);
+      } else {
+        hdr.insertBefore(ham, hdr.firstChild);
+      }
+    }
+    // A server-prerendered #fv-ham (or one the DesignCanvas bundler swaps in
+    // fresh on boot) has no click handler yet — (re)wire whichever node is
+    // live right now instead of only ever creating a brand-new one, so the
+    // menu works on first paint instead of needing a reload for the bundler
+    // swap to clear the dead prerendered button out of the way.
+    ham.setAttribute('data-fv-wired', '1');
     ham.addEventListener('click', function() {
       var overlay = document.getElementById('fv-mob');
       if (!overlay) {
@@ -259,13 +275,6 @@
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    var logoAnchor = logoImg.closest('a') || logoImg.parentElement;
-    var parent = (logoAnchor && logoAnchor.parentElement) || hdr;
-    if (logoAnchor && parent) {
-      parent.insertBefore(ham, logoAnchor);
-    } else {
-      hdr.insertBefore(ham, hdr.firstChild);
-    }
   }
 
   function initReviewCarousels() {
