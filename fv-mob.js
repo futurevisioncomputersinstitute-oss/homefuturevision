@@ -209,26 +209,6 @@
     return html;
   }
 
-  function wireAccordion(overlay) {
-    overlay.querySelectorAll('.fv-cat-hdr').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var id = btn.getAttribute('data-cat');
-        var panel = document.getElementById(id);
-        if (!panel) return;
-        var isOpen = panel.classList.contains('open');
-        // close all
-        overlay.querySelectorAll('.fv-cat-links').forEach(function(p) { p.classList.remove('open'); });
-        overlay.querySelectorAll('.fv-cat-hdr').forEach(function(b) { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
-        // open clicked (toggle)
-        if (!isOpen) {
-          panel.classList.add('open');
-          btn.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  }
-
   function buildOverlay(logoSrc, hdr) {
     if (document.getElementById('fv-mob')) return;
     var overlay = document.createElement('div');
@@ -252,67 +232,88 @@
       '</div>';
     (document.body || document.documentElement).appendChild(overlay);
 
-    wireAccordion(overlay);
+  }
 
-    function toggle(open) {
-      overlay.classList.toggle('open', open);
-      lockBodyScroll(open);
-      var h = document.getElementById('fv-ham');
-      if (h) { h.classList.toggle('open', open); h.setAttribute('aria-expanded', open ? 'true' : 'false'); }
-    }
+  function setMenuOpen(open) {
+    var overlay = document.getElementById('fv-mob');
+    if (!overlay) return;
+    overlay.classList.toggle('open', open);
+    lockBodyScroll(open);
+    var h = document.getElementById('fv-ham');
+    if (h) { h.classList.toggle('open', open); h.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  }
 
-    document.getElementById('fv-mob-bg').addEventListener('click', function() { toggle(false); });
-    document.getElementById('fv-mob-x').addEventListener('click', function() { toggle(false); });
-    overlay.querySelectorAll('.fv-cat-links a, .fv-mc').forEach(function(a) {
-      a.addEventListener('click', function() { toggle(false); });
-    });
-    overlay.querySelectorAll('.fv-ml > a').forEach(function(a) {
-      a.addEventListener('click', function() { toggle(false); });
+  /*
+   * One delegated listener on document instead of per-node listeners. The
+   * page's component bootstrap replaces/clones the header and our overlay
+   * after load; a clone keeps attributes (so a "wired" flag survives) but
+   * not event listeners, which left the hamburger permanently dead. A
+   * document-level handler looks the targets up at click time, so it works
+   * no matter which copy of the nodes is live. The window flag keeps it to
+   * a single listener even if this script is evaluated more than once.
+   */
+  function installMenuDelegation() {
+    if (window.__fvMenuDelegated) return;
+    window.__fvMenuDelegated = true;
+    document.addEventListener('click', function(e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+
+      if (t.closest('#fv-ham')) {
+        var overlay = document.getElementById('fv-mob');
+        if (!overlay) {
+          var hdrEl = document.querySelector('header');
+          var logoImgEl = hdrEl && hdrEl.querySelector('img');
+          if (hdrEl && logoImgEl && logoImgEl.src) {
+            buildOverlay(logoImgEl.src, hdrEl);
+            overlayDone = true;
+            overlay = document.getElementById('fv-mob');
+          }
+        }
+        if (overlay) setMenuOpen(!overlay.classList.contains('open'));
+        return;
+      }
+
+      var ov = t.closest('#fv-mob');
+      if (!ov) return;
+
+      var catBtn = t.closest('.fv-cat-hdr');
+      if (catBtn) {
+        var panel = document.getElementById(catBtn.getAttribute('data-cat'));
+        if (!panel) return;
+        var wasOpen = panel.classList.contains('open');
+        ov.querySelectorAll('.fv-cat-links').forEach(function(p) { p.classList.remove('open'); });
+        ov.querySelectorAll('.fv-cat-hdr').forEach(function(b) { b.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); });
+        if (!wasOpen) {
+          panel.classList.add('open');
+          catBtn.classList.add('open');
+          catBtn.setAttribute('aria-expanded', 'true');
+        }
+        return;
+      }
+
+      if (t.closest('#fv-mob-bg, #fv-mob-x, .fv-cat-links a, .fv-mc, .fv-ml > a')) {
+        setMenuOpen(false);
+      }
     });
   }
 
   function addHam(hdr, logoImg) {
-    var ham = document.getElementById('fv-ham');
-    if (ham && ham.getAttribute('data-fv-wired') === '1') return;
-    if (!ham) {
-      ham = document.createElement('button');
-      ham.id = 'fv-ham';
-      ham.type = 'button';
-      ham.setAttribute('aria-label', 'Open menu');
-      ham.setAttribute('aria-expanded', 'false');
-      ham.innerHTML = '<span></span><span></span><span></span>';
-      var logoAnchor = logoImg.closest('a') || logoImg.parentElement;
-      var parent = (logoAnchor && logoAnchor.parentElement) || hdr;
-      if (logoAnchor && parent) {
-        parent.insertBefore(ham, logoAnchor);
-      } else {
-        hdr.insertBefore(ham, hdr.firstChild);
-      }
+    installMenuDelegation();
+    if (document.getElementById('fv-ham')) return;
+    var ham = document.createElement('button');
+    ham.id = 'fv-ham';
+    ham.type = 'button';
+    ham.setAttribute('aria-label', 'Open menu');
+    ham.setAttribute('aria-expanded', 'false');
+    ham.innerHTML = '<span></span><span></span><span></span>';
+    var logoAnchor = logoImg.closest('a') || logoImg.parentElement;
+    var parent = (logoAnchor && logoAnchor.parentElement) || hdr;
+    if (logoAnchor && parent) {
+      parent.insertBefore(ham, logoAnchor);
+    } else {
+      hdr.insertBefore(ham, hdr.firstChild);
     }
-    // A server-prerendered #fv-ham (or one the DesignCanvas bundler swaps in
-    // fresh on boot) has no click handler yet — (re)wire whichever node is
-    // live right now instead of only ever creating a brand-new one, so the
-    // menu works on first paint instead of needing a reload for the bundler
-    // swap to clear the dead prerendered button out of the way.
-    ham.setAttribute('data-fv-wired', '1');
-    ham.addEventListener('click', function() {
-      var overlay = document.getElementById('fv-mob');
-      if (!overlay) {
-        var hdrEl = document.querySelector('header');
-        var logoImgEl = hdrEl && hdrEl.querySelector('img');
-        if (hdrEl && logoImgEl && logoImgEl.src) {
-          buildOverlay(logoImgEl.src, hdrEl);
-          overlayDone = true;
-          overlay = document.getElementById('fv-mob');
-        }
-      }
-      if (!overlay) return;
-      var open = !overlay.classList.contains('open');
-      overlay.classList.toggle('open', open);
-      ham.classList.toggle('open', open);
-      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
-      lockBodyScroll(open);
-    });
   }
 
   function initReviewCarousels() {
