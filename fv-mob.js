@@ -332,8 +332,17 @@
       track.addEventListener('wheel', pause, { passive: true });
       track.addEventListener('mousedown', pause);
 
+      // only advance rows that are on screen; off-screen rows are left alone
+      var onScreen = true;
+      if ('IntersectionObserver' in window) {
+        onScreen = false;
+        new IntersectionObserver(function(es) {
+          onScreen = es[es.length - 1].isIntersecting;
+        }, { rootMargin: '100px' }).observe(track);
+      }
+
       setInterval(function() {
-        if (paused || !track.isConnected) return;
+        if (paused || !onScreen || !track.isConnected) return;
         var card = track.children[0];
         if (!card) return;
         var step = card.getBoundingClientRect().width + 14;
