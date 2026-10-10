@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) skips files that start with a dot unless they are
+# listed here. The page-builder runtime requests this sidecar on every load;
+# without it the browser logs a 404 error in the console.
+include:
+  - .image-slots.state.json
