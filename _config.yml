@@ -3,3 +3,7 @@
 # without it the browser logs a 404 error in the console.
 include:
   - .image-slots.state.json
+
+# Unpublished from the live site; files are kept in the repo.
+exclude:
+  - basic-graphic-designing
