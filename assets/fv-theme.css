@@ -129,6 +129,15 @@
   .fv-head nav a:not(.fv-btn-sm) { display: none; }
 }
 
+
+/* tablet: seven nav items do not fit beside the logo, so keep one row and drop two */
+@media (min-width: 780px) and (max-width: 1099px) {
+  .fv-head nav { flex-wrap: nowrap; gap: 14px; }
+  .fv-head nav a { font-size: 14px; }
+  .fv-head nav a:nth-child(2),
+  .fv-head nav a:nth-child(3) { display: none; }
+}
+
 /* --- sections ------------------------------------------------------------ */
 
 .fv-sec { padding: 58px 0; }
