@@ -1,0 +1,26 @@
+{
+  "data-analytics": {
+    "name": "Data & Analytics",
+    "blurb": "Excel, Power BI, SQL and data analytics explained plainly, from the trainers who teach these courses in Surat."
+  },
+  "python-ai": {
+    "name": "Python & AI",
+    "blurb": "Python, data science, generative AI and agentic AI: what to learn, in what order, and what it leads to."
+  },
+  "accounting-tally": {
+    "name": "Accounting & Tally",
+    "blurb": "Tally Prime, GST, Zoho Books and computerised accounting, with practical answers for students and business owners."
+  },
+  "graphic-design": {
+    "name": "Graphic Design",
+    "blurb": "Photoshop, Illustrator, Canva and AI-assisted design: tools, careers and how to build a portfolio."
+  },
+  "digital-marketing": {
+    "name": "Digital Marketing",
+    "blurb": "SEO, social media, ads and marketing automation, and what actually works for small businesses in India."
+  },
+  "computer-basics": {
+    "name": "Computer Basics & Office",
+    "blurb": "MS Office, everyday AI tools and computer fundamentals for school students, job seekers and working professionals."
+  }
+}

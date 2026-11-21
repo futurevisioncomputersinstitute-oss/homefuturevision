@@ -33,6 +33,11 @@ These run at the institute but have no dedicated page yet, so ask directly for f
 - Advanced Certificate in Digital Design & Marketing with Gen AI: design, content and digital marketing supercharged with generative AI. 9 months, advanced, ends in placement support.
 - Advanced Certificate in Digital Design & Advertisement with Gen AI: Photoshop, Illustrator, motion, CGI ads and AI-powered advertising campaigns. 9 months, advanced, ends in placement support.
 
+## Blog
+
+- [Blog home](https://futurevisioncomputers.com/blog/): Plain-English guides from the trainers at the institute.
+- [Excel vs Power BI: which should you learn first?](https://futurevisioncomputers.com/blog/excel-vs-power-bi/): Excel or Power BI first? A plain answer, a side-by-side comparison, when each one is the right tool, and a learning order that works for beginners.
+
 ## About
 
 - [About the institute](https://futurevisioncomputers.com/about-future-vision-computer-institute/): History since 2006, trainers and branches.
