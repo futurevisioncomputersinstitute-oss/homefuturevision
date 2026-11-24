@@ -36,6 +36,7 @@ These run at the institute but have no dedicated page yet, so ask directly for f
 ## Blog
 
 - [Blog home](https://futurevisioncomputers.com/blog/): Plain-English guides from the trainers at the institute.
+- [Why learn Python in 2027? What you can build with it](https://futurevisioncomputers.com/blog/why-learn-python-in-2027/): Python is still the first language to learn for AI, data and automation. What you can build in 2027, where it falls short, and how a beginner should start.
 - [Excel vs Power BI: which should you learn first?](https://futurevisioncomputers.com/blog/excel-vs-power-bi/): Excel or Power BI first? A plain answer, a side-by-side comparison, when each one is the right tool, and a learning order that works for beginners.
 
 ## About
