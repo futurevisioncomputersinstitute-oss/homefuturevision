@@ -14,12 +14,14 @@
 --------------------------------------------------------------------------- */
 
 html { scroll-behavior: smooth; }
-.fv-blog { overflow-x: hidden; }
+body.fv-blogpage { margin: 0; background: #fff; font-family: var(--fv-font-body); }
+/* clip, not hidden: hidden would turn <main> into a scroll container and break the sticky contents list */
+.fv-blog { overflow-x: clip; }
 
 /* reading progress ---------------------------------------------------------- */
 .fv-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 100%;
-  z-index: 60; pointer-events: none;
+  z-index: 10000; pointer-events: none;
   background: var(--fv-grad);
   transform: scaleX(0); transform-origin: 0 50%;
 }
@@ -219,7 +221,7 @@ html { scroll-behavior: smooth; }
 .fv-sticky-cta { display: none; }
 @media (max-width: 779px) {
   .fv-hint { display: block; }
-  .fv-blog { padding-bottom: 76px; }
+  body.fv-blogpage { padding-bottom: 68px; }
   .fv-sticky-cta {
     display: flex; gap: 10px; align-items: center;
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
