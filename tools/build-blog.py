@@ -47,6 +47,7 @@ import html
 import json
 import re
 import sys
+from urllib.parse import quote
 from datetime import date
 from pathlib import Path
 
@@ -128,10 +129,66 @@ def parse_post(path):
     for need in ("title", "slug", "category", "description", "dek", "date"):
         if not meta.get(need):
             sys.exit(f"{path.name}: front matter needs '{need}'")
+    meta["courses"] = [c.strip().strip("/") for c in meta.get("courses", "").split(",") if c.strip()]
     meta.setdefault("updated", meta["date"])
     meta.setdefault("readtime", "5")
     meta["body"] = m.group(2).strip("\r\n")
     return meta
+
+
+# --- course cards (same data and design as the home page) ----------------------------
+
+WA_ICON = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.25-.1-.45-.15-.65.15s-.75.95-.9 1.15-.35.2-.65.05a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.65-2.05c-.15-.3 0-.45.15-.6l.45-.55c.15-.2.2-.3.3-.5s.05-.4 0-.55-.65-1.55-.9-2.15c-.25-.55-.5-.5-.65-.5h-.55a1.05 1.05 0 0 0-.8.35 3.2 3.2 0 0 0-1 2.4 5.6 5.6 0 0 0 1.2 3 12.8 12.8 0 0 0 4.9 4.35c.7.3 1.25.5 1.65.6a4 4 0 0 0 1.85.1 3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .15-1.4c-.05-.15-.25-.2-.55-.35zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.85-1.45A10 10 0 1 0 12 2zm0 18.3a8.3 8.3 0 0 1-4.25-1.15l-.3-.2-2.85.85.9-2.8-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>')
+
+
+def load_courses():
+    """Read the course list straight out of the home page script, keyed by page slug."""
+    src = (ROOT / "index.html").read_text(encoding="utf-8")
+    out = {}
+    for line in src.splitlines():
+        if "imgId:" not in line or "link:'" not in line:
+            continue
+        f = {k: v.replace("\\'", "'") for k, v in re.findall(r"(\w+):'((?:[^'\\]|\\.)*)'", line)}
+        sk = re.search(r"skills:\[(.*?)\]", line)
+        f["skills"] = re.findall(r"'((?:[^'\\]|\\.)*)'", sk.group(1)) if sk else []
+        slug = f.get("link", "").strip("/")
+        if slug and slug not in out:
+            out[slug] = f
+    return out
+
+
+def image_size(path):
+    try:
+        from PIL import Image
+        with Image.open(ROOT / path.lstrip("/")) as im:
+            return im.size
+    except Exception:
+        return None
+
+
+def course_card(c):
+    title = c["title"]
+    img = "/assets/" + c["img"].rsplit("/", 1)[-1]
+    size = image_size(img)
+    dims = f' width="{size[0]}" height="{size[1]}"' if size else ""
+    chips = "".join(f'<span class="fv-cchip">{e(k)}</span>' for k in c["skills"])
+    wa = "https://wa.me/919825771678?text=" + quote(f"Hi I would like to enquire about your {title} program")
+    return f"""      <div class="fv-ccard">
+        <img class="fv-cimg" src="{img}" alt="{e(title)}"{dims} loading="lazy" decoding="async">
+        <div class="fv-cbody">
+          <h3>{e(title)}</h3>
+          <div class="fv-cmeta"><span>&#9201; {e(c['duration'])}</span><span>&#9656; {e(c['level'])}</span></div>
+          <p>{e(c['desc'])}</p>
+          <div class="fv-cchips">{chips}</div>
+          <div class="fv-cfoot">
+            <a class="fv-cview" href="/{c['link'].strip('/')}/" target="_blank" rel="noopener">View course &rarr;</a>
+            <div class="fv-cact">
+              <a class="fv-cwa" href="{wa}" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">{WA_ICON}</a>
+              <a class="fv-cenq" href="/#enquiry">Enquire</a>
+            </div>
+          </div>
+        </div>
+      </div>"""
 
 
 # --- shared page shell ---------------------------------------------------------
@@ -361,8 +418,34 @@ def build_post(p, cats):
         toc.append(("sources", "Sources"))
         toc_html += f'\n          <li><a href="#sources">Sources</a></li>'
 
+    author_html = ""
+    if person:  # the byline already credits the institute; a bio box earns its place only for a named author
+        author_html = f"""      <div class="fv-author">
+        <span class="fv-avatar" aria-hidden="true">{e(avatar)}</span>
+        <p><strong>{e(box_name)}</strong> {e(bio)}</p>
+      </div>
+"""
     related = ""
-    if p["related"]:
+    courses = load_courses()
+    picked = [courses[s] for s in p["courses"] if s in courses]
+    missing = [s for s in p["courses"] if s not in courses]
+    if missing:
+        sys.exit(f"{p['slug']}: course(s) not found on the home page: {', '.join(missing)}")
+    if picked:
+        cards = "\n".join(course_card(c) for c in picked)
+        related = f"""
+<section class="fv-sec tint">
+  <div class="fv-in">
+    <span class="fv-eyebrow">Which course fits you?</span>
+    <h2>Pick the course that matches your goal</h2>
+    <p class="fv-pickdek">Every course below is taught in-centre in Surat, with AI built in. Look at the details and choose the one that fits where you are today.</p>
+    <div class="fv-ccards">
+{cards}
+    </div>
+  </div>
+</section>
+"""
+    elif p["related"]:
         cards = "\n".join(
             f'      <a href="{e(r[0])}"><span class="fv-eyebrow">Course</span><strong>{e(r[1])}</strong>'
             f'<span class="fv-sub">{e(r[2] if len(r) > 2 else "")}</span></a>'
@@ -423,11 +506,7 @@ def build_post(p, cats):
 
 {body_html}
 {sources_html}
-      <div class="fv-author">
-        <span class="fv-avatar" aria-hidden="true">{e(avatar)}</span>
-        <p><strong>{e(box_name)}</strong> {e(bio)} <a href="{LINKEDIN}" rel="noopener">Follow us on LinkedIn</a>.</p>
-      </div>
-
+{author_html}
     </article>
   </div>
 </section>
@@ -590,7 +669,7 @@ def check_post(p, cats):
     add("ok" if q >= 4 else "warn", f"{q} FAQ questions (aim 4+, phrased the way people ask them)")
 
     links = {h for h in re.findall(r'href="(/[^"#]*)"', body) if not h.startswith("/blog/")}
-    links |= {r[0] for r in p["related"]}
+    links |= {r[0] for r in p["related"]} | {"/" + s + "/" for s in p["courses"]}
     add("ok" if len(links) >= 3 else "warn", f"{len(links)} distinct course/site links (aim 3+)")
 
     add("ok" if words >= 700 else "warn", f"{words} words (aim 700+ for a real answer; length alone ranks nothing)")

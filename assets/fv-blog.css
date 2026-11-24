@@ -267,3 +267,53 @@ a.fv-chip:hover { background: #fff; }
 .fv-postcard .fv-sub { font-size: 14.5px; color: var(--c-body); line-height: 1.6; }
 .fv-postcard .fv-when { margin-top: auto; padding-top: 6px; font-family: var(--fv-font-head); font-size: 12.5px; color: var(--c-muted); }
 .fv-sources { margin: 0 0 18px 22px; font-size: 15px; }
+
+/* course cards: same design as the home page "Our Programs" cards ------------ */
+.fv-pickdek { max-width: 62ch; margin: 0 0 26px; }
+.fv-ccards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+@media (min-width: 1024px) { .fv-ccards { grid-template-columns: repeat(3, 1fr); } }
+.fv-ccard {
+  background: #fff; border: 1px solid var(--c-border); border-radius: 20px; overflow: hidden;
+  box-shadow: 0 6px 22px rgba(11, 27, 58, .06); display: flex; flex-direction: column;
+}
+.fv-cimg { display: block; width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; background: var(--c-tint); }
+.fv-cbody { padding: 22px 26px 26px; display: flex; flex-direction: column; flex: 1 1 0%; }
+.fv-ccard h3 {
+  font-family: Sora, var(--fv-font-head); font-weight: 800; font-size: 20px;
+  color: var(--c-ink); line-height: 1.2; margin: 0;
+}
+.fv-cmeta { display: flex; gap: 16px; margin: 12px 0 16px; flex-wrap: wrap; }
+.fv-cmeta span { color: var(--c-body); font-size: 13px; font-weight: 600; }
+.fv-ccard p { font-size: 14.5px; color: var(--c-body); line-height: 1.55; margin: 0 0 16px; }
+.fv-cchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; flex: 1 1 0%; align-content: flex-start; }
+.fv-cchip { background: var(--c-tint); color: var(--c-primary); font-weight: 600; font-size: 12.5px; padding: 6px 11px; border-radius: 7px; }
+.fv-cfoot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-top: 18px; border-top: 1px solid var(--c-border);
+}
+.fv-blog .fv-cview { color: var(--c-primary); font-weight: 700; font-size: 14.5px; text-decoration: none; }
+.fv-blog .fv-cview:hover { text-decoration: underline; }
+.fv-cact { display: flex; align-items: center; gap: 8px; }
+.fv-blog .fv-cwa {
+  width: 36px; height: 36px; border-radius: 50%; background: rgb(34, 197, 94);
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fv-blog .fv-cenq {
+  background: var(--c-primary); color: #fff; font-weight: 700; font-size: 13.5px;
+  padding: 10px 16px; border-radius: 9px; text-decoration: none;
+}
+.fv-blog .fv-cenq:hover { background: var(--c-navy); }
+
+/* figures ---------------------------------------------------------------------- */
+.fv-fig { margin: 30px 0; }
+.fv-fig img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--c-border); border-radius: var(--fv-radius-card); background: #fff;
+}
+.fv-fig figcaption {
+  font-family: var(--fv-font-head); font-size: 13px; line-height: 1.5; color: var(--c-muted);
+  margin: 10px 4px 0; text-align: center;
+}
+
+/* keep FAQ questions tight inside their cards (the article's h3 margin was winning) */
+.fv-prose .fv-faq h3 { margin: 0 0 8px; }
