@@ -622,7 +622,7 @@ def listing(posts, cats, *, current=None):
         path = "/blog/"
         title = "Blog | Future Vision Computer Institute, Surat"
         desc = ("Plain-English guides on Excel, Power BI, Python, data analytics, accounting, design and "
-                "digital marketing, from the trainers at Future Vision Computer Institute in Surat.")
+                "digital marketing from Future Vision trainers in Surat.")
         h1 = "The Feed"
         dek = "The Future Vision blog: straight answers to the questions students ask before they pick a course, written by the people who teach it."
         crumbs = [("Home", "/"), ("Blog", None)]
@@ -686,6 +686,9 @@ def update_llms(posts, cats):
     txt = re.sub(r"## Blog\n.*?(?=\n## )", "", txt, flags=re.S)
     lines = ["## Blog", "",
              f"- [Blog home]({SITE}/blog/): Plain-English guides from the trainers at the institute."]
+    for slug, c in cats.items():
+        if any(p["category"] == slug for p in posts):
+            lines.append(f"- [{c['name']} articles]({SITE}/blog/category/{slug}/): {c['blurb']}")
     for p in posts:
         lines.append(f"- [{p['title']}]({SITE}/blog/{p['slug']}/): {p['description']}")
     section = "\n".join(lines) + "\n"

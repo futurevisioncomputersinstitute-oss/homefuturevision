@@ -33,9 +33,23 @@ These run at the institute but have no dedicated page yet, so ask directly for f
 - Advanced Certificate in Digital Design & Marketing with Gen AI: design, content and digital marketing supercharged with generative AI. 9 months, advanced, ends in placement support.
 - Advanced Certificate in Digital Design & Advertisement with Gen AI: Photoshop, Illustrator, motion, CGI ads and AI-powered advertising campaigns. 9 months, advanced, ends in placement support.
 
+## Guides & Specialised Pages
+
+- [AI Course in Surat: Which One Do You Need?](https://futurevisioncomputers.com/ai-course-surat/): Three AI courses in Surat, from a 6-week beginner course at Rs 6,000 to an 11-month Agentic AI certificate at Rs 77,000. Honest guide to which one fits you.
+- [Web Development Course in Surat with Python](https://futurevisioncomputers.com/web-development-course-surat/): Web development course in Surat built on Python, Flask, Django, SQL and deployment. Four months, backend focused. What we teach and what we do not.
+- [Graphic Design Courses: Types & Syllabus](https://futurevisioncomputers.com/graphic-design-courses/): A plain guide to graphic design courses: the types, what a syllabus covers, which software to learn first, how long it takes and what it costs.
+- [Graphic Design Course Fees in Surat](https://futurevisioncomputers.com/guides/graphic-design-course-fees-surat/): What a graphic design course costs in Surat, what the price should include, and the five things that make a cheap course expensive. Real numbers.
+- [Adobe Illustrator Course in Surat](https://futurevisioncomputers.com/adobe-illustrator-course-surat/): Learn Adobe Illustrator in Surat: pen tool, shapes and paths, colour, brushes and typography. Taught hands-on inside our graphic design course.
+- [Adobe Photoshop Course in Surat](https://futurevisioncomputers.com/adobe-photoshop-course-surat/): Learn Adobe Photoshop in Surat: image editing, masking, layers, compositing and retouching. Taught hands-on inside our graphic design course.
+- [Canva Course in Surat: What It Can Do](https://futurevisioncomputers.com/canva-course-surat/): An honest guide to Canva: what it does well, where it stops, whether it can replace Photoshop and Illustrator, and how we teach it in Surat.
+- [Video Editing Course in Surat](https://futurevisioncomputers.com/video-editing-course-surat/): Video editing training in Surat: Premiere Pro, After Effects, reels, UGC ad creatives and showreel work at our Citylight, Vesu and Pal centres.
+- [CorelDRAW vs Illustrator: Which to Learn?](https://futurevisioncomputers.com/coreldraw-vs-illustrator/): CorelDRAW and Adobe Illustrator compared: what each does better, which is used in Indian print and signage, cost, and which to learn in 2026.
+
 ## Blog
 
 - [Blog home](https://futurevisioncomputers.com/blog/): Plain-English guides from the trainers at the institute.
+- [Data & Analytics articles](https://futurevisioncomputers.com/blog/category/data-analytics/): Excel, Power BI, SQL and data analytics explained plainly, from the trainers who teach these courses in Surat.
+- [Python & AI articles](https://futurevisioncomputers.com/blog/category/python-ai/): Python, data science, generative AI and agentic AI: what to learn, in what order, and what it leads to.
 - [Why learn Python in 2027? What you can build with it](https://futurevisioncomputers.com/blog/why-learn-python-in-2027/): Python is still the first language to learn for AI, data and automation. What you can build in 2027, where it falls short, and how a beginner should start.
 - [Excel vs Power BI: which should you learn first?](https://futurevisioncomputers.com/blog/excel-vs-power-bi/): Excel or Power BI first? A plain answer, a side-by-side comparison, when each one is the right tool, and a learning order that works for beginners.
 
