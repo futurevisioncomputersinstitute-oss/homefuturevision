@@ -398,14 +398,74 @@ def crumbs_schema(items):
     return {"@type": "BreadcrumbList", "itemListElement": out}
 
 
+HOURS_SPEC = {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "10:00",
+    "closes": "19:00",
+}
+
+BRANCHES = [
+    {
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "name": "Future Vision Computer Institute - Citylight",
+        "telephone": "+919825771678",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "G-40, Navmangalam Complex, Opp. Agrasen Bhavan, Citylight",
+            "addressLocality": "Surat",
+            "addressRegion": "Gujarat",
+            "postalCode": "395007",
+            "addressCountry": "IN",
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": 21.1635452, "longitude": 72.7930476},
+        "openingHoursSpecification": HOURS_SPEC,
+    },
+    {
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "name": "Future Vision Computer Institute - Vesu",
+        "telephone": "+919825771678",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "G-48-B, J9 High Street, Canal Road, Vesu",
+            "addressLocality": "Surat",
+            "addressRegion": "Gujarat",
+            "postalCode": "395007",
+            "addressCountry": "IN",
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": 21.1459196, "longitude": 72.7834767},
+        "openingHoursSpecification": HOURS_SPEC,
+    },
+    {
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "name": "Future Vision Computer Institute - Pal",
+        "telephone": "+919825771678",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "115, Raj Victoria Complex, New Pal Lake Rd, near Galaxy Circle, Pal Gam",
+            "addressLocality": "Surat",
+            "addressRegion": "Gujarat",
+            "postalCode": "395009",
+            "addressCountry": "IN",
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": 21.1929034, "longitude": 72.7775435},
+        "openingHoursSpecification": HOURS_SPEC,
+    },
+]
+
 ORG_NODE = {
-    "@type": "EducationalOrganization",
+    "@type": ["EducationalOrganization", "LocalBusiness"],
     "@id": ORG_ID,
     "name": ORG_NAME,
     "alternateName": BRAND,
     "url": SITE + "/",
     "telephone": "+91-98257-71678",
     "logo": SITE + LOGO,
+    "address": BRANCHES[0]["address"],
+    "areaServed": {"@type": "City", "name": "Surat"},
+    "geo": BRANCHES[0]["geo"],
+    "openingHoursSpecification": HOURS_SPEC,
+    "department": BRANCHES,
     "sameAs": SAME_AS,
 }
 
